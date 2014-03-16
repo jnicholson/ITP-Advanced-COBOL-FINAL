@@ -34,3 +34,12 @@ Binding(SHIFT+DEL,
 		,,true),null),
 	org.eclipse.ui.defaultAcceleratorConfiguration,
 	org.eclipse.ui.contexts.window,,,system)
+
+!ENTRY com.microfocus.eclipse.project 1 0 2014-03-16 14:45:45.247
+!MESSAGE No workspace project found for:
+
+!ENTRY com.microfocus.eclipse.project 1 0 2014-03-16 14:45:46.139
+!MESSAGE No workspace project found for:
+
+!ENTRY com.microfocus.eclipse.project 1 0 2014-03-16 14:45:46.905
+!MESSAGE No workspace project found for:
