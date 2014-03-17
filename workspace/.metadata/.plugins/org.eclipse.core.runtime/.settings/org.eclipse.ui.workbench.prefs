@@ -1,0 +1,3 @@
+#Mon Mar 17 15:24:34 CDT 2014
+eclipse.preferences.version=1
+org.eclipse.ui.commands=<?xml version\="1.0" encoding\="UTF-8"?>\r\n<org.eclipse.ui.commands>\r\n<keyBinding commandId\="com.microfocus.eclipse.project.Files With Errors" contextId\="org.eclipse.ui.contexts.window" keyConfigurationId\="org.eclipse.ui.defaultAcceleratorConfiguration" keySequence\="ALT+SHIFT+S 1"/>\r\n<keyBinding commandId\="com.microfocus.eclipse.project.Files Overriding Project Settings" contextId\="org.eclipse.ui.contexts.window" keyConfigurationId\="org.eclipse.ui.defaultAcceleratorConfiguration" keySequence\="ALT+SHIFT+S 2"/>\r\n</org.eclipse.ui.commands>
