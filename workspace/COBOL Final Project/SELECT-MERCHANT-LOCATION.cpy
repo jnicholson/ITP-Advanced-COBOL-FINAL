@@ -1,4 +1,4 @@
-      *Skeleton COBOL Copybook
+      *Skeleton COBOL Copybook - JARROD LEE - 3/20/14*
        SELECT MERCHANT-LOCATION-FILE ASSIGN TO 'MERCHANT-LOCATION.TXT'
                ORGANIZATION IS LINE SEQUENTIAL.
 
