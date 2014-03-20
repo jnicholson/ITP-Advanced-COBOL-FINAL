@@ -4,8 +4,6 @@
            03  ISS-ID		   PIC 9(6).
            03  ISS-NAME        PIC X(40).
            03  ISS-ADDRESS     PIC X(40).
-           03  ISS-CITY	       PIC X(24).
-           03  ISS-STATE	   PIC X(2).
            03  ISS-ZIP		   PIC 9(5).
            03  ISS-PHONE	   PIC 9(11).
            03  ISS-ACCOUNT	   PIC 9(10).

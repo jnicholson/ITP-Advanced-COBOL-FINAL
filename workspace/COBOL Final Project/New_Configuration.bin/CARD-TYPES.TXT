@@ -1,0 +1,8 @@
+FD CARD-TYPE-FILE.             *Jarrod Lee*
+01  CA-TY-REC.                 *PIC X(63)*
+    03  CTY-ID	    PIC 9(3).
+    03  CTY-NAME    PIC X(60).
+
+401Capital One Visa Debit Card
+402Capital One Visa Platinum Credit Card
+403Capital One Visa Signature Credit Card
