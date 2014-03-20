@@ -1,0 +1,5 @@
+      *Skeleton COBOL Copybook
+       SELECT ISSUER-FILE ASSIGN TO 'ISSUER.TXT'
+               ORGANIZATION IS LINE SEQUENTIAL.
+
+

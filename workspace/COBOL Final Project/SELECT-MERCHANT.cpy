@@ -1,0 +1,5 @@
+      *Skeleton COBOL Copybook
+       SELECT MERCHANT-FILE ASSIGN TO 'MERCHANT.TXT'
+               ORGANIZATION IS LINE SEQUENTIAL.
+
+
