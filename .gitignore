@@ -1,2 +1,4 @@
 workspace/COBOL Final Project/BlockFolder
-workspace/.metadata
+.metadata
+workspace/.metadata/
+workspace/.metadata/.plugins/com.microfocus.eclipse.project/savedIndexStates.xml
