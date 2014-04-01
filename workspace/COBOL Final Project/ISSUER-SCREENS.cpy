@@ -1,8 +1,8 @@
       *******************************************************************
-      * AUTHOR       : DUSTYNE BROWN                                    *
-      * CREATION DATE: 3/19/14                                          *
-      * LAST EDIT    : 3/19/14                                          *
-      * PURPOSE      : CREATE THE SCREENS FOR EDITING MEMBER DATA       *
+      * AUTHOR       : JESSE NICHOLSON                                  *
+      * CREATION DATE: 3/26/14                                          *
+      * LAST EDIT    : 3/26/14                                          *
+      * PURPOSE      : SCREENS FOR VISA ISSUER PAGES INCLUDED WITHIN    *
       *******************************************************************
        01  WS-TIME-LOG.
            03  WS-DATE.
@@ -17,42 +17,26 @@
            03  WS-ACTION-SELECTION         PIC X.
            03  WS-SEARCH-SELECTION         PIC X.
            03  WS-SEARCH-ENTRY.
-               05  WS-SEARCH-ID            PIC X(20).
-               05  WS-SEARCH-FNAME         PIC X(20).
-               05  WS-SEARCH-LNAME         PIC X(20).
+               05  WS-SEARCH-ID            PIC X(6).
+               05  WS-SEARCH-NAME         PIC X(40).
                05  WS-SEARCH-ADDRESS.
                    07  WS-SEARCH-ADDRESS-STREET    PIC X(20).
-                   07  WS-SEARCH-ADDRESS-CITY      PIC X(20).
-                   07  WS-SEARCH-ADDRESS-STATE     PIC X(2).
                    07  WS-SEARCH-ADDRESS-ZIP       PIC 9(5).
                05  WS-SEARCH-CREDITCARD    PIC 9(19).
                
        01  WS-EDITOR.
-           03  WS-EDITOR-ORIGINAL.
-               05  WS-ORIG-ID          PIC X(20).
-               05  WS-ORIG-FNAME       PIC X(20).
-               05  WS-ORIG-LNAME       PIC X(20).
-               05  WS-ORIG-STREET      PIC X(20).
-               05  WS-ORIG-CITY        PIC X(20).
-               05  WS-ORIG-STATE       PIC X(2).
-               05  WS-ORIG-ZIP         PIC 9(5).
-               05  WS-ORIG-CC          PIC X(19).
-               05  WS-ORIG-EMAIL       PIC X(20).
-           03 WS-EDITOR-EDITED.
-               05  WS-EDIT-ID          PIC X(20).
-               05  WS-EDIT-FNAME       PIC X(20).
-               05  WS-EDIT-LNAME       PIC X(20).
-               05  WS-EDIT-STREET      PIC X(20).
-               05  WS-EDIT-CITY        PIC X(20).
-               05  WS-EDIT-STATE       PIC X(2).
-               05  WS-EDIT-ZIP         PIC 9(5).
-               05  WS-EDIT-CC          PIC X(19).
-               05  WS-EDIT-EMAIL       PIC X(20).
+           03  WS-EDITOR.
+               05  WS-ISS-ID          PIC X(6).
+               05  WS-ISS-NAME        PIC X(40).
+               05  WS-ISS-ADDRESS     PIC X(40).
+               05  WS-ISS-ZIP         PIC 9(5).
+               05  WS-ISS-CC          PIC X(19).
+               05  WS-ISS-EMAIL       PIC X(20).
                
        SCREEN SECTION.
        01  SCREEN-TITLE.
            03 SCREEN-TITLE-LINE-ONE.
-               05  LINE 01 COL 01  "CUSTOMER DATA EDITOR".
+               05  LINE 01 COL 01  "VISA ISSUER MENU".
                05  LINE 01 COL 37 "TEAM 3".
                05  SCREEN-TITLE-DATE.
                    07  LINE 01 COL 71 PIC X(2) FROM WS-MONTH.
@@ -65,18 +49,13 @@
                    07  LINE 02 COL 76 PIC X(2) FROM WS-HOUR.
                    07  LINE 02 COL 78 VALUE ":".
                    07  LINE 02 COL 79 PIC X(2) FROM WS-MIN.
-               
-       01  SCREEN-MENU.
+      *----------------------------------------------------------------- 
+       01  SCREEN-ISSUER-MENU.
            03  SCREEN-MENU-OPTIONS.
-               05  LINE 3  COL 30  VALUE "1. EDIT FIRST NAME".
-               05  LINE 5  COL 30  VALUE "2. EDIT LAST NAME".
-               05  LINE 7  COL 30  VALUE "3. EDIT STREET".
-               05  LINE 9  COL 30  VALUE "4. EDIT CITY".
-               05  LINE 11 COL 30  VALUE "5. EDIT STATE".
-               05  LINE 13 COL 30  VALUE "6. EDIT ZIP CODE".
-               05  LINE 15 COL 30  VALUE "7. EDIT CREDIT CARD NUMBER".
-               05  LINE 17 COL 30  VALUE "8. EDIT EMAIL ADDRESS".
-               05  LINE 19 COL 30  VALUE "9. EDIT ALL".
+               05  LINE 13 COL 30  VALUE "1.  SEARCH ISSUERS".
+               05  LINE 15 COL 30  VALUE "2.  ADD ISSUER".
+               05  LINE 17 COL 30  VALUE "3.  EDIT/DELETE ISSUER".
+               05  LINE 19 COL 30  VALUE "B.  GO BACK".
            03  SCREEN-MENU-NAVIGATION.
                05  LINE 21 COL 30 VALUE "SELECT ACTION:".
                05  LINE 21 COL 45 PIC X TO WS-ACTION-SELECTION AUTO.
@@ -91,11 +70,11 @@
                05  LINE 17 COL 30  VALUE "                            ".
                05  LINE 19 COL 30  VALUE "                            ".
                05  LINE 21 COL 30  VALUE "                            ".
-           
-       01  SCREEN-SEARCH-CUSTOMER.
+      *-----------------------------------------------------------------
+       01  SCREEN-SEARCH-ISSUER.
            03  SCREEN-SEARCH-OPTIONS.
-               05  LINE 3  COL 30 VALUE "1. SEARCH BY MEMBER ID NUM".
-               05  LINE 5  COL 30 VALUE "2. SEARCH BY MEMBER NAME".
+               05  LINE 3  COL 30 VALUE "1. SEARCH BY ISSUER ID NUM".
+               05  LINE 5  COL 30 VALUE "2. SEARCH BY ISSUER NAME".
                05  LINE 7  COL 30 VALUE "3. SEARCH BY ADDRESS".         
                05  LINE 11 COL 30 VALUE "4. SEARCH BY CREDIT CARD".
                05  LINE 13 COL 30 VALUE "5. SEARCH BY EMAIL".
@@ -110,10 +89,8 @@
                05  LINE 15 COL 30 VALUE "                             ".
            03  SCREEN-SEARCH-NAME.                                      
                05  LINE 15 COL 30 VALUE "                             ".
-               05  LINE 15 COL 30 VALUE "ENTER MEMBER FIRST NAME".
-               05  LINE 15 COL 49 PIC X(20) TO WS-SEARCH-FNAME.
-               05  LINE 16 COL 30 VALUE "ENTER MEMBER LAST NAME".
-               05  LINE 16 COL 49 PIC X(20) TO WS-SEARCH-FNAME.
+               05  LINE 15 COL 30 VALUE "ENTER ISSUER FIRST NAME".
+               05  LINE 15 COL 49 PIC X(40) TO WS-SEARCH-NAME.
            03  SCREEN-SEARCH-NAME-CLEAR.
                05  LINE 15 COL 30 VALUE "                             ".
                05  LINE 16 COL 30 VALUE "                             ".
@@ -150,47 +127,24 @@
                05  LINE 16 COL 30 VALUE "                             ".
                05  LINE 17 COL 30 VALUE "                             ".
                05  LINE 18 COL 30 VALUE "                             ".
-               
-       01  SCREEN-EDITING.
+      *-----------------------------------------------------------------
+        01  SCREEN-EDITING.
            03  SCREEN-EDIT-ALL.
-               05  LINE 03 COL 01 VALUE "ORIGINAL VALUES".
-               05  LINE 05 COL 01 VALUE "MEMBER ID:".
-               05  LINE 05 COL 15 PIC X(20) FROM  WS-ORIG-ID.
-               05  LINE 05 COL 01 VALUE "FIRST NAME:".
-               05  LINE 06 COL 15 PIC X(20) FROM WS-ORIG-FNAME. 
-               05  LINE 07 COL 01 VALUE "LAST NAME:". 
-               05  LINE 07 COL 15 PIC X(20) FROM WS-ORIG-LNAME. 
-               05  LINE 08 COL 01 VALUE "STREET:".
-               05  LINE 08 COL 15 PIC X(20) FROM WS-ORIG-STREET.
-               05  LINE 09 COL 01 VALUE "CITY:".  
-               05  LINE 09 COL 15 PIC X(20) FROM WS-ORIG-CITY.  
-               05  LINE 10 COL 01 VALUE "STATE:". 
-               05  LINE 10 COL 15 PIC X(2)  FROM WS-ORIG-STATE. 
-               05  LINE 11 COL 01 VALUE "ZIP:". 
-               05  LINE 11 COL 15 PIC 9(5)  FROM WS-ORIG-ZIP.   
-               05  LINE 12 COL 01 VALUE "CREDIT CARD:".   
-               05  LINE 12 COL 15 PIC X(19) FROM WS-ORIG-CC.    
-               05  LINE 13 COL 01 VALUE "EMAIL:".  
-               05  LINE 13 COL 15 PIC X(20) FROM WS-ORIG-EMAIL. 
-               05  LINE 03 COL 40 VALUE "EDITED VALUES".
-               05  LINE 05 COL 40 VALUE "MEMBER ID:".
-               05  LINE 05 COL 55 PIC X(20) TO WS-EDIT-ID.  
-               05  LINE 06 COL 40 VALUE "FIRST NAME:".
-               05  LINE 06 COL 55 PIC X(20) TO WS-EDIT-FNAME.
-               05  LINE 07 COL 40 VALUE "LAST NAME:".
-               05  LINE 07 COL 55 PIC X(20) TO WS-EDIT-LNAME.
-               05  LINE 08 COL 40 VALUE "STREET:".
-               05  LINE 08 COL 55 PIC X(20) TO WS-EDIT-STREET.
-               05  LINE 09 COL 40 VALUE "CITY:".
-               05  LINE 09 COL 55 PIC X(20) TO WS-EDIT-CITY. 
-               05  LINE 10 COL 40 VALUE "STATE". 
-               05  LINE 10 COL 55 PIC X(2)  TO WS-EDIT-STATE. 
-               05  LINE 11 COL 40 VALUE "ZIP:".
-               05  LINE 11 COL 55 PIC 9(5)  TO WS-EDIT-ZIP.
-               05  LINE 12 COL 40 VALUE "CREDIT CARD:".   
-               05  LINE 12 COL 55 PIC X(19) TO WS-EDIT-CC.   
-               05  LINE 13 COL 40 VALUE "EMAIL:".
-               05  LINE 13 COL 55 PIC X(20) TO WS-EDIT-EMAIL.
+               05  LINE 03 COL 11 VALUE "ORIGINAL VALUES".
+               05  LINE 05 COL 15 VALUE "ISSUER ID:".
+               05  LINE 05 COL 25 PIC X(20) FROM  WS-ISS-ID.
+               05  LINE 05 COL 15 VALUE "NAME:".
+               05  LINE 06 COL 25 PIC X(40) FROM WS-ISS-NAME. 
+               05  LINE 07 COL 15 VALUE "LAST NAME:". 
+               05  LINE 07 COL 25 PIC X(20) FROM WS-ISS-LNAME. 
+               05  LINE 08 COL 15 VALUE "STREET:".
+               05  LINE 08 COL 25 PIC X(20) FROM WS-ISS-ADDRESS.
+               05  LINE 11 COL 15 VALUE "ZIP:". 
+               05  LINE 11 COL 25 PIC 9(5)  FROM WS-ISS-ZIP.   
+               05  LINE 12 COL 15 VALUE "CREDIT CARD:".   
+               05  LINE 12 COL 25 PIC X(19) FROM WS-ISS-CC.    
+               05  LINE 13 COL 15 VALUE "EMAIL:".  
+               05  LINE 13 COL 25 PIC X(20) FROM WS-ISS-EMAIL
            03  SCREEN-EDIT-ALL-CLEAR.
                05  LINE 03 COL 01 PIC X(80) VALUE SPACES.
                05  LINE 05 COL 01 PIC X(80) VALUE SPACES.
@@ -203,4 +157,3 @@
                05  LINE 12 COL 01 PIC X(80) VALUE SPACES.
                05  LINE 13 COL 01 PIC X(80) VALUE SPACES.
       *LINE 24 = LAST AVALIABLE LINE BEFORE SCROLL BAR USED.
-
