@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<workbench progressCount="14" version="2.0">
+<workbench progressCount="15" version="2.0">
 <workbenchAdvisor/>
 <window height="768" width="1024" x="125" y="125">
 <fastViewData fastViewLocation="1024"/>
@@ -8,17 +8,22 @@
 </perspectiveBar>
 <coolbarLayout>
 <coolItem id="group.file" itemType="typeGroupMarker"/>
-<coolItem id="org.eclipse.ui.workbench.file" itemType="typeToolBarContribution" x="122" y="22"/>
+<coolItem id="org.eclipse.ui.workbench.file" itemType="typeToolBarContribution" x="153" y="22"/>
 <coolItem id="additions" itemType="typeGroupMarker"/>
+<coolItem id="com.microfocus.eclipse.editor.cobol.CobolEditor" itemType="typePlaceholder" x="-1" y="-1"/>
 <coolItem id="com.microfocus.eclipse.project.searchActionSet" itemType="typeToolBarContribution" x="53" y="22"/>
 <coolItem id="org.eclipse.debug.ui.launchActionSet" itemType="typeToolBarContribution" x="129" y="22"/>
 <coolItem id="org.eclipse.search.searchActionSet" itemType="typeToolBarContribution" x="76" y="22"/>
-<coolItem id="org.eclipse.ui.edit.text.actionSet.presentation" itemType="typeToolBarContribution" x="138" y="22"/>
+<coolItem id="org.eclipse.ui.DefaultTextEditor" itemType="typePlaceholder" x="-1" y="-1"/>
+<coolItem id="org.eclipse.wst.xml.ui.perspective.NewFileToolBar" itemType="typeToolBarContribution" x="-1" y="-1"/>
+<coolItem id="org.eclipse.wst.xml.ui.design.DesignToolBar" itemType="typeToolBarContribution" x="-1" y="-1"/>
+<coolItem id="org.eclipse.debug.ui.launch.toolbar" itemType="typeToolBarContribution" x="-1" y="-1"/>
+<coolItem id="org.eclipse.debug.ui.main.toolbar" itemType="typeToolBarContribution" x="-1" y="-1"/>
+<coolItem id="com.microfocus.eclipse.editor.querying" itemType="typeToolBarContribution" x="38" y="22"/>
+<coolItem id="org.eclipse.ui.edit.text.actionSet.presentation" itemType="typeToolBarContribution" x="115" y="22"/>
 <coolItem id="group.nav" itemType="typeGroupMarker"/>
 <coolItem id="org.eclipse.ui.workbench.navigate" itemType="typeToolBarContribution" x="190" y="22"/>
 <coolItem id="group.editor" itemType="typeGroupMarker"/>
-<coolItem id="org.eclipse.ui.DefaultTextEditor" itemType="typePlaceholder" x="-1" y="-1"/>
-<coolItem id="com.microfocus.eclipse.editor.cobol.CobolEditor" itemType="typeToolBarContribution" x="-1" y="-1"/>
 <coolItem id="group.help" itemType="typeGroupMarker"/>
 <coolItem id="org.eclipse.ui.workbench.help" itemType="typeToolBarContribution" x="-1" y="-1"/>
 </coolbarLayout>
@@ -27,16 +32,10 @@
 <editorArea activeWorkbook="DefaultEditorWorkbook">
 <info part="DefaultEditorWorkbook">
 <folder appearance="1" expanded="2">
-<presentation id="org.eclipse.ui.presentations.WorkbenchPresentationFactory">
-<part id="0"/>
-</presentation>
+<presentation id="org.eclipse.ui.presentations.WorkbenchPresentationFactory"/>
 </folder>
 </info>
 </editorArea>
-<editor activePart="true" focus="true" id="com.microfocus.eclipse.editor.cobol.CobolEditor" name="Program1.cbl" partName="Program1.cbl" path="C:/Users/jnicho01/Documents/GitHub/ITP-Advanced-COBOL-FINAL/workspace/COBOL Final Project/Program1.cbl" title="Program1.cbl" tooltip="COBOL Final Project/Program1.cbl" workbook="DefaultEditorWorkbook">
-<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/COBOL Final Project/Program1.cbl"/>
-<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="0" selectionTopPixel="0"/>
-</editor>
 </editors>
 <views>
 <view id="com.microfocus.eclipse.ui.cobol.explorer" partName="COBOL Explorer">
@@ -142,6 +141,7 @@
 <page content="org.eclipse.ui.console.ConsoleView" label="Console"/>
 <page content="org.eclipse.ui.views.ProblemView" label="Problems"/>
 <page content="org.eclipse.ui.views.TaskList" label="Tasks"/>
+<page content="org.eclipse.pde.runtime.LogView" label="LabelNotFound"/>
 <presentation id="org.eclipse.ui.presentations.WorkbenchPresentationFactory">
 <part id="0"/>
 <part id="1"/>
@@ -164,42 +164,7 @@
 </perspective>
 </perspectives>
 <workingSets/>
-<navigationHistory>
-<editors>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="com.microfocus.eclipse.editor.cobol.CobolEditor" path="/COBOL Final Project/Program1.cbl"/>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.ui.DefaultTextEditor" path="/COBOL Final Project/Test"/>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="com.microfocus.eclipse.editor.cobol.CobolEditor" path="/COBOL Final Project/Program1.cbl"/>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="com.microfocus.eclipse.editor.cobol.CobolEditor" path="/COBOL Final Project/Program2.cbl"/>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.ui.DefaultTextEditor" path="/COBOL Final Project/BlockFolder/BlockFile"/>
-</editors>
-<item historyLabel="Program1.cbl" index="0">
-<position info="not_deleted" x="0" y="0"/>
-</item>
-<item historyLabel="Test" index="1">
-<position info="not_deleted" x="0" y="0"/>
-</item>
-<item historyLabel="Test" index="1">
-<position info="not_deleted" x="0" y="0"/>
-</item>
-<item historyLabel="Program1.cbl" index="2">
-<position info="not_deleted" x="0" y="0"/>
-</item>
-<item historyLabel="Program1.cbl" index="2">
-<position info="not_deleted" x="0" y="0"/>
-</item>
-<item historyLabel="Program2.cbl" index="3">
-<position info="not_deleted" x="0" y="0"/>
-</item>
-<item historyLabel="Program1.cbl" index="2">
-<position info="not_deleted" x="0" y="0"/>
-</item>
-<item historyLabel="BlockFile" index="4">
-<position info="not_deleted" x="0" y="0"/>
-</item>
-<item active="true" historyLabel="Program1.cbl" index="2">
-<position info="not_deleted" x="0" y="0"/>
-</item>
-</navigationHistory>
+<navigationHistory/>
 <input factoryID="org.eclipse.ui.internal.model.ResourceFactory" path="/" type="8"/>
 </page>
 <workbenchWindowAdvisor/>
