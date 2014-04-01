@@ -98,6 +98,7 @@
       <filetype type="cobol.copybook" xsi:type="cobolFileContainer"/>
       <filetype type="cobol" xsi:type="cobolFileContainer">
          <file compile="true" path="Program1.cbl" xsi:type="cobolFile"/>
+         <file compile="true" path="Program2.cbl" xsi:type="cobolFile"/>
       </filetype>
    </files>
 </project>

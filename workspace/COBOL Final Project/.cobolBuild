@@ -62,6 +62,7 @@
 	<!-- cobol_file_set_1 -->
 	<mffilelist type="srcfile" id="cobol_file_set_1" srcdir="${basedir}">
 		<file name="Program1.cbl"/>
+		<file name="Program2.cbl"/>
 	</mffilelist>
 	<!-- COBOL copybook locations -->
 	<mffilelist id="cobol.copybook.locations">
@@ -82,12 +83,24 @@
 			</mffilelist>
 		</cobol>
 	</target>
+	<mfdirlist id="dirset.New_Configuration.C:\Users\jnicho01\Documents\GitHub\ITP-Advanced-COBOL-FINAL\workspace\COBOL Final Project\Program2.cbl" refid="cobol_directive_set_1"/>
+	<mffilelist refid="cobol.copybook.locations"/>
+	<target name="FileCompile.New_Configuration.C:\Users\jnicho01\Documents\GitHub\ITP-Advanced-COBOL-FINAL\workspace\COBOL Final Project\Program2.cbl" depends="init">
+		<cobol destdir="${basedir}/New_Configuration.bin" is64bit="false" threadedRts="true" forceCompile="${forceCompile}" failonerror="${cobolFailOnError}" debug="true" desttype="obj">
+			<mffilelist refid="cobol.copybook.locations"/>
+			<mfdirlist refid="dirset.New_Configuration.${filename}"/>
+			<mffilelist type="srcfile" srcdir="${basedir}">
+				<file name="${filename}"/>
+			</mffilelist>
+		</cobol>
+	</target>
 	<!--  ****************  -->
 	<!--  * Object files *  -->
 	<!--  ****************  -->
 	<!-- Default -->
 	<mffilelist id="cobol.default.object.files" srcdir="${basedir}/${cfgtargetdir}" type="objfile">
 		<file name="Program1${objext}"/>
+		<file name="Program2${objext}"/>
 	</mffilelist>
 	<!--  *************************  -->
 	<!--  * Configuration targets *  -->
