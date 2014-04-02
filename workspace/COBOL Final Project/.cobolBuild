@@ -71,9 +71,9 @@
 	<!--  * COBOL Source Files and Directive Set *  -->
 	<!--  ****************************************  -->
 	<!-- dirset.New_Configuration -->
-	<mfdirlist id="dirset.New_Configuration.C:\Users\Wolf\Documents\GitHub\ITP-Advanced-COBOL-FINAL\workspace\COBOL Final Project\Program2.cbl" refid="cobol_directive_set_1"/>
+	<mfdirlist id="dirset.New_Configuration.C:\Users\jnicho01\Documents\GitHub\ITP-Advanced-COBOL-FINAL\workspace\COBOL Final Project\Program2.cbl" refid="cobol_directive_set_1"/>
 	<mffilelist refid="cobol.copybook.locations"/>
-	<target name="FileCompile.New_Configuration.C:\Users\Wolf\Documents\GitHub\ITP-Advanced-COBOL-FINAL\workspace\COBOL Final Project\Program2.cbl" depends="init">
+	<target name="FileCompile.New_Configuration.C:\Users\jnicho01\Documents\GitHub\ITP-Advanced-COBOL-FINAL\workspace\COBOL Final Project\Program2.cbl" depends="init">
 		<cobol destdir="${basedir}/New_Configuration.bin" is64bit="false" threadedRts="true" forceCompile="${forceCompile}" failonerror="${cobolFailOnError}" debug="true" desttype="obj">
 			<mffilelist refid="cobol.copybook.locations"/>
 			<mfdirlist refid="dirset.New_Configuration.${filename}"/>

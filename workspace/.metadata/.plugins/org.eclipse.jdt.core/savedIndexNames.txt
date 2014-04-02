@@ -1,1 +1,0 @@
-INDEX VERSION 1.126+C:\Users\Wolf\Documents\GitHub\ITP-Advanced-COBOL-FINAL\workspace\.metadata\.plugins\org.eclipse.jdt.core

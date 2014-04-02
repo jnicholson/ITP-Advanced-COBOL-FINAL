@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project xsi:schemaLocation="" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="cobolProject" name="COBOL Final Project" version="2.5">
+<project xsi:schemaLocation="" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="cobolProject" name="COBOL Final Project" version="2.4">
    <settings xsi:type="projectSettingsContainer">
       <copybook-paths xsi:type="copybookPathsSettings">
          <path enabled="true" name="/COBOL Final Project" type="mfpath"/>
@@ -53,20 +53,20 @@
       </ims_settings>
       <mfs_settings xsi:type="mfsSettings">
          <options>
-            <option id="generate_list_file" name="LIST" value="Listing/MFS/*.lst"/>
+            <option id="generate_list_file" name="LIST" value="Listing/*.lst"/>
          </options>
          <verbose value="false"/>
       </mfs_settings>
       <dbd_settings xsi:type="dbdSettings">
          <options>
-            <option id="generate_list_file" name="LIST" value="Listing/DBD/*.lst"/>
+            <option id="generate_list_file" name="LIST" value="Listing/*.lst"/>
          </options>
          <verbose value="false"/>
          <cleanDbdOutputFiles value="false"/>
       </dbd_settings>
       <psb_settings xsi:type="psbSettings">
          <options>
-            <option id="generate_list_file" name="LIST" value="Listing/PSB/*.lst"/>
+            <option id="generate_list_file" name="LIST" value="Listing/*.lst"/>
          </options>
          <verbose value="false"/>
          <cleanPsbOutputFiles value="false"/>
