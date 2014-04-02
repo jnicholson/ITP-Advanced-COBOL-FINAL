@@ -1,0 +1,6 @@
+      *Skeleton COBOL Copybook
+       SELECT CO-CARDHOLDER-FILE
+               ASSIGN TO DISK "CO-CARDHOLDER.TXT"
+               ORGANIZATION IS LINE SEQUENTIAL.
+
+
