@@ -1,0 +1,10 @@
+      *Skeleton COBOL Copybook
+       SELECT CARDHOLDER-FILE
+               ASSIGN TO "CARDHOLDER.TXT"
+               ORGANIZATION IS LINE SEQUENTIAL.
+               
+       SELECT CARDHOLDER-FILE-DAT
+               ASSIGN TO "CARDHOLDER.DAT"
+               ORGANIZATION IS LINE SEQUENTIAL.
+
+

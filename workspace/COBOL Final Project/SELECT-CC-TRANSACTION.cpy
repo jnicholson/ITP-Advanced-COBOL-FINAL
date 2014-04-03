@@ -1,0 +1,10 @@
+      *Skeleton COBOL Copybook
+       SELECT CC-TRANSACTION-FILE
+               ASSIGN TO "CC-TRANSACTION.TXT"
+               ORGANIZATION IS LINE SEQUENTIAL.
+               
+       SELECT CC-TRANSACTION-FILE-DAT
+               ASSIGN TO "CC-TRANSACTION.DAT"
+               ORGANIZATION IS LINE SEQUENTIAL.
+
+
