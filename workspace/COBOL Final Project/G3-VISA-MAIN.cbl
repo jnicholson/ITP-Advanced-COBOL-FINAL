@@ -5,19 +5,28 @@
       *ABSTRACT: self exp.
       ******************************************************************       
        IDENTIFICATION DIVISION.
-       PROGRAM-ID. G3_VISA_MAIN AS "G3_VISA_MAIN" IS INITIAL.
-       
+       PROGRAM-ID. G3_VISA_MAIN AS "G3_VISA_MAIN".
+      ******************************************************************
        ENVIRONMENT DIVISION.
+      ******************************************************************
        DATA DIVISION.
        WORKING-STORAGE SECTION.
-       01  WS-VARS.
-           03  WS-SEL   PIC X VALUE SPACES.
-           03  WS-EXIT  PIC X VALUE SPACES.
+       COPY WS-GEN-MENU.
        
        SCREEN SECTION.
        01  MENUSCREEN.
            03  BLANK SCREEN.
            03  MENU.
+               05  LINE 01 COL 01 VALUE "VISA MENU".
+               05  LINE 01 COL 37 VALUE "TEAM 3".
+               05  LINE 01 COL 71 PIC X(2) FROM WS-MONTH.
+               05  LINE 01 COL 73 VALUE "/".
+               05  LINE 01 COL 74 PIC X(2) FROM WS-DAY.
+               05  LINE 01 COL 76 VALUE "/".
+               05  LINE 01 COL 77 PIC X(4) FROM WS-YEAR.
+               05  LINE 02 COL 76 PIC X(2) FROM WS-HOUR.
+               05  LINE 02 COL 78 VALUE ":".
+               05  LINE 02 COL 79 PIC X(2) FROM WS-MINUTE.
                05  LINE 08 COL 31 VALUE "      VISA MAIN      ".
                05  LINE 10 COL 31 VALUE "   1) Issuer Signup  ".
                05  LINE 11 COL 31 VALUE "   2) Merchant Signup".
@@ -30,17 +39,17 @@
                05  LINE 24 COL 50 PIC X TO WS-EXIT AUTO. 
                
        PROCEDURE DIVISION.
-       
-       
-       100-MAIN.
-           PERFORM UNTIL WS-SEL = 'X' OR 'x'
-               DISPLAY MENUSCREEN
-               ACCEPT MENUSCREEN
-               EVALUATE WS-SEL
-                   WHEN '1'
-                   WHEN '2'
-                   WHEN '3'
-               END-EVALUATE
-           END-PERFORM
-           EXIT PROGRAM.
+      ******************************************************************
+       000-MAIN.
+       MOVE FUNCTION CURRENT-DATE TO WS-TSTAMP.
+       PERFORM UNTIL WS-SEL = 'X' OR 'x'
+           DISPLAY MENUSCREEN
+           ACCEPT MENUSCREEN
+           EVALUATE WS-SEL
+               WHEN '1'
+               WHEN '2'
+               WHEN '3'
+           END-EVALUATE
+       END-PERFORM
+       EXIT PROGRAM.
                
