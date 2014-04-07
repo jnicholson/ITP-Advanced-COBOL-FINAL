@@ -1,9 +1,9 @@
-      *******************************************************************
-      * AUTHOR       : KATIE TRAN                                  *
-      * CREATION DATE: 4/05/14                                          *
-      * LAST EDIT    : 4/05/14                                          *
-      * PURPOSE      : SCREENS FOR VUFLIX PAGES INCLUDED WITHIN           *
-      *******************************************************************
+      ******************************************************************
+      * AUTHOR       : KATIE TRAN(MAIN), JARROD LEE(MEMBER ACCT)       *
+      * CREATION DATE: 4/05/14                                         *
+      * LAST EDIT    : 4/05/14                                         *
+      * PURPOSE      : SCREENS FOR VUFLIX PAGES INCLUDED WITHIN        *
+      ******************************************************************
        
        01  WS-TIME-LOG.
            03  WS-DATE.
@@ -36,11 +36,31 @@
       *----------------------------------------------------------------- 
        01  SCREEN-VUFLIX-MENU.
            03  SCREEN-MENU-OPTIONS.
-               05  LINE 11 COL 30  VALUE "1.  ACCOUNT SIGN UP".
-               05  LINE 13 COL 30  VALUE "2.  VIEW TITLES".
-               05  LINE 15 COL 30  VALUE "3.  PURCHASED TITLES".
-               05  LINE 17 COL 30  VALUE "4.  VIEW HISTORY".
-               05  LINE 19 COL 30  VALUE "B.  GO BACK".
+               05  LINE 11 COL 30  VALUE "1.  MEMBER SIGN UP".
+               05  LINE 13 COL 30  VALUE "2.  MOVIE LIST".
+               05  LINE 15 COL 30  VALUE "3.  MEMBER ACCOUNTS".
+               05  LINE 17 COL 30  VALUE "B.  GO BACK".
+           03  SCREEN-MENU-NAVIGATION.
+               05  LINE 21 COL 30 VALUE "SELECT ACTION:".
+               05  LINE 21 COL 45 PIC X TO WS-ACTION-SELECTION AUTO.
+           03  SCREEN-MENU-CLEAR.
+               05  LINE 3  COL 30  VALUE "                            ".
+               05  LINE 5  COL 30  VALUE "                            ".
+               05  LINE 7  COL 30  VALUE "                            ".
+               05  LINE 9  COL 30  VALUE "                            ".
+               05  LINE 11 COL 30  VALUE "                            ".
+               05  LINE 13 COL 30  VALUE "                            ".
+               05  LINE 15 COL 30  VALUE "                            ".
+               05  LINE 17 COL 30  VALUE "                            ".
+               05  LINE 19 COL 30  VALUE "                            ".
+               05  LINE 21 COL 30  VALUE "                            ".
+      *-----------------------------------------------------------------
+       01  SCREEN-ACCOUNT-MENU.
+           03  SCREEN-MENU-OPTIONS.
+               05  LINE 11 COL 30  VALUE "1.  EDIT ACCOUNT".
+               05  LINE 13 COL 30  VALUE "2.  PURCHASED MOVIES".
+               05  LINE 15 COL 30  VALUE "3.  VIEW HISTORY".
+               05  LINE 17 COL 30  VALUE "B.  GO BACK".
            03  SCREEN-MENU-NAVIGATION.
                05  LINE 21 COL 30 VALUE "SELECT ACTION:".
                05  LINE 21 COL 45 PIC X TO WS-ACTION-SELECTION AUTO.
