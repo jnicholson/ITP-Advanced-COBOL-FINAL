@@ -18,9 +18,9 @@
       *-----------------------------------------------------------------
        PROCEDURE DIVISION.
        100-MAIN.
+       MOVE FUNCTION CURRENT-DATE TO WS-TSTAMP.
        MOVE SPACES TO WS-SEL
        PERFORM UNTIL WS-SEL = 'B' or 'b'
-           DISPLAY SCREEN-TITLE
            DISPLAY SCREEN-VUFLIX-MENU
            ACCEPT  SCREEN-VUFLIX-MENU
            EVALUATE WS-SEL

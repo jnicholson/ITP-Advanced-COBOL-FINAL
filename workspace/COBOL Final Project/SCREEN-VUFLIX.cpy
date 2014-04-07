@@ -4,7 +4,7 @@
       * LAST EDIT    : 4/05/14                                         *
       * PURPOSE      : SCREENS FOR VUFLIX PAGES INCLUDED WITHIN        *
       ******************************************************************
-       01  SCREEN-TITLE.
+       1  SCREEN-VUFLIX-MENU.
            03 SCREEN-TITLE-LINE-ONE.
                05  LINE 01 COL 01 "VUFLIX MENU".
                05  LINE 01 COL 37 "TEAM 3".
@@ -18,9 +18,7 @@
                05  SCREEN-TITLE-TIME.
                    07  LINE 02 COL 76 PIC X(2) FROM WS-HOUR.
                    07  LINE 02 COL 78 VALUE ":".
-                   07  LINE 02 COL 79 PIC X(2) FROM WS-MIN.
-      *----------------------------------------------------------------- 
-       01  SCREEN-VUFLIX-MENU.
+                   07  LINE 02 COL 79 PIC X(2) FROM WS-MINUTE.
            03  SCREEN-MENU-OPTIONS.
                05  LINE 11 COL 30  VALUE "1.  MEMBER SIGN UP".
                05  LINE 13 COL 30  VALUE "2.  MOVIE LIST".
@@ -29,17 +27,7 @@
            03  SCREEN-MENU-NAVIGATION.
                05  LINE 21 COL 30 VALUE "SELECT ACTION:".
                05  LINE 21 COL 45 PIC X TO WS-SEL AUTO.
-           03  SCREEN-MENU-CLEAR.
-               05  LINE 3  COL 30  VALUE "                            ".
-               05  LINE 5  COL 30  VALUE "                            ".
-               05  LINE 7  COL 30  VALUE "                            ".
-               05  LINE 9  COL 30  VALUE "                            ".
-               05  LINE 11 COL 30  VALUE "                            ".
-               05  LINE 13 COL 30  VALUE "                            ".
-               05  LINE 15 COL 30  VALUE "                            ".
-               05  LINE 17 COL 30  VALUE "                            ".
-               05  LINE 19 COL 30  VALUE "                            ".
-               05  LINE 21 COL 30  VALUE "                            ".
+
       *-----------------------------------------------------------------
        01  SCREEN-ACCOUNT-MENU.
            03  SCREEN-MENU-OPTIONS.
