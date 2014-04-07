@@ -4,23 +4,9 @@
       * LAST EDIT    : 4/05/14                                         *
       * PURPOSE      : SCREENS FOR VUFLIX PAGES INCLUDED WITHIN        *
       ******************************************************************
-       
-       01  WS-TIME-LOG.
-           03  WS-DATE.
-               05  WS-YEAR             PIC X(4).
-               05  WS-MONTH            PIC X(2).
-               05  WS-DAY              PIC X(2).
-           03  WS-TIME.
-               05  WS-HOUR             PIC X(2).
-               05  WS-MIN              PIC X(2).
-               
-       01  WS-SCREEN-NAVIGATION-VARIABLES.
-           03  WS-ACTION-SELECTION         PIC X.
-      *-----------------------------------------------------------------     
-       SCREEN SECTION.
        01  SCREEN-TITLE.
            03 SCREEN-TITLE-LINE-ONE.
-               05  LINE 01 COL 01  "VUFLIX MENU".
+               05  LINE 01 COL 01 "VUFLIX MENU".
                05  LINE 01 COL 37 "TEAM 3".
                05  SCREEN-TITLE-DATE.
                    07  LINE 01 COL 71 PIC X(2) FROM WS-MONTH.
@@ -42,7 +28,7 @@
                05  LINE 17 COL 30  VALUE "B.  GO BACK".
            03  SCREEN-MENU-NAVIGATION.
                05  LINE 21 COL 30 VALUE "SELECT ACTION:".
-               05  LINE 21 COL 45 PIC X TO WS-ACTION-SELECTION AUTO.
+               05  LINE 21 COL 45 PIC X TO WS-SEL AUTO.
            03  SCREEN-MENU-CLEAR.
                05  LINE 3  COL 30  VALUE "                            ".
                05  LINE 5  COL 30  VALUE "                            ".
@@ -63,7 +49,7 @@
                05  LINE 17 COL 30  VALUE "B.  GO BACK".
            03  SCREEN-MENU-NAVIGATION.
                05  LINE 21 COL 30 VALUE "SELECT ACTION:".
-               05  LINE 21 COL 45 PIC X TO WS-ACTION-SELECTION AUTO.
+               05  LINE 21 COL 45 PIC X TO WS-SEL AUTO.
            03  SCREEN-MENU-CLEAR.
                05  LINE 3  COL 30  VALUE "                            ".
                05  LINE 5  COL 30  VALUE "                            ".
