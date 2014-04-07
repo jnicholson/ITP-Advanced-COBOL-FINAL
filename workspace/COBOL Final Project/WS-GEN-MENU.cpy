@@ -1,4 +1,4 @@
-      *Skeleton COBOL Copybook - JARROD LEE - 4/07/2014
+      *Skeleton COBOL Copybook - JARROD LEE - 4/7/2014
        01  WS-TSTAMP.
            03  WS-YEAR         PIC XXXX.
            03  WS-MONTH        PIC XX.

@@ -1,6 +1,6 @@
       ******************************************************************
       *PROGRAM:  Group 3 semester project main menu
-      *AUTHOR:   Henry Hurlocker
+      *AUTHOR:   Henry Hurlocker, Jarrod Lee
       *DATE:     4/5/2014   
       *ABSTRACT: Main menu app to navigate through all main pages. 
       ******************************************************************
@@ -36,9 +36,7 @@
                05  LINE 22 COL 31 VALUE "Selection   (X=exit)".
                05  LINE 22 COL 41 PIC X TO WS-SEL AUTO.
                
-       01  EXITSCREEN.
-               05  LINE 24 COL 33 VALUE "Confirm exit 'Y'".
-               05  LINE 24 COL 50 PIC X TO WS-EXIT AUTO.
+       COPY SCREEN-EXIT.
       ******************************************************************
        PROCEDURE DIVISION.
        000-MAIN.

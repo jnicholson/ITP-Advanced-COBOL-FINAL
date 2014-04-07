@@ -1,51 +1,28 @@
       ******************************************************************
-      * AUTHOR       : KATIE TRAN(MAIN), JARROD LEE(MEMBER ACCT)       *
-      * CREATION DATE: 4/05/14                                         *
-      * LAST EDIT    : 4/05/14                                         *
-      * PURPOSE      : SCREENS FOR VUFLIX PAGES INCLUDED WITHIN        *
+      * AUTHOR       : KATIE TRAN       
+      * CREATION DATE: 4/05/14                                         
+      * LAST EDIT    : 4/05/14                                         
+      * PURPOSE      : SCREENS FOR VUFLIX MAIN      
       ******************************************************************
-       1  SCREEN-VUFLIX-MENU.
-           03 SCREEN-TITLE-LINE-ONE.
-               05  LINE 01 COL 01 "VUFLIX MENU".
-               05  LINE 01 COL 37 "TEAM 3".
-               05  SCREEN-TITLE-DATE.
-                   07  LINE 01 COL 71 PIC X(2) FROM WS-MONTH.
-                   07  LINE 01 COL 73 VALUE "/".
-                   07  LINE 01 COL 74 PIC X(2) FROM WS-DAY.
-                   07  LINE 01 COL 76 VALUE "/".
-                   07  LINE 01 COL 77 PIC X(4) FROM WS-YEAR.
-           03  SCREEN-TITLE-LINE-TWO.
-               05  SCREEN-TITLE-TIME.
-                   07  LINE 02 COL 76 PIC X(2) FROM WS-HOUR.
-                   07  LINE 02 COL 78 VALUE ":".
-                   07  LINE 02 COL 79 PIC X(2) FROM WS-MINUTE.
-           03  SCREEN-MENU-OPTIONS.
-               05  LINE 11 COL 30  VALUE "1.  MEMBER SIGN UP".
-               05  LINE 13 COL 30  VALUE "2.  MOVIE LIST".
-               05  LINE 15 COL 30  VALUE "3.  MEMBER ACCOUNTS".
-               05  LINE 17 COL 30  VALUE "B.  GO BACK".
-           03  SCREEN-MENU-NAVIGATION.
-               05  LINE 21 COL 30 VALUE "SELECT ACTION:".
-               05  LINE 21 COL 45 PIC X TO WS-SEL AUTO.
-
-      *-----------------------------------------------------------------
-       01  SCREEN-ACCOUNT-MENU.
-           03  SCREEN-MENU-OPTIONS.
-               05  LINE 11 COL 30  VALUE "1.  EDIT ACCOUNT".
-               05  LINE 13 COL 30  VALUE "2.  PURCHASED MOVIES".
-               05  LINE 15 COL 30  VALUE "3.  VIEW HISTORY".
-               05  LINE 17 COL 30  VALUE "B.  GO BACK".
-           03  SCREEN-MENU-NAVIGATION.
-               05  LINE 21 COL 30 VALUE "SELECT ACTION:".
-               05  LINE 21 COL 45 PIC X TO WS-SEL AUTO.
-           03  SCREEN-MENU-CLEAR.
-               05  LINE 3  COL 30  VALUE "                            ".
-               05  LINE 5  COL 30  VALUE "                            ".
-               05  LINE 7  COL 30  VALUE "                            ".
-               05  LINE 9  COL 30  VALUE "                            ".
-               05  LINE 11 COL 30  VALUE "                            ".
-               05  LINE 13 COL 30  VALUE "                            ".
-               05  LINE 15 COL 30  VALUE "                            ".
-               05  LINE 17 COL 30  VALUE "                            ".
-               05  LINE 19 COL 30  VALUE "                            ".
-               05  LINE 21 COL 30  VALUE "                            ".
+       01  MENUSCREEN.
+           03  BLANK SCREEN. 
+           03  MENU.
+               05  LINE 01 COL 01 VALUE "VUFLIX MENU".
+               05  LINE 01 COL 37 VALUE "TEAM 3".
+               05  LINE 01 COL 71 PIC X(2) FROM WS-MONTH.
+               05  LINE 01 COL 73 VALUE "/".
+               05  LINE 01 COL 74 PIC X(2) FROM WS-DAY.
+               05  LINE 01 COL 76 VALUE "/".
+               05  LINE 01 COL 77 PIC X(4) FROM WS-YEAR.
+               05  LINE 02 COL 76 PIC X(2) FROM WS-HOUR.
+               05  LINE 02 COL 78 VALUE ":".
+               05  LINE 02 COL 79 PIC X(2) FROM WS-MINUTE.
+               05  LINE 08 COL 31 VALUE "      VUFLIX MAIN      ".
+               05  LINE 10 COL 31 VALUE "   1) Account Signup   ".
+               05  LINE 11 COL 31 VALUE "   2) View Titles      ".
+               05  LINE 12 COL 31 VALUE "   3) Purchase Titles  ".
+               05  LINE 13 COL 31 VALUE "   4) Edit Account     ".
+               05  LINE 14 COL 31 VALUE "   5) Titles Viewed    ".
+               05  LINE 15 COL 31 VALUE "   6) Titles Purchased ".
+               05  LINE 22 COL 31 VALUE "Selection   (X=exit)".
+               05  LINE 22 COL 41 PIC X TO WS-SEL AUTO.
