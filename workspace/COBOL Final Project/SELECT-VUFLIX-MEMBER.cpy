@@ -1,4 +1,4 @@
-      *Skeleton COBOL Copybook
+      *Skeleton COBOL Copybook - RYAN TIMMERMAN - 4/7/2014
        SELECT VUFLIX-MEMBER-FILE
                ASSIGN TO "VUFLIX-MEMBER.TXT"
                ORGANIZATION IS LINE SEQUENTIAL.

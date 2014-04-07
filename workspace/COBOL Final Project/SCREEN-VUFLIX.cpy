@@ -19,10 +19,9 @@
                05  LINE 02 COL 79 PIC X(2) FROM WS-MINUTE.
                05  LINE 08 COL 31 VALUE "      VUFLIX MAIN      ".
                05  LINE 10 COL 31 VALUE "   1) Account Signup   ".
-               05  LINE 11 COL 31 VALUE "   2) View Titles      ".
+               05  LINE 11 COL 31 VALUE "   2) Edit Account     ".
                05  LINE 12 COL 31 VALUE "   3) Purchase Titles  ".
-               05  LINE 13 COL 31 VALUE "   4) Edit Account     ".
+               05  LINE 13 COL 31 VALUE "   4) Titles Purchased ".
                05  LINE 14 COL 31 VALUE "   5) Titles Viewed    ".
-               05  LINE 15 COL 31 VALUE "   6) Titles Purchased ".
                05  LINE 22 COL 31 VALUE "Selection   (X=exit)".
                05  LINE 22 COL 41 PIC X TO WS-SEL AUTO.

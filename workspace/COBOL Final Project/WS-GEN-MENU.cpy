@@ -6,7 +6,7 @@
            03  WS-HOUR         PIC XX.
            03  WS-MINUTE       PIC XX.
                
-       01  WS-VARS.
+       01  WS-SCREEN-VARS.
            03  WS-SEL          PIC X VALUE SPACES.
            03  WS-EXIT         PIC X VALUE SPACES.
       
