@@ -7,6 +7,7 @@
            03  WS-MINUTE       PIC XX.
                
        01  WS-SCREEN-VARS.
+           03  WS-PROG         PIC X(15) VALUE 'G3-VUFL-MAIN'.
            03  WS-SEL          PIC X VALUE SPACES.
            03  WS-EXIT         PIC X VALUE SPACES.
       

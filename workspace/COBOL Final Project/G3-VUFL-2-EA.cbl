@@ -10,63 +10,70 @@
        COPY SELECT-VUFLIX-MEMBER.
       ******************************************************************
        DATA DIVISION.
+       FILE SECTION.
        COPY FD-VUFLIX-MEMBER.
        
        WORKING-STORAGE SECTION.
        COPY WS-VUFLIX-EDIT.
        
        SCREEN SECTION.
-       COPY SCREEN-VUFLIX-CHECK.
        COPY SCREEN-VUFLIX-ID.
+       COPY SCREEN-VUFLIX-CHECK.
        COPY SCREEN-VUFLIX-EDIT.
       ******************************************************************
        PROCEDURE DIVISION.
        000-MAIN.
        MOVE FUNCTION CURRENT-DATE TO WS-TSTAMP.
+       MOVE 'G3-VUFL-2-EA' TO WS-PROG.
        OPEN I-O VM-FILE.
-       DISPLAY IDSCREEN.
-       ACCEPT WS-SEARCH-ID.
-       PERFORM UNTIL WS-CHECK = 'Y' OR 'y'
-           MOVE WS-SEARCH-ID TO VM-ID
-           READ VM-FILE
-               INVALID KEY
-                   DISPLAY 'INVALID ID'
-               NOT INVALID KEY
-                   PERFORM 100-MOVE
-           END-READ
-       END-PERFORM.
-       PERFORM UNTIL WS-CHECK = 'S' OR 's'
-           MOVE SPACES TO WS-CHECK
-           MOVE SPACES TO WS-EDIT
-           DISPLAY EDITSCREEN
-           ACCEPT  WS-EDIT-ID
-           ACCEPT  WS-EDIT-FNAME
-           ACCEPT  WS-EDIT-LNAME
-           ACCEPT  WS-EDIT-ADDRESS
-           ACCEPT  WS-EDIT-ZIP
-           ACCEPT  WS-EDIT-PHONE
-           ACCEPT  WS-EDIT-EMAIL
-           ACCEPT  WS-EDIT-CC
-           ACCEPT  WS-CHECK
-       END-PERFORM.
-      *****ARE WE WRITING TO THE .TXT OR THE .DAT?
-      *****IF WE WRITE TO THE .TXT, WILL WE HAVE TO RE-BUILD?
-      *****IF WE WRITE TO THE .DAT, DOES THAT AVOID RE-BUILDING?
-      *****IF SO, WHY DIDN'T WE JUST START WITH .DAT FILES?
-      *****PRETTY SURE WE WILL HAVE TO WRITE TO .TXT AND RE-BUILD
-      *****WROTE THE CODE FOR THE .DAT WAY
-       MOVE WS-SEARCH-ID TO VM-ID
-       READ VM-FILE
-           INVALID KEY
-               DISPLAY 'INVALID ID'
-           NOT INVALID KEY
-               PERFORM 200-EDIT
-       END-READ.
-       
+       PERFORM 100-CHECK.
+       PERFORM 300-EDIT.
        CLOSE VM-FILE.
        STOP RUN.
       ******************************************************************
-       100-MOVE.
+       100-CHECK.
+       DISPLAY IDSCREEN.
+       ACCEPT CHOOSEID.
+       IF WS-SEARCH-ID = '99999999'
+           GOBACK
+       END-IF.
+       PERFORM UNTIL WS-CHECK = 'Y' OR 'y'
+           MOVE SPACES TO WS-CHECK
+           MOVE WS-SEARCH-ID TO VM-ID
+           READ VM-FILE
+               INVALID KEY
+                   MOVE 'INVALID ID' TO WS-MSG
+               NOT INVALID KEY
+                   MOVE SPACES TO WS-MSG
+                   PERFORM 200-MOVE
+           END-READ
+           IF WS-RESP = 'C' OR 'c'
+               CONTINUE
+           ELSE
+               DISPLAY IDSCREEN
+               ACCEPT CHOOSEID
+           END-IF
+       END-PERFORM.
+       PERFORM UNTIL WS-CHECK = 'S' OR 's'
+           MOVE SPACES TO WS-CHECK
+           DISPLAY EDITSCREEN
+           ACCEPT  E-FNAME
+           ACCEPT  E-LNAME
+           ACCEPT  E-ADDRESS
+           ACCEPT  E-ZIP
+           ACCEPT  E-PHONE
+           ACCEPT  E-EMAIL
+           ACCEPT  E-CC
+           ACCEPT  E-SEL
+           IF WS-CHECK = 'R' OR 'r'
+               MOVE SPACES TO WS-CHECK
+               CLOSE VM-FILE
+               PERFORM 000-MAIN
+           END-IF
+       END-PERFORM.
+      ******************************************************************
+       200-MOVE.
+       MOVE 'C'        TO WS-RESP.
        MOVE SPACES     TO WS-ORIG.
        MOVE VM-ID      TO WS-ORIG-ID.
        MOVE VM-FNAME   TO WS-ORIG-FNAME.
@@ -76,14 +83,20 @@
        MOVE VM-EMAIL   TO WS-ORIG-EMAIL.
        MOVE VM-ZIP     TO WS-ORIG-ZIP.
        MOVE VM-CC      TO WS-ORIG-CC.
-       
        DISPLAY CHECKSCREEN.
-       ACCEPT WS-CHECK.
-      ******************************************************************
-       200-EDIT.
-       IF WS-EDIT-ID NOT EQUAL SPACES
-           MOVE WS-EDIT-ID TO VM-ID
+       ACCEPT CHECK.
+       IF WS-CHECK = 'Y' OR 'y'
+           CONTINUE
+       ELSE
+           MOVE SPACES TO WS-RESP
+           PERFORM 100-CHECK
        END-IF.
+      ******************************************************************
+       300-EDIT.
+       DISPLAY BLANK-SCREEN.
+       DISPLAY 'EDITING...'
+       DISPLAY "PRESS 'ENTER' TO CONTINUE".
+       ACCEPT WS-RESP.
        IF WS-EDIT-FNAME NOT EQUAL SPACES 
            MOVE WS-EDIT-FNAME TO VM-FNAME
        END-IF.
@@ -93,17 +106,22 @@
        IF WS-EDIT-ADDRESS NOT EQUAL SPACES
            MOVE WS-EDIT-ADDRESS TO VM-ADDRESS
        END-IF.
-       IF WS-EDIT-ZIP NOT EQUAL SPACES
+       IF WS-EDIT-ZIP NOT EQUAL ZEROS
            MOVE WS-EDIT-ZIP TO VM-ZIP
        END-IF.
-       IF WS-EDIT-PHONE NOT EQUAL SPACES
+       IF WS-EDIT-PHONE NOT EQUAL ZEROS
            MOVE WS-EDIT-PHONE TO VM-PHONE
        END-IF.
        IF WS-EDIT-EMAIL NOT EQUAL SPACES
            MOVE WS-EDIT-EMAIL TO VM-EMAIL
        END-IF.
-       IF WS-EDIT-CC NOT EQUAL SPACES
+       IF WS-EDIT-CC NOT EQUAL ZEROS
            MOVE WS-EDIT-CC TO VM-CC
        END-IF.
+       REWRITE VM-REC.
+       DISPLAY BLANK-SCREEN.
+       DISPLAY 'RETURNING TO VUFLIX MENU'.
+       DISPLAY "PRESS 'ENTER' TO RETURN".
+       GOBACK.
        
        

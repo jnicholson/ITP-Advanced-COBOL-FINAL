@@ -10,6 +10,9 @@
            03  WS-RESP                     PIC X       VALUE SPACES.
            03  WS-STAT                     PIC XX      VALUE SPACES.
            03  WS-CHECK                    PIC X       VALUE SPACES.
+           03  WS-MSG                      PIC X(10)   VALUE SPACES.
+           03  WS-PROG                     PIC X(15)   VALUE SPACES.
+           03  WS-CTR                      PIC 99      VALUE ZERO.
        
        01  WS-SCREEN-VARS.
            03  WS-ACTION-SEL               PIC X       VALUE SPACES.
