@@ -1,10 +1,10 @@
       *Skeleton COBOL Copybook - JARROD LEE - 3/20/14*
-       SELECT MERCHANT-FILE
+       SELECT MER-FILE-TXT
                ASSIGN TO 'MERCHANT.TXT'
                ORGANIZATION IS LINE SEQUENTIAL.
                
-       SELECT MERCHANT-FILE-DAT
+       SELECT MER-FILE
                ASSIGN TO 'MERCHANT.DAT'
-               ORGANIZATION IS LINE SEQUENTIAL.
+               ORGANIZATION IS INDEXED.
 
 

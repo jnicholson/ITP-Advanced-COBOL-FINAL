@@ -1,10 +1,10 @@
       *Skeleton COBOL Copybook
-       SELECT CARDHOLDER-FILE
+       SELECT CH-FILE-TXT
                ASSIGN TO "CARDHOLDER.TXT"
                ORGANIZATION IS LINE SEQUENTIAL.
                
-       SELECT CARDHOLDER-FILE-DAT
+       SELECT CH-FILE
                ASSIGN TO "CARDHOLDER.DAT"
-               ORGANIZATION IS LINE SEQUENTIAL.
+               ORGANIZATION IS INDEXED.
 
 
