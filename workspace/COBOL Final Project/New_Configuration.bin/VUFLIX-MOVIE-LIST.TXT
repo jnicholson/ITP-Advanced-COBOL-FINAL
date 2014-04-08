@@ -1,0 +1,8 @@
+50000001Gone With the Wind                 Drama     05.99
+50000002Talladega Nights                   Comedy    09.99
+50000003Anchorman                          Comedy    04.99
+50000004Anchorman 2                        Comedy    15.99
+50000005The Wolf of Wall Stret             Drama     19.99
+50000006The Hobbit: The Desolation of SmaugAction    19.99
+50000007The Hobbit: An Unexpected Journey  Action    09.99
+50000008Avatar                             Action    17.99
