@@ -35,17 +35,35 @@
                    PERFORM 100-MOVE
            END-READ
        END-PERFORM.
-       MOVE SPACES TO WS-CHECK.
-       PERFORM UNTIL WS-CHECK = 'Y' OR 'y'
-           DISPLAY EDITSCREEN.
-           ACCEPT  WS-EDIT-ID.
-           ACCEPT  WS-EDIT-FNAME.
-           ACCEPT  WS-EDIT-LNAME.
-           ACCEPT  WS-EDIT-ADDRESS.
-           ACCEPT  WS-EDIT-ZIP.
-           ACCEPT  WS-EDIT-PHONE.
-           ACCEPT  WS-EDIT-EMAIL.
-           ACCEPT  WS-EDIT-CC.
+       PERFORM UNTIL WS-CHECK = 'S' OR 's'
+           MOVE SPACES TO WS-CHECK
+           MOVE SPACES TO WS-EDIT
+           DISPLAY EDITSCREEN
+           ACCEPT  WS-EDIT-ID
+           ACCEPT  WS-EDIT-FNAME
+           ACCEPT  WS-EDIT-LNAME
+           ACCEPT  WS-EDIT-ADDRESS
+           ACCEPT  WS-EDIT-ZIP
+           ACCEPT  WS-EDIT-PHONE
+           ACCEPT  WS-EDIT-EMAIL
+           ACCEPT  WS-EDIT-CC
+           ACCEPT  WS-CHECK
+       END-PERFORM.
+      *****ARE WE WRITING TO THE .TXT OR THE .DAT?
+      *****IF WE WRITE TO THE .TXT, WILL WE HAVE TO RE-BUILD?
+      *****IF WE WRITE TO THE .DAT, DOES THAT AVOID RE-BUILDING?
+      *****IF SO, WHY DIDN'T WE JUST START WITH .DAT FILES?
+      *****PRETTY SURE WE WILL HAVE TO WRITE TO .TXT AND RE-BUILD
+      *****WROTE THE CODE FOR THE .DAT WAY
+       MOVE WS-SEARCH-ID TO VM-ID
+       READ VM-FILE
+           INVALID KEY
+               DISPLAY 'INVALID ID'
+           NOT INVALID KEY
+               PERFORM 200-EDIT
+       END-READ.
+       
+       CLOSE VM-FILE.
        STOP RUN.
       ******************************************************************
        100-MOVE.
@@ -61,5 +79,31 @@
        
        DISPLAY CHECKSCREEN.
        ACCEPT WS-CHECK.
+      ******************************************************************
+       200-EDIT.
+       IF WS-EDIT-ID NOT EQUAL SPACES
+           MOVE WS-EDIT-ID TO VM-ID
+       END-IF.
+       IF WS-EDIT-FNAME NOT EQUAL SPACES 
+           MOVE WS-EDIT-FNAME TO VM-FNAME
+       END-IF.
+       IF WS-EDIT-LNAME NOT EQUAL SPACES
+           MOVE WS-EDIT-LNAME TO VM-LNAME
+       END-IF.
+       IF WS-EDIT-ADDRESS NOT EQUAL SPACES
+           MOVE WS-EDIT-ADDRESS TO VM-ADDRESS
+       END-IF.
+       IF WS-EDIT-ZIP NOT EQUAL SPACES
+           MOVE WS-EDIT-ZIP TO VM-ZIP
+       END-IF.
+       IF WS-EDIT-PHONE NOT EQUAL SPACES
+           MOVE WS-EDIT-PHONE TO VM-PHONE
+       END-IF.
+       IF WS-EDIT-EMAIL NOT EQUAL SPACES
+           MOVE WS-EDIT-EMAIL TO VM-EMAIL
+       END-IF.
+       IF WS-EDIT-CC NOT EQUAL SPACES
+           MOVE WS-EDIT-CC TO VM-CC
+       END-IF.
        
        
