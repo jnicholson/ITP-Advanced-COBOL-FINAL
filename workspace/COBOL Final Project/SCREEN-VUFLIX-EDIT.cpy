@@ -16,38 +16,38 @@
                05  LINE 08 COL 16 VALUE "Current".
                05  LINE 08 COL 60 VALUE "Updated".
                05  LINE 10 COL 01 VALUE "ID".
-               05  LINE 10 COL 29 FROM WS-ORIG-ID.
+               05  LINE 10 COL 29 PIC 9(8) FROM WS-ORIG-ID.
                05  LINE 10 COL 45 VALUE " ID".
-               05  LINE 10 COL 73 TO   WS-EDIT-ID.
+               05  LINE 10 COL 73 PIC 9(8) TO   WS-EDIT-ID.
                05  LINE 11 COL 01 VALUE "First Name".
-               05  LINE 11 COL 22 FROM WS-ORIG-FNAME.
+               05  LINE 11 COL 22 PIC X(15) FROM WS-ORIG-FNAME.
                05  LINE 11 COL 45 VALUE "First Name".
-               05  LINE 11 COL 66 TO   WS-EDIT-FNAME
+               05  LINE 11 COL 66 PIC X(15) TO   WS-EDIT-FNAME.
                05  LINE 12 COL 01 VALUE "Last Name".
-               05  LINE 12 COL 22 FROM WS-ORIG-LNAME.
+               05  LINE 12 COL 22 PIC X(15) FROM WS-ORIG-LNAME.
                05  LINE 12 COL 45 VALUE "Last Name".
-               05  LINE 12 COL 66 TO   WS-EDIT-LNAME.
+               05  LINE 12 COL 66 PIC X(15) TO   WS-EDIT-LNAME.
                05  LINE 13 COL 01 VALUE "Address".
-               05  LINE 13 COL 17 FROM WS-ORIG-ADDRESS.
+               05  LINE 13 COL 17 PIC X(20) FROM WS-ORIG-ADDRESS.
                05  LINE 13 COL 45 VALUE "Address".
-               05  LINE 13 COL 61 TO   WS-EDIT-ADDRESS.
+               05  LINE 13 COL 61 PIC X(20) TO   WS-EDIT-ADDRESS.
                05  LINE 14 COL 01 VALUE "Zip".
-               05  LINE 14 COL 32 FROM WS-ORIG-ZIP.
+               05  LINE 14 COL 32 PIC 9(5) FROM WS-ORIG-ZIP.
                05  LINE 14 COL 45 VALUE "Zip".
-               05  LINE 14 COL 76 TO   WS-EDIT-ZIP.
+               05  LINE 14 COL 76 PIC 9(5) TO   WS-EDIT-ZIP.
                05  LINE 15 COL 01 VALUE "Phone".
-               05  LINE 15 COL 26 FROM WS-ORIG-PHONE.
+               05  LINE 15 COL 26 PIC 9(11) FROM WS-ORIG-PHONE.
                05  LINE 15 COL 45 VALUE "Phone".
-               05  LINE 15 COL 70 TO   WS-EDIT-PHONE.
+               05  LINE 15 COL 70 PIC 9(11) TO   WS-EDIT-PHONE.
                05  LINE 16 COL 01 VALUE "Email".
-               05  LINE 16 COL 07 FROM WS-ORIG-EMAIL.
+               05  LINE 16 COL 07 PIC X(30) FROM WS-ORIG-EMAIL.
                05  LINE 16 COL 45 VALUE "Email".
-               05  LINE 16 COL 51 TO   WS-EDIT-EMAIL.
+               05  LINE 16 COL 51 PIC X(30) TO   WS-EDIT-EMAIL.
                05  LINE 17 COL 01 VALUE "CC Number".
-               05  LINE 17 COL 21 FROM WS-ORIG-CC.
+               05  LINE 17 COL 21 PIC 9(16) FROM WS-ORIG-CC.
                05  LINE 17 COL 45 VALUE "CC Number".
-               05  LINE 17 COL 65 TO   WS-EDIT-CC.
-               05  LINE 20 COL 27 PIC X TO WS-SEL AUTO.
+               05  LINE 17 COL 65 PIC 9(16) TO   WS-EDIT-CC.
+               05  LINE 20 COL 27 PIC X TO WS-ACTION-SEL AUTO.
                05  LINE 20 COL 29 VALUE "Press 'S' to save changes".
       
 
