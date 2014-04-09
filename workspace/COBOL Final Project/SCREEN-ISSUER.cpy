@@ -1,41 +1,13 @@
-      *******************************************************************
+      *******************0000**************************ddress******************
       * AUTHOR       : JESSE NICHOLSON                                  *
       * CREATION DATE: 3/26/14                                          *
       * LAST EDIT    : 3/26/14                                          *
       * PURPOSE      : SCREENS FOR VISA ISSUER PAGES INCLUDED WITHIN    *
       *******************************************************************
-       01  WS-TIME-LOG.
-           03  WS-DATE.
-               05  WS-YEAR             PIC X(4).
-               05  WS-MONTH            PIC X(2).
-               05  WS-DAY              PIC X(2).
-           03  WS-TIME.
-               05  WS-HOUR             PIC X(2).
-               05  WS-MIN              PIC X(2).
-               
-       01  WS-SCREEN-NAVIGATION-VARIABLES.
-           03  WS-ACTION-SELECTION         PIC X.
-           03  WS-SEARCH-SELECTION         PIC X.
-           03  WS-SEARCH-ENTRY.
-               05  WS-SEARCH-ID            PIC X(6).
-               05  WS-SEARCH-NAME         PIC X(40).
-               05  WS-SEARCH-ADDRESS.
-                   07  WS-SEARCH-ADDRESS-STREET    PIC X(20).
-                   07  WS-SEARCH-ADDRESS-ZIP       PIC 9(5).
-               05  WS-SEARCH-CREDITCARD    PIC 9(19).
-               
-       01  WS-EDITOR.
-           03  WS-EDITOR.
-               05  WS-ISS-ID          PIC X(6).
-               05  WS-ISS-NAME        PIC X(40).
-               05  WS-ISS-ADDRESS     PIC X(40).
-               05  WS-ISS-ZIP         PIC 9(5).
-               05  WS-ISS-CC          PIC X(19).
-               05  WS-ISS-EMAIL       PIC X(20).
-               
        SCREEN SECTION.
        01  SCREEN-TITLE.
            03 SCREEN-TITLE-LINE-ONE.
+               05  BLANK SCREEN.
                05  LINE 01 COL 01  "VISA ISSUER MENU".
                05  LINE 01 COL 37 "TEAM 3".
                05  SCREEN-TITLE-DATE.
@@ -51,14 +23,15 @@
                    07  LINE 02 COL 79 PIC X(2) FROM WS-MIN.
       *----------------------------------------------------------------- 
        01  SCREEN-ISSUER-MENU.
-           03  SCREEN-MENU-OPTIONS.
-               05  LINE 13 COL 30  VALUE "1.  SEARCH ISSUERS".
-               05  LINE 15 COL 30  VALUE "2.  ADD ISSUER".
-               05  LINE 17 COL 30  VALUE "3.  EDIT/DELETE ISSUER".
-               05  LINE 19 COL 30  VALUE "B.  GO BACK".
-           03  SCREEN-MENU-NAVIGATION.
-               05  LINE 21 COL 30 VALUE "SELECT ACTION:".
-               05  LINE 21 COL 45 PIC X TO WS-ACTION-SELECTION AUTO.
+           03  SCREEN-MENU-OPTIONS.      
+               05  LINE 08 COL 32  VALUE "VISA ISSUER MENU".            
+               05  LINE 10 COL 34  VALUE "1) Search Issuers".           
+               05  LINE 11 COL 34  VALUE "2) Add Issuer".                
+               05  LINE 12 COL 34  VALUE "3) Edit/Delete Issuer".       
+               05  LINE 13 COL 34  VALUE "B) Previous Menu".            
+           03  SCREEN-MENU-NAVIGATION.                                      
+               05  LINE 22 COL 30 VALUE "SELECT ACTION:".                   
+               05  LINE 22 COL 45 PIC X TO WS-ACTION-SELECTION AUTO.
            03  SCREEN-MENU-CLEAR.
                05  LINE 3  COL 30  VALUE "                            ".
                05  LINE 5  COL 30  VALUE "                            ".
@@ -73,23 +46,24 @@
       *-----------------------------------------------------------------
        01  SCREEN-SEARCH-ISSUER.
            03  SCREEN-SEARCH-OPTIONS.
-               05  LINE 3  COL 30 VALUE "1. SEARCH BY ISSUER ID NUM".
-               05  LINE 5  COL 30 VALUE "2. SEARCH BY ISSUER NAME".
-               05  LINE 7  COL 30 VALUE "3. SEARCH BY ADDRESS".         
-               05  LINE 11 COL 30 VALUE "4. SEARCH BY CREDIT CARD".
-               05  LINE 13 COL 30 VALUE "5. SEARCH BY EMAIL".
+               05  LINE 08 COL 30 VALUE "VISA ISSUER SEARCH".
+               05  LINE 10 COL 34 VALUE "1) Search By Issuer ID Num".
+               05  LINE 11 COL 34 VALUE "2) Search By Issuer Name".
+               05  LINE 12 COL 34 VALUE "3) Search By Address".         
+               05  LINE 13 COL 34 VALUE "4) Search By Credit Card Type".
+               05  LINE 14 COL 34 VALUE "5) Search By Email".
            03  SCREEN-SEARCH-NAVIGATION.
-               05  LINE 15 COL 30 VALUE "SELECT ACTION: ".
-               05  LINE 15 COL 45 PIC X TO WS-SEARCH-SELECTION AUTO.    
+               05  LINE 22 COL 31 VALUE "SELECT ACTION: ".
+               05  LINE 22 COL 45 PIC X TO WS-SEARCH-SELECTION AUTO.    
            03  SCREEN-SEARCH-ID.                                        
-               05  LINE 15 COL 30 VALUE "                             ".
-               05  LINE 15 COL 30 VALUE "ENTER ID NUM:".
-               05  LINE 15 COL 44 PIC X(20) TO WS-SEARCH-ID.
+               05  LINE 22 COL 30 VALUE "                             ".
+               05  LINE 22 COL 30 VALUE "Enter ID Num:".
+               05  LINE 22 COL 44 PIC X(20) TO WS-SEARCH-ID.
            03  SCREEN-SEARCH-ID-CLEAR.                                  
                05  LINE 15 COL 30 VALUE "                             ".
            03  SCREEN-SEARCH-NAME.                                      
                05  LINE 15 COL 30 VALUE "                             ".
-               05  LINE 15 COL 30 VALUE "ENTER ISSUER FIRST NAME".
+               05  LINE 15 COL 30 VALUE "Enter Issuer Name".
                05  LINE 15 COL 49 PIC X(40) TO WS-SEARCH-NAME.
            03  SCREEN-SEARCH-NAME-CLEAR.
                05  LINE 15 COL 30 VALUE "                             ".

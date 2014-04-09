@@ -5,6 +5,8 @@
                
        SELECT ISS-FILE
                ASSIGN TO 'ISSUER.DAT'
-               ORGANIZATION IS INDEXED.
+               ORGANIZATION IS INDEXED
+               ACCESS MODE IS RANDOM
+               RECORD KEY IS ISS-ID-KEY.
 
 
