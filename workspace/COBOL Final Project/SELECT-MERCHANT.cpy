@@ -5,6 +5,9 @@
                
        SELECT MER-FILE
                ASSIGN TO 'MERCHANT.DAT'
-               ORGANIZATION IS INDEXED.
+               ORGANIZATION IS INDEXED
+               ACCESS IS RANDOM
+               RECORD KEY IS MER-ID-KEY
+               FILE STATUS IS WS-STAT.
 
 

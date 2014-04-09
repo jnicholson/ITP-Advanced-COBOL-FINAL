@@ -5,6 +5,9 @@
                
        SELECT MERLOC-FILE
                ASSIGN TO 'MERCHANT-LOCATION.DAT'
-               ORGANIZATION IS INDEXED.
+               ORGANIZATION IS INDEXED
+               ACCESS IS RANDOM
+               RECORD KEY IS MERLOC-ID-KEY
+               FILE STATUS IS WS-STAT.
 
 
