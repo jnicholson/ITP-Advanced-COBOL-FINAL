@@ -29,7 +29,7 @@
        PERFORM 100-CHECK.
        PERFORM 300-EDIT.
        CLOSE VM-FILE.
-       STOP RUN.
+       EXIT PROGRAM.
       ******************************************************************
        100-CHECK.
        DISPLAY IDSCREEN.
@@ -106,16 +106,16 @@
        IF WS-EDIT-ADDRESS NOT EQUAL SPACES
            MOVE WS-EDIT-ADDRESS TO VM-ADDRESS
        END-IF.
-       IF WS-EDIT-ZIP NOT EQUAL ZEROS
+       IF WS-EDIT-ZIP NOT EQUAL SPACES
            MOVE WS-EDIT-ZIP TO VM-ZIP
        END-IF.
-       IF WS-EDIT-PHONE NOT EQUAL ZEROS
+       IF WS-EDIT-PHONE NOT EQUAL SPACES
            MOVE WS-EDIT-PHONE TO VM-PHONE
        END-IF.
        IF WS-EDIT-EMAIL NOT EQUAL SPACES
            MOVE WS-EDIT-EMAIL TO VM-EMAIL
        END-IF.
-       IF WS-EDIT-CC NOT EQUAL ZEROS
+       IF WS-EDIT-CC NOT EQUAL SPACES
            MOVE WS-EDIT-CC TO VM-CC
        END-IF.
        REWRITE VM-REC.
