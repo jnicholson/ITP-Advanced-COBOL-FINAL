@@ -5,7 +5,7 @@
       *ABSTRACT: Main menu app to navigate through all main pages. 
       ******************************************************************
        IDENTIFICATION DIVISION. 
-       PROGRAM-ID. G3_MAIN AS "G3_MAIN" IS INITIAL.
+       PROGRAM-ID. G3-MAIN.
       ******************************************************************
        ENVIRONMENT DIVISION.
       ******************************************************************
@@ -35,7 +35,6 @@
                05  LINE 14 COL 31 VALUE "   5) Build ISAMs   ".
                05  LINE 22 COL 31 VALUE "Selection   (X=exit)".
                05  LINE 22 COL 41 PIC X TO WS-SEL AUTO.
-               
        COPY SCREEN-EXIT.
       ******************************************************************
        PROCEDURE DIVISION.
@@ -47,7 +46,6 @@
                DISPLAY MENUSCREEN
                ACCEPT  MENUSCREEN
                EVALUATE WS-SEL
-      *            PLACE CALLS TO SUBPROGRAMS HERE.         
                    WHEN '1' CALL 'G3-VISA-MAIN'
                    WHEN '2' CALL 'G3-CAP1-MAIN'
                    WHEN '3' CALL 'G3-VUFL-MAIN'
@@ -55,10 +53,7 @@
                    WHEN '5' CALL 'G3-BUILD-MAIN'
                END-EVALUATE
            END-PERFORM
-           
            DISPLAY EXITSCREEN
            ACCEPT EXITSCREEN
-       END-PERFORM
+       END-PERFORM.
        STOP RUN.
-         
-       END PROGRAM G3_MAIN.

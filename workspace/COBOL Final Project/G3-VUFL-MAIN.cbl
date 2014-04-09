@@ -29,9 +29,7 @@
                WHEN '3' CALL 'G3-VUFL-3-PT'
                WHEN '4' CALL 'G3-VUFL-4-TP'
                WHEN '5' CALL 'G3-VUFL-5-TV'
-      ***** I made this so I could test G3-VUFL-2-EA - Jarrod
-               WHEN '6' CALL 'G3-BUILD-VUFLIX-MEMBER'
            END-EVALUATE
-       END-PERFORM
+       END-PERFORM.
        EXIT PROGRAM.
                

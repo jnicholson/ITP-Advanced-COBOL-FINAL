@@ -29,7 +29,7 @@
        PERFORM 100-CHECK.
        PERFORM 300-EDIT.
        CLOSE VM-FILE.
-       EXIT PROGRAM.
+       GOBACK.
       ******************************************************************
        100-CHECK.
        DISPLAY IDSCREEN.
