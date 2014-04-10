@@ -13,11 +13,13 @@
        WORKING-STORAGE SECTION.
        COPY WS-GEN-MENU.
        
+       01 WS-FILE     PIC X(20) VALUE "G3-VISA-MAIN".
+       
        SCREEN SECTION.
        01  MENUSCREEN.
            03  BLANK SCREEN.
            03  MENU.
-               05  LINE 01 COL 01 VALUE "VISA MENU".
+               05  LINE 01 COL 01 PIC X(20) FROM WS-FILE.
                05  LINE 01 COL 37 VALUE "TEAM 3".
                05  LINE 01 COL 71 PIC X(2) FROM WS-MONTH.
                05  LINE 01 COL 73 VALUE "/".
@@ -28,8 +30,8 @@
                05  LINE 02 COL 78 VALUE ":".
                05  LINE 02 COL 79 PIC X(2) FROM WS-MINUTE.
                05  LINE 08 COL 31 VALUE "      VISA MAIN      ".
-               05  LINE 10 COL 31 VALUE "   1) Issuer Signup  ".
-               05  LINE 11 COL 31 VALUE "   2) Merchant Signup".
+               05  LINE 10 COL 31 VALUE "   1) Issuers        ".
+               05  LINE 11 COL 31 VALUE "   2) Merchants      ".
                05  LINE 12 COL 31 VALUE "   3) CC Access      ".
                05  LINE 22 COL 31 VALUE "Selection   (X=exit)".
                05  LINE 22 COL 41 PIC X TO WS-SEL AUTO.
@@ -43,8 +45,8 @@
            DISPLAY MENUSCREEN
            ACCEPT MENUSCREEN
            EVALUATE WS-SEL
-               WHEN '1'
-               WHEN '2'
+               WHEN '1' CALL 'G3-VISA-ISSUER-SIGNUP'
+               WHEN '2' CALL 'G3-VISA-MER-MAIN'
                WHEN '3'
            END-EVALUATE
        END-PERFORM

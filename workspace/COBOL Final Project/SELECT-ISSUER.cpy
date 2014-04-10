@@ -7,8 +7,7 @@
                ASSIGN TO 'ISSUER.DAT'
                ORGANIZATION IS INDEXED
                ACCESS IS RANDOM
-               RECORD KEY IS ISS-ID-KEY
-               FILE STATUS IS WS-STAT.
+               RECORD KEY IS ISS-ID-KEY.
 
 
 
