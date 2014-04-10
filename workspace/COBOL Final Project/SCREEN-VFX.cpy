@@ -7,7 +7,7 @@
        01  MENUSCREEN.
            03  BLANK SCREEN. 
            03  MENU.
-               05  LINE 01 COL 01 PIC X(15) FROM WS-PROG.
+               05  LINE 01 COL 01 PIC X(15) FROM VFX-M-PROG.
                05  LINE 01 COL 37 VALUE "TEAM 3".
                05  LINE 01 COL 71 PIC X(2) FROM WS-MONTH.
                05  LINE 01 COL 73 VALUE "/".
@@ -23,6 +23,9 @@
                05  LINE 15 COL 31 VALUE "   6) Add/Remove Movie ".
                05  LINE 16 COL 31 VALUE "   7) Movie Inquiry    ".
                05  LINE 22 COL 31 VALUE "Selection   (X=exit)".
-               05  LINE 22 COL 41 PIC X TO WS-SEL AUTO.
+               05  LINE 22 COL 41 PIC X TO VFX-M-SEL AUTO.
+       01  EXITSCREEN.
+               05  LINE 24 COL 33 VALUE "Confirm exit 'Y'".
+               05  LINE 24 COL 50 PIC X TO VFX-M-EXIT AUTO.
                
        

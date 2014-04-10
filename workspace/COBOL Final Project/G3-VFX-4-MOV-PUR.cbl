@@ -4,28 +4,28 @@
       *DATE:     4/9/2014   
       *ABSTRACT: 
       ******************************************************************
-       PROGRAM-ID. G3-VUFL-4-TP.
+       PROGRAM-ID. G3-VFX-4-MOV-PUR.
       ******************************************************************
        ENVIRONMENT DIVISION.
        COPY SELECT-VFX-PUR.
+       COPY SELECT-VFX-MOV.
       ******************************************************************
        DATA DIVISION.
        FILE SECTION.
        COPY FD-VFX-PUR.
-       
+       COPY FD-VFX-MOV.
        WORKING-STORAGE SECTION.
        COPY WS-VFX.
        
        SCREEN SECTION.
-       01  BLANK-SCREEN.
-           03  BLANK SCREEN.
+       COPY SCREEN-VFX-PUR.
       ******************************************************************
        PROCEDURE DIVISION.
        000-MAIN.
        MOVE FUNCTION CURRENT-DATE TO WS-TSTAMP.
-       MOVE 'G3-VUFL-4-TP' TO WS-PROG.
+       MOVE 'G3-VFX-MOV-PUR' TO VFX-M-PROG.
        OPEN INPUT VTP-FILE.
-       PERFORM UNTIL WS-CHECK = 'Y' OR 'y'
+       PERFORM UNTIL VFX-4-CHECK = 'Y' OR 'y'
       *     READ VTP-FILE
       *         AT END
       *             MOVE 'Y' TO WS-CHECK
@@ -36,19 +36,20 @@
        EXIT PROGRAM.
       ******************************************************************
        100-DISPLAY.
-       ADD  1          TO WS-CTR
-       IF WS-CTR GREATER THAN 10
+       ADD  1          TO VFX-4-CTR
+       IF VFX-4-CTR GREATER THAN 10
+  
+           DISPLAY CONT-FILE
+           ACCEPT VFX-4-RESP
+           DISPLAY PTSCREEN-HEADER
+           DISPLAY PTSCREEN-LABEL
+  
            DISPLAY SPACES
-           DISPLAY 'PRESS ENTER TO CONTINUE'
-           ACCEPT WS-RESP
-           DISPLAY BLANK-SCREEN
-           DISPLAY 'ISAM-5-LIST (ID)'
-           DISPLAY SPACES
-           MOVE 1 TO WS-CTR.
+           MOVE 1 TO VFX-4-CTR.
 
-      * MOVE STU-ID     TO WS-ID.
-      * MOVE STU-FNAME  TO WS-FNAME.
-      * MOVE STU-LNAME  TO WS-LNAME.
-      * MOVE STU-STREET TO WS-STREET.
-      * MOVE STU-CITY   TO WS-CITY.
-      * MOVE STU-ST     TO WS-ST.
+       MOVE VFX-4-PUR-ID      TO VFX-4-ID.
+       MOVE VFX-4-PUR-NAME    TO VFX-4-TITLE.
+       MOVE VFX-4-PUR-GENRE   TO VFX-4-GENRE.
+       MOVE VFX-4-PUR-PRICE   TO VFX-4-PRICE.
+       
+       DISPLAY VFX-4-VML-LINE.
