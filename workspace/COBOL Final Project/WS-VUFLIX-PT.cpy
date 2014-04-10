@@ -8,6 +8,7 @@
        
        01  WS-VARS.
            03  WS-RESP                     PIC X       VALUE SPACES.
+           03  WS-SEL                      PIC X       VALUE SPACES.
            03  WS-STAT                     PIC XX      VALUE SPACES.
            03  WS-CTR                      PIC 99      VALUE ZERO.
            03  WS-EOF-FLAG                 PIC X       VALUE 'N'.

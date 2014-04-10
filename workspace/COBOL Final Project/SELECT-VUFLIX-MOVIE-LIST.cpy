@@ -10,4 +10,10 @@
                RECORD KEY IS VML-ID-KEY
                FILE STATUS IS WS-STAT.
 
+       SELECT SORT-FILE
+               ASSIGN TO SYSWORK.
+               
+       SELECT VML-SORTED-FILE-TXT
+               ASSIGN TO "VUFLIX-SORTED-MOVIE-LIST.TXT"
+               ORGANIZATION IS LINE SEQUENTIAL.
 

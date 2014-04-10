@@ -4,7 +4,7 @@
       *DATE:     4/7/2014   
       *ABSTRACT: 
       *THINGS TO DO: CURRENTLY ONLY DISPLAYS TITLES. NEEDS WAY TO 
-      *              PURCHASE TITLES  
+      *              PURCHASE TITLES. NEED TO FINISH SORT SYSTEM.
       ******************************************************************
        PROGRAM-ID. G3-VUFL-3-PT.
       ******************************************************************
@@ -13,6 +13,7 @@
       ******************************************************************
        DATA DIVISION.
        COPY FD-VUFLIX-MOVIE-LIST.
+      * COPY SD-VUFL-3-PT-SORT.
        
        WORKING-STORAGE SECTION.
        COPY WS-VUFLIX-PT.
@@ -23,27 +24,94 @@
        PROCEDURE DIVISION.
        000-MAIN.
        MOVE FUNCTION CURRENT-DATE TO WS-TSTAMP.
-       OPEN I-O VML-FILE-TXT.
-       DISPLAY PTSCREEN.
+      * OPEN I-O VML-FILE-TXT.
+       
+       
+       
+       PERFORM UNTIL WS-SEL = 'X' OR 'x'
+           DISPLAY PTSCREEN-HEADER
+           DISPLAY PTSCREEN-SORT-MENU
+           ACCEPT PTSCREEN-SORT-MENU
+           EVALUATE WS-SEL
+               WHEN '1' PERFORM 100-SORT-ID
+               WHEN '2' PERFORM 100-SORT-NAME
+               WHEN '3' PERFORM 100-SORT-GENRE
+               WHEN '4' PERFORM 100-SORT-PRICE
+           END-EVALUATE
+       END-PERFORM.
+       
+           EXIT PROGRAM.
+           STOP RUN.
+
+       
+      
+      *-----------------------------------------------------------------
+       100-SORT-ID.
+       SORT  SORT-FILE
+               ON ASCENDING KEY SORT-ID-TXT 
+                   USING  VML-FILE-TXT
+                   GIVING VML-SORTED-FILE-TXT.
+       PERFORM 150-TEST.            
+     
+      *---------------------------------------------------------------- -
+       100-SORT-NAME.
+       SORT  SORT-FILE
+               ON ASCENDING KEY SORT-TITLE-TXT 
+                   USING  VML-FILE-TXT
+                   GIVING VML-SORTED-FILE-TXT.
+      
+       
+      *-----------------------------------------------------------------
+       100-SORT-GENRE.
+       SORT  SORT-FILE
+               ON ASCENDING KEY SORT-GENRE-TXT
+                                SORT-TITLE-TXT
+                   USING  VML-FILE-TXT
+                   GIVING VML-SORTED-FILE-TXT.
+      
+       
+      *-----------------------------------------------------------------
+       100-SORT-PRICE.
+       SORT  SORT-FILE
+               ON ASCENDING KEY SORT-PRICE-TXT
+                                SORT-TITLE-TXT
+                   USING  VML-FILE-TXT
+                   GIVING VML-SORTED-FILE-TXT.
+      
+      *-----------------------------------------------------------------
+       150-TEST.
+       DISPLAY PTSCREEN-HEADER.
+       DISPLAY PTSCREEN-LABEL.
        DISPLAY SPACES
+       
        PERFORM UNTIL WS-EOF
-               READ VML-FILE-TXT      
+               READ VML-SORTED-FILE-TXT      
+                   AT END                
+                       MOVE 'Y' TO WS-EOF-FLAG 
+                   NOT AT END
+                       PERFORM 200-DISPLAY-TEST
+           END-PERFORM.
+       ACCEPT WS-RESP.    
+      *-----------------------------------------------------------------
+       150-READ-FILE. 
+       DISPLAY PTSCREEN-HEADER.
+       DISPLAY PTSCREEN-LABEL.
+       DISPLAY SPACES
+      
+      
+       PERFORM UNTIL WS-EOF
+               READ VML-SORTED-FILE-TXT      
                    AT END                
                        MOVE 'Y' TO WS-EOF-FLAG 
                    NOT AT END
                        PERFORM 200-DISPLAY
            END-PERFORM.
 
-           CLOSE VML-FILE-TXT.
+      *     CLOSE VML-FILE-TXT.
       
            DISPLAY END-FILE.
            ACCEPT  WS-RESP.
-           EXIT PROGRAM.
-           STOP RUN.
-      *-----------------------------------------------------------------\
-       100-READFILE.
        
-      
       *-----------------------------------------------------------------
        200-DISPLAY.
            ADD  1          TO WS-CTR
@@ -51,16 +119,19 @@
       
                DISPLAY CONT-FILE
                ACCEPT WS-RESP
-               DISPLAY PTSCREEN
+               DISPLAY PTSCREEN-HEADER
+               DISPLAY PTSCREEN-LABEL
       
                DISPLAY SPACES
                MOVE 1 TO WS-CTR.
 
-           MOVE VML-ID-TXT     TO WS-ID.
-           MOVE VML-TITLE-TXT  TO WS-TITLE.
-           MOVE VML-GENRE-TXT  TO WS-GENRE.
-           MOVE VML-PRICE-TXT  TO WS-PRICE.
+           MOVE VML-SORTED-ID-TXT     TO WS-ID.
+           MOVE VML-SORTED-TITLE-TXT  TO WS-TITLE.
+           MOVE VML-SORTED-GENRE-TXT  TO WS-GENRE.
+           MOVE VML-SORTED-PRICE-TXT  TO WS-PRICE.
            DISPLAY WS-VML-LINE.
       *----------------------------------------------------------------- 
+       200-DISPLAY-TEST.
+       DISPLAY "TEST".
 
        

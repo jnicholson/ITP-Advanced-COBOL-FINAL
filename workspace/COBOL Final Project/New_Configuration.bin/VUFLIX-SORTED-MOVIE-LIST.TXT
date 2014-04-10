@@ -1,0 +1,18 @@
+50000001Gone With the Wind                 Drama     0599
+50000002Talladega Nights                   Comedy    0999
+50000003Anchorman                          Comedy    0499
+50000004Anchorman 2                        Comedy    1599
+50000005The Wolf of Wall Street            Drama     1999
+50000006The Hobbit: The Desolation of SmaugAction    1999
+50000007The Hobbit: An Unexpected Journey  Action    0999
+50000008Avatar                             Action    1799
+50000009Alien                              Sci-Fi    0599
+50000010Primer                             Sci-Fi    0999
+50000011The Dark Knight                    Action    0499
+50000012Captain America                    Action    1599
+50000013The Notebook                       Drama     1999
+50000014Blade Runner                       Sci-Fi    1999
+50000015Moon                               Sci-Fi    0999
+50000016This is the End                    Comedy    1799
+50000017The Hangover                       Comedy    0599
+50000018Star Wars: A New Hope              Sci-Fi    0999
