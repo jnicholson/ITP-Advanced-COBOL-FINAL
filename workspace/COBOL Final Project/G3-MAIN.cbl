@@ -11,7 +11,7 @@
       ******************************************************************
        DATA DIVISION.
        WORKING-STORAGE SECTION.
-       COPY WS-GEN-MENU.
+       COPY WS-MENU.
            
        SCREEN SECTION.
        01  MENUSCREEN.
@@ -31,8 +31,6 @@
                05  LINE 10 COL 31 VALUE "   1) VISA          ".
                05  LINE 11 COL 31 VALUE "   2) Capital One   ".
                05  LINE 12 COL 31 VALUE "   3) Vuflix        ".
-               05  LINE 13 COL 31 VALUE "   4) File Admin    ".
-               05  LINE 14 COL 31 VALUE "   5) Build ISAMs   ".
                05  LINE 22 COL 31 VALUE "Selection   (X=exit)".
                05  LINE 22 COL 41 PIC X TO WS-SEL AUTO.
        COPY SCREEN-EXIT.
@@ -48,9 +46,8 @@
                EVALUATE WS-SEL
                    WHEN '1' CALL 'G3-VISA-MAIN'
                    WHEN '2' CALL 'G3-CAP1-MAIN'
-                   WHEN '3' CALL 'G3-VUFL-MAIN'
-                   WHEN '4' CALL 'G3-ADMIN-MAIN'
-                   WHEN '5' CALL 'G3-BUILD-MAIN'
+                   WHEN '3' CALL 'G3-VFX-MAIN'
+                   WHEN 'B' CALL 'G3-BLD'
                END-EVALUATE
            END-PERFORM
            DISPLAY EXITSCREEN

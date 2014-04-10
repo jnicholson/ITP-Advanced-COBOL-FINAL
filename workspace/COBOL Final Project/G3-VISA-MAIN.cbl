@@ -11,7 +11,7 @@
       ******************************************************************
        DATA DIVISION.
        WORKING-STORAGE SECTION.
-       COPY WS-GEN-MENU.
+       COPY WS-MENU.
        
        01 WS-FILE     PIC X(20) VALUE "G3-VISA-MAIN".
        

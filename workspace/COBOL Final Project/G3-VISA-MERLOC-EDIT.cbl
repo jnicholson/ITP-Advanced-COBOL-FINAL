@@ -7,13 +7,13 @@
        PROGRAM-ID. G3-VISA-MERLOC-EDIT.
       ******************************************************************
        ENVIRONMENT DIVISION.
-       COPY SELECT-MERCHANT-LOCATION.
+       COPY SELECT-MERLOC.
       ******************************************************************
        DATA DIVISION.
-       COPY FD-MERCHANT-LOCATION.
+       COPY FD-MERLOC.
        
        WORKING-STORAGE SECTION.
-       COPY WS-MERCHANT-LOCATION-EDIT.
+       COPY WS-MERLOC-EDIT.
        
        01 WS-FILE            PIC X(20) VALUE "G3-VISA-MERLOC-EDIT".
        

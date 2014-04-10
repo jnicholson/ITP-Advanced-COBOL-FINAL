@@ -11,7 +11,7 @@
       ******************************************************************
        DATA DIVISION.
        WORKING-STORAGE SECTION.
-       COPY WS-GEN-MENU.
+       COPY WS-MENU.
        
        SCREEN SECTION.
        01  MENUSCREEN.
@@ -44,10 +44,10 @@
            DISPLAY MENUSCREEN
            ACCEPT MENUSCREEN
            EVALUATE WS-SEL
-               WHEN '1' CALL 'G3-CAP1-ACCOUNT-SIGNUP'
+               WHEN '1' CALL 'G3-CAP1-U-ADD'
                WHEN '2' 
-               WHEN '3' CALL 'G3-CAP1-STATEMENT'
-               WHEN '4' CALL 'G3-CAP1-PAYMENT'
+               WHEN '3' CALL 'G3-CAP1-RPT'
+               WHEN '4' CALL 'G3-CAP1-PAY'
            END-EVALUATE
        END-PERFORM
        EXIT PROGRAM.

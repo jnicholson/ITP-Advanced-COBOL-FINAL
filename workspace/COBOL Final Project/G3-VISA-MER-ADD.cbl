@@ -1,24 +1,24 @@
- ******************************************************************
+      ******************************************************************
       *PROGRAM:  Merchant Signup Account Page
       *AUTHOR:   Jesse Nicholson
       *DATE:     4/7/2014   
       *ABSTRACT: 
       ******************************************************************
-       PROGRAM-ID. G3-VISA-MERLOC-ADD.
+       PROGRAM-ID. G3-VISA-MER-SIGNUP.
       ******************************************************************
        ENVIRONMENT DIVISION.
-       COPY SELECT-MERLOC.
+       COPY SELECT-MER.
       ******************************************************************
        DATA DIVISION.
-       COPY FD-MERLOC.
+       COPY FD-MER.
        
        WORKING-STORAGE SECTION.
-       COPY WS-MERLOC-EDIT.
+       COPY WS-MER-EDIT.
        
-       01 WS-FILE      PIC X(20) VALUE "G3-VISA-MERLOC-ADD".
+       01 WS-FILE      PIC X(20) VALUE "G3-VISA-MER-SIGNUP".
        
        SCREEN SECTION.
-       COPY SCREEN-VISA-MERLOC-ADD.
+       COPY SCREEN-MER-ADD.
       ******************************************************************
        PROCEDURE DIVISION.
        000-MAIN.

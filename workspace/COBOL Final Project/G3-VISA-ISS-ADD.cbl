@@ -1,0 +1,70 @@
+       PROGRAM-ID. G3_VISA_ISSUER_SIGNUP AS "G3_VISA_ISSUER_SIGNUP".
+       
+       ENVIRONMENT DIVISION.
+
+       COPY SELECT-ISS.
+       
+       DATA DIVISION.
+       
+       COPY FD-ISS.
+       
+       WORKING-STORAGE SECTION.
+       COPY WS-ISS.
+       01 TESTER.
+           02  DATA-INPUT  PIC X(2).
+       COPY SCREEN-ISS.
+       
+       01 TEST-SCREEN.
+           02  LINE 23 COL 2 VALUE "TEST".
+           02  INPUTSOT LINE 25 COL 2 PIC X TO DATA-INPUT.
+           
+       PROCEDURE DIVISION.
+       
+       100-MAIN.
+           MOVE FUNCTION CURRENT-DATE TO WS-TIME-LOG.
+           PERFORM UNTIL WS-ACTION-SELECTION = 'B' OR'b'
+               DISPLAY SCREEN-TITLE
+               DISPLAY SCREEN-MENU-OPTIONS
+               DISPLAY SCREEN-MENU-NAVIGATION
+               ACCEPT SCREEN-MENU-NAVIGATION
+               EVALUATE WS-ACTION-SELECTION
+                   WHEN '1' PERFORM 500-COMPILE-FROM-TEXT-FILE
+                   WHEN '2' PERFORM 300-ADD-ISSUER
+                   WHEN '3' PERFORM 400-EDIT-DELETE-ISSUER
+                   WHEN 'Z' PERFORM 500-COMPILE-FROM-TEXT-FILE
+               END-EVALUATE
+           END-PERFORM.
+           
+       200-SEARCH-ISSUER.
+           DISPLAY SCREEN-TITLE.
+           DISPLAY SCREEN-SEARCH-OPTIONS.
+           DISPLAY SCREEN-SEARCH-NAVIGATION.
+           ACCEPT  SCREEN-SEARCH-NAVIGATION.
+       
+       300-ADD-ISSUER.
+           DISPLAY SCREEN-TITLE.
+           DISPLAY "TEST1".
+           ACCEPT SCREEN-MENU-NAVIGATION.
+       
+       400-EDIT-DELETE-ISSUER.
+           DISPLAY SCREEN-TITLE.
+           DISPLAY "TEST2".
+           ACCEPT SCREEN-MENU-NAVIGATION.
+           
+       500-COMPILE-FROM-TEXT-FILE.
+           OPEN INPUT ISS-FILE-TXT.
+           OPEN OUTPUT ISS-FILE.
+           READ ISS-FILE-TXT.
+           DISPLAY SCREEN-TITLE.
+           PERFORM 550-COPY-DATA-OVER UNTIL WS-EOF.
+           CLOSE ISS-FILE-TXT.
+           CLOSE ISS-FILE.
+           
+           
+       550-COPY-DATA-OVER.
+           MOVE ISS-REC-TXT TO ISS-REC.
+           DISPLAY ISS-REC.
+           WRITE ISS-REC.
+           DISPLAY "RECORD WRITTEN!".
+           READ ISS-FILE-TXT AT END MOVE 'Y' TO WS-EOF-FLAGGER.
+           

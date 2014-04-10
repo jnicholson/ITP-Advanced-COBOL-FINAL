@@ -7,13 +7,13 @@
        PROGRAM-ID. G3-VISA-MER-EDIT.
       ******************************************************************
        ENVIRONMENT DIVISION.
-       COPY SELECT-MERCHANT.
+       COPY SELECT-MER.
       ******************************************************************
        DATA DIVISION.
-       COPY FD-MERCHANT.
+       COPY FD-MER.
        
        WORKING-STORAGE SECTION.
-       COPY WS-MERCHANT-EDIT.
+       COPY WS-MER-EDIT.
        
        01 WS-FILE            PIC X(20) VALUE "G3-VISA-MER-EDIT".
        
