@@ -93,8 +93,7 @@
                05  LINE 3  COL 30 VALUE "                             ".
                05  LINE 5  COL 30 VALUE "                             ".
                05  LINE 7  COL 30 VALUE "                             ".
-               05  LINE 9  COL 30 VALUE "                             
-               ".                                                        
+               05  LINE 9  COL 30 VALUE SPACES.                                              
                05  LINE 11 COL 30 VALUE "                             ".
                05  LINE 13 COL 30 VALUE "                             ".
                05  LINE 15 COL 30 VALUE "                             ".
@@ -118,7 +117,7 @@
                05  LINE 12 COL 15 VALUE "CREDIT CARD:".   
                05  LINE 12 COL 25 PIC X(19) FROM WS-ISS-CC.    
                05  LINE 13 COL 15 VALUE "EMAIL:".  
-               05  LINE 13 COL 25 PIC X(20) FROM WS-ISS-EMAIL
+               05  LINE 13 COL 25 PIC X(20) FROM WS-ISS-EMAIL.
            03  SCREEN-EDIT-ALL-CLEAR.
                05  LINE 03 COL 01 PIC X(80) VALUE SPACES.
                05  LINE 05 COL 01 PIC X(80) VALUE SPACES.
