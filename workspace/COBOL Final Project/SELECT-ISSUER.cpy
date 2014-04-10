@@ -1,4 +1,4 @@
-      *Skeleton COBOL Copybook - JARROD LEE - 3/20/14*
+      *Skeleton COBOL Copybook
        SELECT ISS-FILE-TXT
                ASSIGN TO 'ISSUER.TXT'
                ORGANIZATION IS LINE SEQUENTIAL.
@@ -6,7 +6,10 @@
        SELECT ISS-FILE
                ASSIGN TO 'ISSUER.DAT'
                ORGANIZATION IS INDEXED
-               ACCESS MODE IS RANDOM
-               RECORD KEY IS ISS-ID-KEY.
+               ACCESS IS RANDOM
+               RECORD KEY IS ISS-ID-KEY
+               FILE STATUS IS WS-STAT.
+
+
 
 

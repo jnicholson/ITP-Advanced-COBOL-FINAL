@@ -14,55 +14,34 @@
        COPY FD-VUFLIX-MEMBER.
        
        WORKING-STORAGE SECTION.
-       COPY WS-VUFLIX.
-       
-       SCREEN SECTION.
-       COPY SCREEN-VUFLIX-ID.
+        01  MISC.
+           03  WS-STAT                     PIC XX.
+           03  WS-CHECK                    PIC X.
+           03  WS-COUNTER                  PIC 9(4) VALUE ZERO.
+
       ****************************************************************** 
        PROCEDURE DIVISION.
        000-MAIN.
        OPEN INPUT  VM-FILE-TXT.
        OPEN OUTPUT VM-FILE.
-       DISPLAY BLANK-SCREEN.
        DISPLAY 'VUFLIX-MEMBER-ISAM-BUILD'.
-       DISPLAY SPACES.
-       DISPLAY 'About to rebuild, press Y and ENTER to continue'.
-       ACCEPT WS-RESP.
-       DISPLAY BLANK-SCREEN.
-       DISPLAY 'VUFLIX-MEMBER-ISAM-BUILD'.
-       DISPLAY SPACES.
        
-       IF WS-RESP = 'Y' OR 'y'
+       
+      
            PERFORM UNTIL WS-CHECK = 'Y'
                READ VM-FILE-TXT
                    AT END
                        MOVE 'Y' TO WS-CHECK
                    NOT AT END
-                       PERFORM 100-MOVE-WRITE
+                       WRITE VM-REC FROM VM-REC-TXT
+                       ADD 1 TO WS-COUNTER
            END-PERFORM
-       ELSE
-           DISPLAY 'WILL NOT REBUILD'
-       END-IF.
+      
        
        CLOSE   VM-FILE-TXT
                VM-FILE.
-       DISPLAY SPACES.
-       DISPLAY 'PRESS ENTER TO CLOSE WINDOW'.
-       ACCEPT WS-RESP.
+
+           EXIT PROGRAM.
        STOP RUN.
-      ******************************************************************
-       100-MOVE-WRITE.
-       ADD 1 TO WS-CTR.
-       IF WS-CTR GREATER THAN 10
-           DISPLAY SPACES
-           DISPLAY 'PRESS ENTER TO CONTINUE'
-           ACCEPT WS-RESP
-           DISPLAY BLANK-SCREEN
-           DISPLAY 'VUFLIX-MEMBER-ISAM-BUILD'
-           DISPLAY SPACES
-           MOVE 1 TO WS-CTR.
-       MOVE VM-REC-TXT TO VM-REC.
-       WRITE VM-REC.
-       DISPLAY VM-ID,' ',VM-FNAME,' ',VM-LNAME,' ',WS-STAT.
-       
+
        

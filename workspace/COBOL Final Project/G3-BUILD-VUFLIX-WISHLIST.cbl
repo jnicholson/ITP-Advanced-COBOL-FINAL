@@ -1,35 +1,35 @@
-       program-id. G3_BUILD_VISA_MERCHANT.
+       program-id. G3_BUILD_VUFLIX_WISHLIST.
 
        environment division.
+       COPY SELECT-VUFLIX-WISHLIST.
        configuration section.
-       COPY SELECT-MERCHANT.
-
-       data division.
-       COPY FD-MERCHANT.
-       working-storage section.
        
+       data division.
+       COPY FD-VUFLIX-WISHLIST.
+       working-storage section.
+
        01  MISC.
-           03  WS-STAT                     PIC XX.
-           03  WS-CHECK                    PIC X.
-           03  WS-COUNTER                  PIC 9(4) VALUE ZERO.
-           
+         03  WS-STAT                     PIC XX.
+         03  WS-CHECK                    PIC X.
+         03  WS-COUNTER                  PIC 9(4) VALUE ZERO.
+
+
        procedure division.
        
-           OPEN INPUT MER-FILE-TXT.
-           OPEN OUTPUT MER-FILE.
+           OPEN INPUT VW-FILE-TXT.
+           OPEN OUTPUT VW-FILE.
            PERFORM UNTIL WS-CHECK = 'Y'
-               READ MER-FILE-TXT
+               READ VW-FILE-TXT
                    AT END
                        MOVE 'Y' TO WS-CHECK
                    NOT AT END
-                       WRITE MER-REC FROM MER-REC-TXT
+                       WRITE VW-REC FROM VW-REC-TXT
                        ADD 1 TO WS-COUNTER
            END-PERFORM.
            DISPLAY "G3_BUILD_VISA_MERCHANT".
            DISPLAY "COMPLETED ADDING ", WS-COUNTER.
            DISPLAY "ENDED WITH STATUS CODE OF ", WS-STAT.
-          CLOSE MER-FILE-TXT
-                MER-FILE.
+           CLOSE VW-FILE-TXT
+                 VW-FILE.
            EXIT PROGRAM.
-
-       end program G3_BUILD_VISA_MERCHANT.
+       end program G3_BUILD_VUFLIX_WISHLIST.

@@ -7,7 +7,7 @@
                ASSIGN TO 'VUFLIX-WISHLIST.DAT'
                ORGANIZATION IS INDEXED
                ACCESS IS RANDOM
-               RANDOM KEY IS VW-ID-KEY
+               RECORD KEY IS VW-ID-KEY
                FILE STATUS IS WS-STAT.
       
 
