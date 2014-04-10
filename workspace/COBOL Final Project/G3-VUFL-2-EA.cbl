@@ -29,13 +29,13 @@
        PERFORM 100-CHECK.
        PERFORM 300-EDIT.
        CLOSE VM-FILE.
-       GOBACK.
+       EXIT PROGRAM.
       ******************************************************************
        100-CHECK.
        DISPLAY IDSCREEN.
        ACCEPT CHOOSEID.
        IF WS-SEARCH-ID = '99999999'
-           GOBACK
+           EXIT PROGRAM
        END-IF.
        PERFORM UNTIL WS-CHECK = 'Y' OR 'y'
            MOVE SPACES TO WS-CHECK
@@ -122,6 +122,5 @@
        DISPLAY BLANK-SCREEN.
        DISPLAY 'RETURNING TO VUFLIX MENU'.
        DISPLAY "PRESS 'ENTER' TO RETURN".
-       GOBACK.
        
        

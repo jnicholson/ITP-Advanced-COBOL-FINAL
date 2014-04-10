@@ -19,6 +19,9 @@
                05  LINE 11 COL 31 VALUE "   2) Edit Account     ".
                05  LINE 12 COL 31 VALUE "   3) Purchase Titles  ".
                05  LINE 13 COL 31 VALUE "   4) Titles Purchased ".
-               05  LINE 14 COL 31 VALUE "   5) Titles Viewed    ".
+               05  LINE 14 COL 31 VALUE "   5) Title Wishlist   ".
+               05  LINE 15 COL 31 VALUE "   6) Add Title        ".
+               05  LINE 16 COL 31 VALUE "   7) Remove Title     ".
+               05  LINE 17 COL 31 VALUE "   8) Title Inquiry    ".
                05  LINE 22 COL 31 VALUE "Selection   (X=exit)".
                05  LINE 22 COL 41 PIC X TO WS-SEL AUTO.
