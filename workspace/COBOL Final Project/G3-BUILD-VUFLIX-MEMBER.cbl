@@ -14,7 +14,7 @@
        COPY FD-VUFLIX-MEMBER.
        
        WORKING-STORAGE SECTION.
-       COPY WS-VUFLIX-EDIT.
+       COPY WS-VUFLIX.
        
        SCREEN SECTION.
        COPY SCREEN-VUFLIX-ID.
