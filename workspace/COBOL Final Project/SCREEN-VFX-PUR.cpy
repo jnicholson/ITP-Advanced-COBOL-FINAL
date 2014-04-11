@@ -20,7 +20,7 @@
                05  LINE 12 COL 31 VALUE "   3) GENRE  ".
                05  LINE 13 COL 31 VALUE "   4) PRICE ".
                05  LINE 22 COL 31 VALUE "Selection   (X=exit)".
-               05  LINE 22 COL 41 PIC X TO WS-SEL AUTO.
+               05  LINE 22 COL 41 PIC X TO VFX-3-SEL AUTO.
        
        01  PTSCREEN-LABEL.
            03  PURCHASETITLE.

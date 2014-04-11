@@ -27,7 +27,9 @@
                WHEN '2' CALL 'G3-VFX-2-EDIT'
                WHEN '3' CALL 'G3-VFX-3-PUR'
                WHEN '4' CALL 'G3-VFX-4-MOV-PUR'
-               WHEN '5' CALL 'G3-VFX-5-WISH'
+               WHEN '5' CALL 'G3-VFX-5-MOV-WISH'
+               WHEN '6' CALL 'G3-VFX-6-ADD-REM'
+               WHEN '7' CALL 'G3-VFX-7-MOV-INQ'
            END-EVALUATE
        END-PERFORM.
        EXIT PROGRAM.

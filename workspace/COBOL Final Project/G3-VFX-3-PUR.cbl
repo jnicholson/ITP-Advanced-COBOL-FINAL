@@ -6,17 +6,19 @@
       *THINGS TO DO: CURRENTLY ONLY DISPLAYS TITLES. NEEDS WAY TO 
       *              PURCHASE TITLES. NEED TO FINISH SORT SYSTEM.
       ******************************************************************
-       PROGRAM-ID. G3-VUFL-3-PT.
+       PROGRAM-ID. G3-VFX-3-PUR.
       ******************************************************************
        ENVIRONMENT DIVISION.
        COPY SELECT-VFX-MOV.
+       COPY SELECT-VFX-PUR.
       ******************************************************************
        DATA DIVISION.
        COPY FD-VFX-MOV.
+       COPY FD-VFX-PUR.
       * COPY SD-VUFL-3-PT-SORT.
        
        WORKING-STORAGE SECTION.
-       COPY WS-VFX-PUR.
+       COPY WS-VFX.
        
        SCREEN SECTION.
        COPY SCREEN-VFX-PUR.
@@ -28,30 +30,26 @@
        
        
        
-       PERFORM UNTIL WS-SEL = 'X' OR 'x'
+       PERFORM UNTIL VFX-3-SEL = 'X' OR 'x'
            DISPLAY PTSCREEN-HEADER
            DISPLAY PTSCREEN-SORT-MENU
            ACCEPT PTSCREEN-SORT-MENU
-           EVALUATE WS-SEL
+           EVALUATE VFX-3-SEL
                WHEN '1' PERFORM 100-SORT-ID
                WHEN '2' PERFORM 100-SORT-NAME
                WHEN '3' PERFORM 100-SORT-GENRE
                WHEN '4' PERFORM 100-SORT-PRICE
            END-EVALUATE
        END-PERFORM.
-       
-           EXIT PROGRAM.
-           STOP RUN.
-
-       
-      
+       CLOSE       VML-SORTED-FILE-TXT.
+       EXIT PROGRAM.
       *-----------------------------------------------------------------
        100-SORT-ID.
        SORT  SORT-FILE
                ON ASCENDING KEY SORT-ID-TXT 
                    USING  VML-FILE-TXT
                    GIVING VML-SORTED-FILE-TXT.
-       PERFORM 150-TEST.            
+       PERFORM 150-READ-FILE.            
      
       *---------------------------------------------------------------- -
        100-SORT-NAME.
@@ -83,26 +81,25 @@
        DISPLAY PTSCREEN-HEADER.
        DISPLAY PTSCREEN-LABEL.
        DISPLAY SPACES
-       
-       PERFORM UNTIL WS-EOF
+       OPEN INPUT  VML-SORTED-FILE-TXT.
+       PERFORM UNTIL VFX-3-EOF
                READ VML-SORTED-FILE-TXT      
                    AT END                
-                       MOVE 'Y' TO WS-EOF-FLAG 
+                       MOVE 'Y' TO VFX-3-EOF-FLAG 
                    NOT AT END
                        PERFORM 200-DISPLAY-TEST
            END-PERFORM.
-       ACCEPT WS-RESP.    
+       ACCEPT VFX-3-RESP.    
       *-----------------------------------------------------------------
        150-READ-FILE. 
        DISPLAY PTSCREEN-HEADER.
        DISPLAY PTSCREEN-LABEL.
        DISPLAY SPACES
-      
-      
-       PERFORM UNTIL WS-EOF
+       OPEN INPUT  VML-SORTED-FILE-TXT.
+       PERFORM UNTIL VFX-3-EOF
                READ VML-SORTED-FILE-TXT      
                    AT END                
-                       MOVE 'Y' TO WS-EOF-FLAG 
+                       MOVE 'Y' TO VFX-3-EOF-FLAG 
                    NOT AT END
                        PERFORM 200-DISPLAY
            END-PERFORM.
@@ -110,26 +107,26 @@
       *     CLOSE VML-FILE-TXT.
       
            DISPLAY END-FILE.
-           ACCEPT  WS-RESP.
+           ACCEPT  VFX-3-RESP.
        
       *-----------------------------------------------------------------
        200-DISPLAY.
-           ADD  1          TO WS-CTR
-           IF WS-CTR GREATER THAN 10
+           ADD  1          TO VFX-3-CTR
+           IF VFX-3-CTR GREATER THAN 10
       
                DISPLAY CONT-FILE
-               ACCEPT WS-RESP
+               ACCEPT VFX-3-RESP
                DISPLAY PTSCREEN-HEADER
                DISPLAY PTSCREEN-LABEL
       
                DISPLAY SPACES
-               MOVE 1 TO WS-CTR.
+               MOVE 1 TO VFX-3-CTR.
 
-           MOVE VML-SORTED-ID-TXT     TO WS-ID.
-           MOVE VML-SORTED-TITLE-TXT  TO WS-TITLE.
-           MOVE VML-SORTED-GENRE-TXT  TO WS-GENRE.
-           MOVE VML-SORTED-PRICE-TXT  TO WS-PRICE.
-           DISPLAY WS-VML-LINE.
+           MOVE VML-SORTED-ID-TXT     TO VFX-3-ID.
+           MOVE VML-SORTED-TITLE-TXT  TO VFX-3-TITLE.
+           MOVE VML-SORTED-GENRE-TXT  TO VFX-3-GENRE.
+           MOVE VML-SORTED-PRICE-TXT  TO VFX-3-PRICE.
+           DISPLAY VFX-3-VML-LINE.
       *----------------------------------------------------------------- 
        200-DISPLAY-TEST.
        DISPLAY "TEST".
