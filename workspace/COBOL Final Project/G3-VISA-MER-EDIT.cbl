@@ -13,84 +13,125 @@
        COPY FD-MER.
        
        WORKING-STORAGE SECTION.
-       COPY WS-MER-EDIT.
+       COPY WS-MER.
        
-       01 WS-FILE            PIC X(20) VALUE "G3-VISA-MER-EDIT".
+       01 WS-CTR    PIC 99.
+       01 WS-SCTR    PIC 99.
+       01 WS-BLANKS  PIC X(25) VALUE SPACES.
        
        SCREEN SECTION.
        COPY SCREEN-VISA-MER-CHECK.
        COPY SCREEN-VISA-MER-ID.
        COPY SCREEN-VISA-MER-EDIT.
       ******************************************************************
-       PROCEDURE DIVISION.
+        PROCEDURE DIVISION.
        000-MAIN.
        MOVE FUNCTION CURRENT-DATE TO WS-TSTAMP.
+       MOVE 'G3-VISA-MER-EDIT' TO VISA-M-PROG.
        OPEN I-O MER-FILE.
+       PERFORM 100-CHECK.
+       PERFORM 300-EDIT.
+       CLOSE MER-FILE.
+       EXIT PROGRAM.
+      ******************************************************************
+       100-CHECK.
        DISPLAY IDSCREEN.
-       ACCEPT WS-SEARCH-ID.
-       PERFORM UNTIL WS-CHECK = 'Y' OR 'y'
-           MOVE WS-SEARCH-ID TO MER-ID
+       ACCEPT CHOOSEID.
+       IF VISA-MER-SEARCH-ID = '99999999'
+           EXIT PROGRAM
+       END-IF.
+       PERFORM UNTIL VISA-MER-CHECK = 'Y' OR 'y'
+           MOVE SPACES TO VISA-MER-CHECK
+           MOVE VISA-MER-SEARCH-ID TO MER-ID
            READ MER-FILE
                INVALID KEY
-                   DISPLAY 'INVALID ID'
+                   MOVE 'INVALID ID' TO VISA-MER-MSG
                NOT INVALID KEY
-                   PERFORM 100-MOVE
+                   MOVE SPACES TO VISA-MER-MSG
+                   PERFORM 200-MOVE
            END-READ
+           IF VISA-MER-RESP = 'C' OR 'c'
+               CONTINUE
+           ELSE
+               DISPLAY IDSCREEN
+               ACCEPT CHOOSEID
+           END-IF
        END-PERFORM.
-       PERFORM UNTIL WS-CHECK = 'S' OR 's'
-           MOVE SPACES TO WS-CHECK
-           MOVE SPACES TO WS-EDIT
+       PERFORM UNTIL VISA-MER-CHECK = 'S' OR 's'
+           MOVE SPACES TO VISA-MER-CHECK
+           PERFORM 400-EDIT-LOAD
            DISPLAY EDITSCREEN
-           ACCEPT  WS-EDIT-ID
-           ACCEPT  WS-EDIT-NAME
-           ACCEPT  WS-EDIT-ADDRESS
-           ACCEPT  WS-EDIT-ZIP
-           ACCEPT  WS-EDIT-PHONE
-           ACCEPT  WS-EDIT-EMAIL
-           ACCEPT  WS-EDIT-CC
-           ACCEPT  WS-CHECK
+           ACCEPT  E-NAME
+           ACCEPT  E-ADDRESS
+           ACCEPT  E-ZIP
+           ACCEPT  E-PHONE
+           ACCEPT  E-ACCOUNT
+           ACCEPT  E-ROUTE
+           ACCEPT  E-SEL
+           IF VISA-MER-CHECK = 'R' OR 'r'
+               MOVE SPACES TO VISA-MER-CHECK
+               CLOSE MER-FILE
+               PERFORM 000-MAIN
+           END-IF
        END-PERFORM.
-      *****ARE WE WRITING TO THE .TXT OR THE .DAT?
-      *****IF WE WRITE TO THE .TXT, WILL WE HAVE TO RE-BUILD?
-      *****IF WE WRITE TO THE .DAT, DOES THAT AVOID RE-BUILDING?
-      *****IF SO, WHY DIDN'T WE JUST START WITH .DAT FILES?
-      *****PRETTY SURE WE WILL HAVE TO WRITE TO .TXT AND RE-BUILD
-      *****WROTE THE CODE FOR THE .DAT WAY
-       MOVE WS-SEARCH-ID TO MER-ID
-       READ MER-FILE
-           INVALID KEY
-               DISPLAY 'INVALID ID'
-           NOT INVALID KEY
-               PERFORM 200-EDIT
-       END-READ.
-       
-       CLOSE MER-FILE.
-       STOP RUN.
       ******************************************************************
-       100-MOVE.
-       MOVE SPACES     TO WS-ORIG.
-       MOVE MER-ID      TO WS-ORIG-ID.
-       MOVE MER-NAME    TO WS-ORIG-NAME.
-       MOVE MER-ADDRESS TO WS-ORIG-ADDRESS.
-       MOVE MER-PHONE   TO WS-ORIG-PHONE.
-       MOVE MER-ZIP     TO WS-ORIG-ZIP.
-       
+       200-MOVE.
+       MOVE 'C'         TO VISA-MER-RESP.
+       MOVE SPACES      TO VISA-MER-ORIG.
+       MOVE MER-ID      TO VISA-MER-ORIG-ID.
+       MOVE MER-NAME    TO VISA-MER-ORIG-NAME.
+       MOVE MER-ADDRESS    TO VISA-MER-ORIG-ADDRESS.
+       MOVE MER-PHONE      TO VISA-MER-ORIG-PHONE.
+       MOVE MER-ZIP        TO VISA-MER-ORIG-ZIP.
+       MOVE MER-ACCOUNT    TO VISA-MER-ORIG-ACCT.
+       MOVE MER-ROUTE      TO VISA-MER-ORIG-ROUTE
        DISPLAY CHECKSCREEN.
-       ACCEPT WS-CHECK.
+       ACCEPT CHECK.
+       IF VISA-MER-CHECK = 'Y' OR 'y'
+           CONTINUE
+       ELSE
+           MOVE SPACES TO VISA-MER-RESP
+           PERFORM 100-CHECK
+       END-IF.
       ******************************************************************
-       200-EDIT.
-       IF WS-EDIT-ID NOT EQUAL SPACES
-           MOVE WS-EDIT-ID TO MER-ID
+       300-EDIT.
+       DISPLAY BLANK-SCREEN.
+       DISPLAY 'EDITING...'
+       DISPLAY "PRESS 'ENTER' TO CONTINUE".
+       ACCEPT VISA-MER-RESP.
+       IF VISA-MER-EDIT-NAME NOT EQUAL SPACES 
+           MOVE VISA-MER-EDIT-NAME TO MER-NAME
        END-IF.
-       IF WS-EDIT-NAME NOT EQUAL SPACES 
-           MOVE WS-EDIT-NAME TO MER-NAME
+       IF VISA-MER-EDIT-ADDRESS NOT EQUAL SPACES
+           MOVE VISA-MER-EDIT-ADDRESS TO MER-ADDRESS
        END-IF.
-       IF WS-EDIT-ADDRESS NOT EQUAL SPACES
-           MOVE WS-EDIT-ADDRESS TO MER-ADDRESS
+       IF VISA-MER-EDIT-ZIP NOT EQUAL SPACES
+           MOVE VISA-MER-EDIT-ZIP TO MER-ZIP
        END-IF.
-       IF WS-EDIT-ZIP NOT EQUAL SPACES
-           MOVE WS-EDIT-ZIP TO MER-ZIP
+       IF VISA-MER-EDIT-PHONE NOT EQUAL SPACES
+           MOVE VISA-MER-EDIT-PHONE TO MER-PHONE
        END-IF.
-       IF WS-EDIT-PHONE NOT EQUAL SPACES
-           MOVE WS-EDIT-PHONE TO MER-PHONE
+       IF VISA-MER-EDIT-ACCT NOT EQUAL SPACES
+           MOVE VISA-MER-EDIT-ACCT TO MER-ACCOUNT
        END-IF.
+       IF VISA-MER-EDIT-ROUTE NOT EQUAL SPACES
+           MOVE VISA-MER-EDIT-ROUTE TO MER-ROUTE
+       END-IF.
+       REWRITE MER-REC.
+       DISPLAY BLANK-SCREEN.
+       DISPLAY 'RETURNING TO VISA MENU'.
+       DISPLAY "PRESS 'ENTER' TO RETURN".
+      ******************************************************************
+       400-EDIT-LOAD.
+       INSPECT FUNCTION REVERSE(MER-NAME) 
+       TALLYING WS-CTR FOR LEADING SPACES.                        
+       COMPUTE WS-SCTR = 25 - WS-CTR.
+       STRING WS-BLANKS(1:WS-CTR), MER-NAME(1:WS-SCTR) INTO 
+       VISA-MER-ORIG-NAME.
+       MOVE ZERO TO WS-CTR.
+       INSPECT FUNCTION REVERSE(MER-ADDRESS) 
+       TALLYING WS-CTR FOR LEADING SPACES.                        
+       COMPUTE WS-SCTR = 25 - WS-CTR.
+       STRING WS-BLANKS(1:WS-CTR), MER-ADDRESS(1:WS-SCTR) INTO 
+       VISA-MER-ORIG-ADDRESS.
+       MOVE ZERO TO WS-CTR.
