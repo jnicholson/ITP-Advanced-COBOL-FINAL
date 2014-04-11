@@ -1,4 +1,10 @@
-       program-id. G3_DATA_BUILD as "G3_DATA_BUILD".
+      ******************************************************************
+      *PROGRAM : MASTER BUILD PROGRAM                                  *
+      *AUTHOR  : D. Sawyer                                             *
+      *DATE    : 04/09/2014                                            *
+      *ABSTRACT: Calls all build programs for project                  *
+      ******************************************************************
+       program-id. G3_BUILD.
       *----------------------------------------------------------------- 
        environment division.
        configuration section.
@@ -14,6 +20,7 @@
        
       *-----------------------------------------------------------------
        procedure division.
+       100-MAIN.
        DISPLAY BLANK-SCREEN.
        DISPLAY 'About to rebuild all ISAM Files, press Y and ENTER to 
       - 'continue'.
@@ -30,4 +37,4 @@
        CALL 'G3-BLD-VFX-MBR'.
        
        EXIT PROGRAM.
-       end program G3_DATA_BUILD.
+       

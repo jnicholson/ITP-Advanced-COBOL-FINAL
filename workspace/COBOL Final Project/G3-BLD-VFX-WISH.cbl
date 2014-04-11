@@ -1,9 +1,15 @@
-       program-id. G3_BUILD_VUFLIX_WISHLIST.
-
+      ******************************************************************
+      *PROGRAM : Build program for wishlist file                       *
+      *AUTHOR  : D. Sawyer                                             *
+      *DATE    : 04/09/2014                                            *
+      *ABSTRACT: Builds isam for wishlist file.                        *
+      ****************************************************************** 
+       program-id. G3_BLD_VFX_WISH.
+      *----------------------------------------------------------------- 
        environment division.
        COPY SELECT-VFX-WISH.
        configuration section.
-       
+      *----------------------------------------------------------------- 
        data division.
        COPY FD-VFX-WISH.
        working-storage section.
@@ -13,9 +19,9 @@
          03  WS-CHECK                    PIC X.
          03  WS-COUNTER                  PIC 9(4) VALUE ZERO.
 
-
+      *----------------------------------------------------------------- 
        procedure division.
-       
+       100-MAIN.
            OPEN INPUT VW-FILE-TXT.
            OPEN OUTPUT VW-FILE.
            PERFORM UNTIL WS-CHECK = 'Y'
@@ -32,4 +38,4 @@
            CLOSE VW-FILE-TXT
                  VW-FILE.
            EXIT PROGRAM.
-       end program G3_BUILD_VUFLIX_WISHLIST.
+

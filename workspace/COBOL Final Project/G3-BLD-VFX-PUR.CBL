@@ -1,9 +1,15 @@
-       program-id. G3_BUILD_VUFLIX_PURCHASED.
-
+      ******************************************************************
+      *PROGRAM : Build program for purchase file                       *
+      *AUTHOR  : D. Sawyer                                             *
+      *DATE    : 04/09/2014                                            *
+      *ABSTRACT: Builds isam for purchase records                      *
+      ******************************************************************
+       program-id. G3_BLD_VFX_PUR.
+      *----------------------------------------------------------------- 
        environment division.
        COPY SELECT-VFX-PUR.
        configuration section.
-
+      *----------------------------------------------------------------- 
        data division.
        COPY FD-VFX-PUR.
        working-storage section.
@@ -13,9 +19,9 @@
            03  WS-CHECK                    PIC X.
            03  WS-COUNTER                  PIC 9(4) VALUE ZERO.
 
-
+      *----------------------------------------------------------------- 
        procedure division.
-       
+       100-MAIN.
        
            OPEN INPUT VTP-FILE-TXT.
            OPEN OUTPUT VTP-FILE.
@@ -36,4 +42,4 @@
            EXIT PROGRAM.
        
 
-       end program G3_BUILD_VUFLIX_PURCHASED.
+

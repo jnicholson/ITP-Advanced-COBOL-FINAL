@@ -1,4 +1,10 @@
-       program-id. G3_BUILD_VISA_MERCHANT_LOCATION.
+      ******************************************************************
+      *PROGRAM : Build program for merchant location file              *
+      *AUTHOR  : D. Sawyer                                             *
+      *DATE    : 04/09/2014                                            *
+      *ABSTRACT: Builds isam for merchant location file.               *
+      ****************************************************************** 
+       program-id. G3_BLD_VISA_MERLOC.
 
        environment division.
        COPY SELECT-MERLOC.
@@ -32,7 +38,7 @@
           CLOSE MERLOC-FILE-TXT
                 MERLOC-FILE.
 
-
+           EXIT PROGRAM.
       
 
-       end program G3_BUILD_VISA_MERCHANT_LOCATION.
+       

@@ -1,9 +1,15 @@
-       program-id. G3_BUILD_VISA_MERCHANT.
-
+      ******************************************************************
+      *PROGRAM : Build program for merhcant file                       *
+      *AUTHOR  : D. Sawyer                                             *
+      *DATE    : 04/09/2014                                            *
+      *ABSTRACT: Builds isam for merchant file.                        *
+      ****************************************************************** 
+       program-id. G3_BLD_VISA_MER.
+      *----------------------------------------------------------------- 
        environment division.
        configuration section.
        COPY SELECT-MER.
-
+      *----------------------------------------------------------------- 
        data division.
        COPY FD-MER.
        working-storage section.
@@ -12,9 +18,9 @@
            03  WS-STAT                     PIC XX.
            03  WS-CHECK                    PIC X.
            03  WS-COUNTER                  PIC 9(4) VALUE ZERO.
-           
+      *-----------------------------------------------------------------     
        procedure division.
-       
+       100-MAIN.
            OPEN INPUT MER-FILE-TXT.
            OPEN OUTPUT MER-FILE.
            PERFORM UNTIL WS-CHECK = 'Y'
@@ -32,4 +38,4 @@
                 MER-FILE.
            EXIT PROGRAM.
 
-       end program G3_BUILD_VISA_MERCHANT.
+
