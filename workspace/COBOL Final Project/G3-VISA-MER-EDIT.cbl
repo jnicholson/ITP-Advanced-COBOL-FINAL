@@ -1,5 +1,5 @@
       ******************************************************************
-      *PROGRAM:  Merchant Edit Account Page
+      *PROGRAM:  Merchant Edit Page
       *AUTHOR:   Jesse Nicholson
       *DATE:     4/7/2014   
       *ABSTRACT: 

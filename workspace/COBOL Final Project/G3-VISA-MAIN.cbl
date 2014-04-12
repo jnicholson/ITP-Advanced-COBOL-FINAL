@@ -45,7 +45,7 @@
            DISPLAY MENUSCREEN
            ACCEPT MENUSCREEN
            EVALUATE WS-SEL
-               WHEN '1' CALL 'G3-VISA-ISSUER-SIGNUP'
+               WHEN '1' CALL 'G3-VISA-ISS-ADD'
                WHEN '2' CALL 'G3-VISA-MER-MAIN'
                WHEN '3'
            END-EVALUATE

@@ -1,10 +1,10 @@
       ******************************************************************
-      *PROGRAM:  Merchant Signup Account Page
+      *PROGRAM:  Merchant Add Page
       *AUTHOR:   Jesse Nicholson
       *DATE:     4/7/2014   
       *ABSTRACT: 
       ******************************************************************
-       PROGRAM-ID. G3-VISA-MER-SIGNUP.
+       PROGRAM-ID. G3-VISA-MER-ADD.
       ******************************************************************
        ENVIRONMENT DIVISION.
        COPY SELECT-MER.
@@ -13,20 +13,45 @@
        COPY FD-MER.
        
        WORKING-STORAGE SECTION.
-       COPY WS-MER-EDIT.
-       
-       01 WS-FILE      PIC X(20) VALUE "G3-VISA-MER-SIGNUP".
+       COPY WS-MER.
        
        SCREEN SECTION.
-       COPY SCREEN-MER-ADD.
+       COPY SCREEN-VISA-MER-ADD.
       ******************************************************************
        PROCEDURE DIVISION.
        000-MAIN.
-           MOVE FUNCTION CURRENT-DATE TO WS-TSTAMP.
+           MOVE FUNCTION CURRENT-DATE TO WS-TSTAMP
+           MOVE "G3-VISA-MER-ADD" TO VISA-M-PROG
+           OPEN I-O MER-FILE
            DISPLAY SIGNUPSCREEN
-           ACCEPT  WS-EDIT-ID
-           ACCEPT  WS-EDIT-NAME
-           ACCEPT  WS-EDIT-ADDRESS
-           ACCEPT  WS-EDIT-ZIP
-           ACCEPT SIGNUPSCREEN.
+       PERFORM UNTIL VISA-M-SEL = 's' OR 'S'
+           ACCEPT  E-ID
+           ACCEPT  E-NAME
+           ACCEPT  E-ADDRESS
+           ACCEPT  E-ZIP
+           ACCEPT  E-PHONE
+           ACCEPT  E-ACCOUNT
+           ACCEPT  E-ROUTE
+           ACCEPT  E-SEL
+       END-PERFORM
+           PERFORM 200-ADD
+           CLOSE MER-FILE.
+           EXIT PROGRAM..
+      ******************************************************************
+       200-ADD.
+           DISPLAY BLANK-SCREEN.
+           DISPLAY 'CREATING...'
+           DISPLAY "PRESS 'ENTER' TO CONTINUE".
+           ACCEPT VISA-MER-RESP.
+           MOVE VISA-MER-EDIT-ID TO MER-ID
+           MOVE VISA-MER-EDIT-NAME TO MER-NAME
+           MOVE VISA-MER-EDIT-ADDRESS TO MER-ADDRESS
+           MOVE VISA-MER-EDIT-ZIP TO MER-ZIP
+           MOVE VISA-MER-EDIT-PHONE TO MER-PHONE
+           MOVE VISA-MER-EDIT-ACCT TO MER-ACCOUNT
+           MOVE VISA-MER-EDIT-ROUTE TO MER-ROUTE
+           WRITE MER-REC.
+           DISPLAY BLANK-SCREEN.
+           DISPLAY 'RETURNING TO VISA MENU'.
+           DISPLAY "PRESS 'ENTER' TO RETURN".
            
