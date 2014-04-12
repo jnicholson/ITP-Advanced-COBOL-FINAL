@@ -1,4 +1,11 @@
-      *Skeleton COBOL Copybook
+      *******************************************************************
+      * FILE         : SCREEN-ISS              
+      * AUTHOR       : Dustyne Brown                                    *
+      * DATE         : 4/8/14                                           *
+      * LAST EDIT    : 4/12/14                                          *
+      * PURPOSE      : PROVIDE ALL VARIABLES NEEDED IN ORDER TO PROVIDE *
+      *                    CONTROL FOR THE G3-VISA-ISS-ADD PROGRAM      *
+      *******************************************************************     
        01  WS-TIME-LOG.
            03  WS-DATE.
                05  WS-YEAR             PIC X(4).
@@ -10,29 +17,37 @@
                
        01  WS-SCREEN-NAVIGATION-VARIABLES.
            03  WS-ACTION-SELECTION         PIC X.
-           03  WS-SEARCH-SELECTION         PIC X.
-           03  WS-SEARCH-ENTRY.
-               05  WS-SEARCH-ID            PIC X(6).
-               05  WS-SEARCH-NAME         PIC X(40).
-               05  WS-SEARCH-ADDRESS.
-                   07  WS-SEARCH-ADDRESS-STREET    PIC X(20).
-                   07  WS-SEARCH-ADDRESS-CITY      PIC X(20).
-                   07  WS-SEARCH-ADDRESS-ZIP       PIC 9(5).
-                   07  WS-SEARCH-ADDRESS-STATE     PIC X(2).
-               05  WS-SEARCH-CREDITCARD    PIC 9(19).
+           03  WS-FILE-FOUND              PIC X VALUE 'N'.
+               88  WS-FILE                      VALUE 'Y'.
                
-       01  WS-EDITOR.
-           03  WS-EDITOR.
-               05  WS-ISS-ID          PIC X(6).
-               05  WS-ISS-NAME        PIC X(40).
-               05  WS-ISS-LNAME        PIC X(40).
-               05  WS-ISS-ADDRESS     PIC X(40).
-               05  WS-ISS-ZIP         PIC 9(5).
-               05  WS-ISS-CC          PIC X(19).
-               05  WS-ISS-EMAIL       PIC X(20).
+       01  WS-ISSUER-DATA.
+               03  WS-ISS-ORIG.
+                   05  WS-ORIG-ID               PIC 9(3).
+                   05  WS-ORIG-NAME             PIC X(20).
+                   05  WS-ORIG-ADDRESS.
+                       07  WS-ORIG-STREET  PIC X(20).
+                       07  WS-ORIG-CITY    PIC X(20).
+                       07  WS-ORIG-ZIP     PIC 9(5).
+                       07  WS-ORIG-STATE   PIC X(2).
+                   05  WS-ORIG-EMAIL        PIC X(20).
+                   05  WS-ORIG-PHONE       PIC 9(11).
+               03  WS-ISS-EDIT.
+                   05  WS-EDIT-ID               PIC 9(3).
+                   05  WS-EDIT-NAME             PIC X(20).
+                   05  WS-EDIT-ADDRESS.
+                       07  WS-EDIT-STREET  PIC X(20).
+                       07  WS-EDIT-CITY    PIC X(20).
+                       07  WS-EDIT-ZIP     PIC 9(5).
+                       07  WS-EDIT-STATE   PIC X(2).
+                   05  WS-EDIT-EMAIL        PIC X(20).
+                   05  WS-EDIT-PHONE       PIC 9(11).
                
        01  WS-WORK-VARIABLES.
            03  WS-EOF-FLAGGER          PIC X VALUE 'N'.
                88  WS-EOF                    VALUE 'Y'.
+           03  WS-TEMP-FILE-STORAGE    PIC X(111) OCCURS 50 TIMES.
+           03  WS-X                    PIC 99 VALUE 1.
+           03  WS-Y                    PIC 99 VALUE 1.
+           03  WS-Z                    PIC 99 VALUE 1.
 
 

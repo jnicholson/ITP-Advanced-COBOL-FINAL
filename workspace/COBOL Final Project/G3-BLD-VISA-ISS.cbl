@@ -1,25 +1,37 @@
-      ******************************************************************
-      *PROGRAM : Build program for issuer file                         *
-      *AUTHOR  : D. Sawyer                                             *
-      *DATE    : 04/09/2014                                            *
-      *ABSTRACT: Builds isam for issuer file.                          *
-      ****************************************************************** 
-       program-id. G3_BLD_VISA_ISS.
-      *----------------------------------------------------------------- 
-       environment division.
+      *******************************************************************
+      *PROGRAM : Build program for issuer file                          *
+      *AUTHOR  : D. Sawyer,    Dustyne Brown                            *
+      *DATE    : 04/09/2014    4/11/12                                  *
+      *ABSTRACT: Builds isam for issuer file.                           *
+      *******************************************************************
+       
+       PROGRAM-ID. G3_BLD_VISA_ISS.
+       
+      *=================================================================*
+       
+       ENVIRONMENT DIVISION.
+       
        COPY SELECT-ISS.
-       configuration section.
-      *----------------------------------------------------------------- 
-       data division.
+       
+      *=================================================================*
+       
+       DATA DIVISION.
+       
        COPY FD-ISS.
-       working-storage section.
+       
+      *-----------------------------------------------------------------*
+       
+       WORKING-STORAGE SECTION.
 
        01  MISC.
-           03  WS-STAT                     PIC XX.
+           03  WS-STAT                     PIC XX VALUE ZEROS.
            03  WS-CHECK                    PIC X.
            03  WS-COUNTER                  PIC 9(4) VALUE ZERO.
-      *----------------------------------------------------------------- 
-       procedure division.
+           
+      *=================================================================*
+       
+       PROCEDURE DIVISION.
+       
        100-MAIN.
            OPEN INPUT ISS-FILE-TXT.
            OPEN OUTPUT ISS-FILE.
@@ -28,7 +40,8 @@
                    AT END
                        MOVE 'Y' TO WS-CHECK
                    NOT AT END
-                       WRITE ISS-REC FROM ISS-REC-TXT
+                       WRITE ISS-REC FROM ISS-REC-TXT BEFORE ADVANCING 1
+                                                      LINE
                        ADD 1 TO WS-COUNTER
            END-PERFORM.
            DISPLAY "G3_BUILD_VISA_ISSUER".
