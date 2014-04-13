@@ -42,6 +42,8 @@
        01  VFX-3-VARS.
            03  VFX-3-RESP              PIC X       VALUE SPACES.
            03  VFX-3-SEL               PIC X       VALUE SPACES.
+           03  VFX-3-MORE-SEL          PIC X       VALUE 'Y'.
+           03  VFX-3-PUR-SEL           PIC X(8)    VALUE SPACES.
            03  VFX-3-CTR               PIC 99      VALUE ZERO.
            03  VFX-3-EOF-FLAG          PIC X       VALUE 'N'.
                88  VFX-3-EOF                       VALUE 'Y'.

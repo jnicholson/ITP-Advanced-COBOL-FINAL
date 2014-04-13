@@ -14,10 +14,10 @@
                
        01 PTSCREEN-SORT-MENU.
            03 PURCHASETITLE.
-               05  LINE 08 COL 31 VALUE "      SORT BY      ".
-               05  LINE 10 COL 31 VALUE "   1) ID   ".
-               05  LINE 11 COL 31 VALUE "   2) NAME     ".
-               05  LINE 12 COL 31 VALUE "   3) GENRE  ".
+               05  LINE 08 COL 31 VALUE "      SORT BY".
+               05  LINE 10 COL 31 VALUE "   1) ID".
+               05  LINE 11 COL 31 VALUE "   2) NAME".
+               05  LINE 12 COL 31 VALUE "   3) GENRE".
                05  LINE 13 COL 31 VALUE "   4) PRICE ".
                05  LINE 22 COL 31 VALUE "Selection   (X=exit)".
                05  LINE 22 COL 41 PIC X TO VFX-3-SEL AUTO.
@@ -30,12 +30,29 @@
                05  LINE 04 COL 57 VALUE "PRICE".
                
        01  CONT-FILE.
-           05  LINE 25 COL 01 VALUE "PRESS ENTER TO CONTINUE".
+           05  LINE 23 COL 01 VALUE "PRESS ENTER TO CONTINUE OR X TO MAK
+      -     "E A SELECTION ".
            
-       01  END-FILE.
-           05  LINE 25 COL 01 VALUE "PRESS ENTER TO EXIT".
+       01  END-FILE.                                                    
+           05  LINE 23 COL 01 VALUE "PRESS ENTER TO EXIT OR X TO MAKE A
+      -     "SELECTION ".
       
-              
+       01  PTSCREEN-PURCHASE.
+               05  LINE 25 COL 01 VALUE "ENTER MOVIE ID:".
+               05  LINE 25 COL 17 PIC X(8) TO VFX-3-PUR-SEL AUTO.
+               
+       
+       01  PTSCREEN-PURCHASE-MORE.
+               05 BLANK LINE.
+               05  LINE 24 COL 01 VALUE "PURCHASED.".
+               05  LINE 25 COL 01 VALUE "PRESS Y TO PURCHASE ANOTHER MOV
+      -         "IE OR N TO EXIT MOVIE SELECTION.".
+                      
+               05  LINE 25 COL 64 PIC X TO VFX-3-SEL AUTO.
+       01 PTSCREEN-ERROR.
+           05 BLANK LINE.
+           05  LINE 25 COL 01 VALUE "INVALID ENTRY". 
+               
   
 
 
