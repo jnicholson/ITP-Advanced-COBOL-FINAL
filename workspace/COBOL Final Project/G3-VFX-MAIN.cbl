@@ -13,7 +13,7 @@
        WORKING-STORAGE SECTION.
        COPY WS-VFX.
        SCREEN SECTION.
-       COPY SCREEN-VFX.
+       COPY SCREEN-VFX-MENU.
       ******************************************************************
        PROCEDURE DIVISION.
        000-MAIN.

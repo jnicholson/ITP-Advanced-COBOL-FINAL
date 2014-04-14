@@ -12,13 +12,12 @@
        DATA DIVISION.
        FILE SECTION.
        COPY FD-VFX-MBR.
+       
        WORKING-STORAGE SECTION.
        COPY WS-VFX.
        
        SCREEN SECTION.
-       COPY SCREEN-VFX-ID.
-       COPY SCREEN-VFX-CHECK.
-       COPY SCREEN-VFX-EDIT.
+       COPY SCREEN-VFX-2-EDIT.
       ******************************************************************
        PROCEDURE DIVISION.
        000-MAIN.
