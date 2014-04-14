@@ -1,12 +1,13 @@
       *Skeleton COBOL Copybook - JARROD LEE - 4/7/2014
        01  WS-STAT                     PIC XX.
+       01  WS-SEL                      PIC X.
        
        01  WS-TSTAMP.
-           03  WS-YEAR                     PIC XXXX.
-           03  WS-MONTH                    PIC XX.
-           03  WS-DAY                      PIC XX.
-           03  WS-HOUR                     PIC XX.
-           03  WS-MINUTE                   PIC XX.
+           03  WS-YEAR                 PIC XXXX.
+           03  WS-MONTH                PIC XX.
+           03  WS-DAY                  PIC XX.
+           03  WS-HOUR                 PIC XX.
+           03  WS-MINUTE               PIC XX.
        
        01  VFX-M-VARS.
            03  VFX-M-SEL               PIC X.
@@ -42,11 +43,23 @@
        01  VFX-3-VARS.
            03  VFX-3-RESP              PIC X       VALUE SPACES.
            03  VFX-3-SEL               PIC X       VALUE SPACES.
-           03  VFX-3-MORE-SEL          PIC X       VALUE 'Y'.
-           03  VFX-3-PUR-SEL           PIC X(8)    VALUE SPACES.
+           03  VFX-3-CHECK             PIC X       VALUE SPACES.
            03  VFX-3-CTR               PIC 99      VALUE ZERO.
            03  VFX-3-EOF-FLAG          PIC X       VALUE 'N'.
                88  VFX-3-EOF                       VALUE 'Y'.
+           03  VFX-3-SEARCH-ID         PIC 9(8).
+           03  VFX-3-VML-ID            PIC 9(8).
+           03  VFX-3-VTP-ID            PIC 9(8).
+           03  VFX-3-EDITOR.
+               05  VFX-3-ORIG.
+                   07  VFX-3-ORIG-ID              PIC 9(8).
+                   07  VFX-3-ORIG-FNAME           PIC X(15).
+                   07  VFX-3-ORIG-LNAME           PIC X(15).
+                   07  VFX-3-ORIG-ADDRESS         PIC X(20).
+                   07  VFX-3-ORIG-PHONE           PIC 9(11).
+                   07  VFX-3-ORIG-EMAIL           PIC X(30).
+                   07  VFX-3-ORIG-ZIP             PIC 9(5).
+                   07  VFX-3-ORIG-CC              PIC 9(16).
            03  VFX-3-VML-LINE.
                05  VFX-3-ID            PIC X(8).
                05  FILLER              PIC X       VALUE SPACES.

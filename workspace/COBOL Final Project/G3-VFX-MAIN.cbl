@@ -32,5 +32,5 @@
                WHEN '7' CALL 'G3-VFX-7-MOV-INQ'
            END-EVALUATE
        END-PERFORM.
-       EXIT PROGRAM.
+       GOBACK.
                

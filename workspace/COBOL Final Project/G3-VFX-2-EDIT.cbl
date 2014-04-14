@@ -27,13 +27,13 @@
        PERFORM 100-CHECK.
        PERFORM 300-EDIT.
        CLOSE VM-FILE.
-       EXIT PROGRAM.
+       GOBACK.
       ******************************************************************
        100-CHECK.
        DISPLAY IDSCREEN.
        ACCEPT CHOOSEID.
        IF VFX-2-SEARCH-ID = '99999999'
-           EXIT PROGRAM
+           GOBACK
        END-IF.
        PERFORM UNTIL VFX-2-CHECK = 'Y' OR 'y'
            MOVE SPACES TO VFX-2-CHECK

@@ -39,7 +39,7 @@
       
        01  PTSCREEN-PURCHASE.
                05  LINE 25 COL 01 VALUE "ENTER MOVIE ID:".
-               05  LINE 25 COL 17 PIC X(8) TO VFX-3-PUR-SEL AUTO.
+               05  LINE 25 COL 17 PIC X(8) TO VFX-3-PUR-ID AUTO.
                
        
        01  PTSCREEN-PURCHASE-MORE.

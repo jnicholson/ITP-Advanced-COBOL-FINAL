@@ -79,12 +79,35 @@
                05  LINE 04 COL 57 VALUE "PRICE".
                
        01  CONT-FILE.
-           05  LINE 25 COL 01 VALUE "PRESS ENTER TO CONTINUE".
+           03  LINE 21 COL 01 VALUE "PRESS 'P' FOR PURCHASE, ".
+           03  LINE 21 COL 24 VALUE "'W' FOR WISHLIST, ".
+           03  LINE 21 COL 42 VALUE "OR 'N' FOR NEXT PAGE".
+           03  LINE 21 COL 64 PIC X TO VFX-3-RESP AUTO.
            
        01  END-FILE.
-           05  LINE 25 COL 01 VALUE "PRESS ENTER TO EXIT".
+           03  LINE 21 COL 01 VALUE "PRESS 'P' FOR PURCHASE, ".
+           03  LINE 21 COL 24 VALUE "'W' FOR WISHLIST, ".
+           03  LINE 21 COL 42 VALUE "OR 'E' TO EXIT".
+           03  LINE 21 COL 64 PIC X TO VFX-3-RESP AUTO.
+           03  LINE 22 COL 01 VALUE "(HIT ENTER TO ACCEPT)".
       
-              
+       01  PTSCREEN-PURCHASE.
+           03  LINE 23 COL 01 VALUE "ENTER MOVIE ID:".
+           03  LINE 23 COL 17 PIC X(8) TO VFX-3-VML-ID 
+                                       FULL REQUIRED AUTO.
+       01  PURCHASED.
+           03  LINE 24 COL 01 VALUE "PURCHASE COMPLETE!".
+       
+       01  PTSCREEN-PURCHASE-MORE.
+               05 BLANK LINE.
+               05  LINE 24 COL 01 VALUE "PURCHASED.".
+               05  LINE 25 COL 01 VALUE "PRESS Y TO PURCHASE ANOTHER MOV
+      -         "IE OR N TO EXIT MOVIE SELECTION.".
+               05  LINE 25 COL 64 PIC X TO VFX-3-SEL AUTO.
+               
+       01 PTSCREEN-ERROR.
+           05 BLANK LINE.
+           05  LINE 25 COL 01 VALUE "INVALID ENTRY".        
   
 
 
