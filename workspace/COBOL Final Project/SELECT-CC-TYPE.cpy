@@ -5,5 +5,8 @@
        
        SELECT CTY-FILE 
                ASSIGN TO 'CC-TYPE.DAT'
-               ORGANIZATION IS INDEXED.
+               ORGANIZATION IS INDEXED
+               ACCESS MODE IS DYNAMIC
+               RECORD KEY IS CC-TYPE-ID-KEY
+               FILE STATUS IS WS-STAT.
 

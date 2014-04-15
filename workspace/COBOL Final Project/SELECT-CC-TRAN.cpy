@@ -5,6 +5,7 @@
                
        SELECT CCT-FILE
                ASSIGN TO "CC-TRAN.DAT"
-               ORGANIZATION IS INDEXED.
-
-
+               ORGANIZATION IS INDEXED
+               ACCESS MODE IS DYNAMIC
+               RECORD KEY IS CC-TRAN-ID-KEY
+               FILE STATUS IS WS-STAT.

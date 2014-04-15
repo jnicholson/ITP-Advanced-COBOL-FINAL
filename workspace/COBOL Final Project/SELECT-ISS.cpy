@@ -12,7 +12,9 @@
                
        SELECT ISS-FILE
                ASSIGN TO 'ISS.DAT'
-               ORGANIZATION IS LINE SEQUENTIAL.
+               ORGANIZATION IS INDEXED
+               ACCESS MODE IS DYNAMIC
+               RECORD KEY IS ISS-ID-KEY.
 
 
 

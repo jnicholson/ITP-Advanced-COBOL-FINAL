@@ -6,7 +6,7 @@
        SELECT VTP-FILE
                ASSIGN TO 'VFX-PUR.DAT'
                ORGANIZATION IS INDEXED
-               ACCESS IS SEQUENTIAL
+               ACCESS IS DYNAMIC
                RECORD KEY IS VTP-ID-KEY
                FILE STATUS IS WS-STAT.
       

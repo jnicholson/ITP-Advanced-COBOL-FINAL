@@ -6,7 +6,7 @@
        SELECT VW-FILE
                ASSIGN TO 'VFX-WISH.DAT'
                ORGANIZATION IS INDEXED
-               ACCESS IS SEQUENTIAL
+               ACCESS IS DYNAMIC
                RECORD KEY IS VW-ID-KEY
                FILE STATUS IS WS-STAT.
       

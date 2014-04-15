@@ -6,7 +6,7 @@
        SELECT VM-FILE
                ASSIGN TO "VFX-MBR.DAT"
                ORGANIZATION IS INDEXED
-               ACCESS IS RANDOM
+               ACCESS IS DYNAMIC
                RECORD KEY IS VM-ID-KEY
                FILE STATUS IS WS-STAT.
 

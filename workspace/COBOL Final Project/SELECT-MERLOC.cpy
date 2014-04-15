@@ -6,7 +6,7 @@
        SELECT MERLOC-FILE
                ASSIGN TO 'MERLOC.DAT'
                ORGANIZATION IS INDEXED
-               ACCESS IS RANDOM
+               ACCESS IS DYNAMIC
                RECORD KEY IS MERLOC-ID-KEY
                FILE STATUS IS WS-STAT.
 

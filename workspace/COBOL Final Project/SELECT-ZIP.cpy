@@ -6,7 +6,7 @@
       
        SELECT ZIP-MST-OUT  ASSIGN TO "ZIP.DAT"
                                ORGANIZATION  IS INDEXED
-                               ACCESS        IS SEQUENTIAL
+                               ACCESS        IS DYNAMIC
                                RECORD KEY    IS ZIP-KEY
                                ALTERNATE KEY IS ZIP-CITYO
                                    WITH DUPLICATES

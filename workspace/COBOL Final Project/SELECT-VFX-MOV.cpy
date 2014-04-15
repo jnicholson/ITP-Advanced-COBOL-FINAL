@@ -6,7 +6,7 @@
        SELECT VML-FILE
                ASSIGN TO "VFX-MOV.DAT"
                ORGANIZATION IS INDEXED
-               ACCESS IS RANDOM
+               ACCESS IS DYNAMIC
                RECORD KEY IS VML-ID-KEY
                FILE STATUS IS WS-STAT.
 

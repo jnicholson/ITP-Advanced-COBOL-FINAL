@@ -5,6 +5,9 @@
                
        SELECT CH-FILE
                ASSIGN TO "CHOLD.DAT"
-               ORGANIZATION IS INDEXED.
+               ORGANIZATION IS INDEXED
+               ACCESS MODE IS DYNAMIC
+               RECORD KEY IS CHOLD-ID-KEY
+               FILE STATUS IS WS-STAT.
 
 

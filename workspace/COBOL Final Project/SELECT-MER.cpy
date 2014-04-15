@@ -6,7 +6,7 @@
        SELECT MER-FILE
                ASSIGN TO 'MER.DAT'
                ORGANIZATION IS INDEXED
-               ACCESS MODE IS RANDOM
+               ACCESS MODE IS DYNAMIC
                RECORD KEY IS MER-ID-KEY
                FILE STATUS IS WS-STAT.
 
