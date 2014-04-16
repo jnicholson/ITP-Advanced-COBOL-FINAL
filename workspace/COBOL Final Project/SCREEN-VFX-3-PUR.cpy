@@ -24,11 +24,11 @@
                05  LINE 01 COL 77 PIC X(4) FROM WS-YEAR.
                05  LINE 06 COL 38 VALUE 'Vuflix'.
                05  LINE 08 COL 35 VALUE 'Edit Account'.
-               05  LINE 10 COL 19 VALUE 'Enter ID to continue'.
-               05  LINE 10 COL 40 PIC X(8) TO VFX-3-SEARCH-ID 
+               05  LINE 10 COL 28 VALUE 'Enter ID to continue'.
+               05  LINE 10 COL 49 PIC X(8) TO VFX-3-SEARCH-ID 
                                            FULL REQUIRED AUTO.
-               05  LINE 10 COL 49 VALUE '(99999999 = Exit)'.
-               05  LINE 11 COL 35 PIC X(10) FROM VFX-2-MSG.
+               05  LINE 11 COL 28 VALUE '(Exit = 99999999)'.
+               05  LINE 11 COL 47 PIC X(10) FROM VFX-2-MSG.
        
        01  CHECKSCREEN.
            03  BLANK SCREEN. 
@@ -81,22 +81,21 @@
        01  CONT-FILE.
            03  LINE 21 COL 01 VALUE "PRESS 'P' FOR PURCHASE, ".
            03  LINE 21 COL 24 VALUE "'W' FOR WISHLIST, ".
-           03  LINE 21 COL 42 VALUE "OR 'N' FOR NEXT PAGE".
-           03  LINE 21 COL 64 PIC X TO VFX-3-RESP AUTO.
-           
-       01  END-FILE.
-           03  LINE 21 COL 01 VALUE "PRESS 'P' FOR PURCHASE, ".
-           03  LINE 21 COL 24 VALUE "'W' FOR WISHLIST, ".
-           03  LINE 21 COL 42 VALUE "OR 'E' TO EXIT".
-           03  LINE 21 COL 64 PIC X TO VFX-3-RESP AUTO.
-           03  LINE 22 COL 01 VALUE "(HIT ENTER TO ACCEPT)".
+           03  LINE 21 COL 42 VALUE "'N' FOR NEXT PAGE, ".
+           03  LINE 21 COL 61 VALUE "'E' TO EXIT.".
+           03  LINE 21 COL 75 PIC X TO VFX-3-RESP AUTO.
       
        01  PTSCREEN-PURCHASE.
            03  LINE 23 COL 01 VALUE "ENTER MOVIE ID:".
            03  LINE 23 COL 17 PIC X(8) TO VFX-3-VML-ID 
                                        FULL REQUIRED AUTO.
        01  PURCHASED.
+           03  LINE 24 COL 01 VALUE SPACES.
            03  LINE 24 COL 01 VALUE "PURCHASE COMPLETE!".
+           
+       01  ALREADY.
+           03  LINE 24 COL 01 VALUE SPACES.
+           03  LINE 24 COL 01 VALUE "ALREADY PURCHASED...".
        
        01  PTSCREEN-PURCHASE-MORE.
                05 BLANK LINE.

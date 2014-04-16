@@ -121,8 +121,8 @@
                    PERFORM 200-DISPLAY
        END-PERFORM.
        CLOSE   VML-SORTED-FILE-TXT.
-       PERFORM 200-PUR-E-WISH UNTIL VFX-3-RESP = 'P' OR 'p' OR 'W'
-      -    OR 'w' OR 'E' OR 'e'.
+       PERFORM 200-PUR-WISH UNTIL VFX-3-RESP = 'P' OR 'p' OR 'W'
+      -    OR 'w' OR 'N' OR 'n' OR 'E' OR 'e'.
       *-----------------------------------------------------------------
        200-MOVE.
        MOVE 'C'        TO VFX-3-RESP.
@@ -147,8 +147,8 @@
        200-DISPLAY.
        ADD  1          TO VFX-3-CTR
        IF VFX-3-CTR GREATER THAN 15
-           PERFORM 200-PUR-C-WISH UNTIL VFX-3-RESP = 'P' OR 'p' OR 'W'
-      -    OR 'w' OR 'N' OR 'n'    
+           PERFORM 200-PUR-WISH UNTIL VFX-3-RESP = 'P' OR 'p' OR 'W'
+      -    OR 'w' OR 'N' OR 'n' OR 'E' OR 'e'
            DISPLAY PTSCREEN-HEADER
            DISPLAY PTSCREEN-LABEL
            DISPLAY SPACES
@@ -161,7 +161,7 @@
        MOVE VML-SORTED-PRICE-TXT  TO VFX-3-PRICE.
        DISPLAY VFX-3-VML-LINE.
       *----------------------------------------------------------------- 
-       200-PUR-C-WISH.
+       200-PUR-WISH.
        MOVE SPACES TO VFX-3-RESP.
        DISPLAY CONT-FILE.
        ACCEPT  VFX-3-RESP.
@@ -169,32 +169,31 @@
            DISPLAY PTSCREEN-PURCHASE
            ACCEPT  PTSCREEN-PURCHASE
            PERFORM 300-PURCHASE
-       END-IF.
+           PERFORM 300-MOV-PUR
+       ELSE
        IF VFX-3-RESP = 'W' OR 'w'
            PERFORM 300-WISHLIST
-       END-IF.
+       ELSE
        IF VFX-3-RESP = 'N' OR 'n'
            CONTINUE
-       END-IF.
-      *----------------------------------------------------------------- 
-       200-PUR-E-WISH.
-       MOVE SPACES TO VFX-3-RESP.
-       DISPLAY END-FILE.
-       ACCEPT  VFX-3-RESP.
-       IF VFX-3-RESP = 'P' OR 'p'
-           DISPLAY PTSCREEN-PURCHASE
-           ACCEPT  PTSCREEN-PURCHASE
-           PERFORM 300-PURCHASE
-       END-IF.
-       IF VFX-3-RESP = 'W' OR 'w'
-           PERFORM 300-WISHLIST
-       END-IF.
+       ELSE
        IF VFX-3-RESP = 'E' OR 'e'
-           CONTINUE
+           GOBACK
        END-IF.
       *-----------------------------------------------------------------
-       300-PURCHASE.
+       300-MOV-PUR.
        OPEN INPUT VTP-FILE.
+       READ VTP-FILE
+           INVALID KEY
+               CONTINUE
+           NOT INVALID KEY
+               DISPLAY ALREADY
+               PERFORM
+       END-READ.
+       CLOSE VTP-FILE.
+      *----------------------------------------------------------------- 
+       300-PURCHASE.
+       OPEN I-O VTP-FILE.
        PERFORM UNTIL VFX-3-RESP = 'Y'
            READ VTP-FILE NEXT RECORD
                AT END 
@@ -203,8 +202,6 @@
                NOT AT END
                    CONTINUE
        END-PERFORM.  
-       CLOSE VTP-FILE.
-       OPEN OUTPUT VTP-FILE.
        ADD 1 TO VFX-3-VTP-ID
        MOVE VFX-3-VTP-ID       TO VTP-ID-KEY.
        MOVE VFX-3-SEARCH-ID    TO VTP-VM-ID-KEY.

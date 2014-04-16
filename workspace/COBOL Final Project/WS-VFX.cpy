@@ -1,6 +1,9 @@
       *Skeleton COBOL Copybook - JARROD LEE - 4/7/2014
        01  WS-STAT                     PIC XX.
        01  WS-SEL                      PIC X.
+       01  WS-CTR                      PIC 99.
+       01  WS-SCTR                     PIC 99.
+       01  WS-BLANKS                   PIC X(25) VALUE SPACES.
        
        01  WS-TSTAMP.
            03  WS-YEAR                 PIC XXXX.

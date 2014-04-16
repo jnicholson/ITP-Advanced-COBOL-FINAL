@@ -13,11 +13,11 @@
                05  LINE 01 COL 77 PIC X(4) FROM WS-YEAR.
                05  LINE 06 COL 38 VALUE 'Vuflix'.
                05  LINE 08 COL 35 VALUE 'Edit Account'.
-               05  LINE 10 COL 19 VALUE 'Enter ID to continue'.
-               05  LINE 10 COL 40 PIC X(8) TO VFX-2-SEARCH-ID 
+               05  LINE 10 COL 28 VALUE 'Enter ID to continue'.
+               05  LINE 10 COL 49 PIC X(8) TO VFX-2-SEARCH-ID 
                                            FULL REQUIRED AUTO.
-               05  LINE 10 COL 49 VALUE '(99999999 = Exit)'.
-               05  LINE 11 COL 35 PIC X(10) FROM VFX-2-MSG.
+               05  LINE 11 COL 28 VALUE '(Exit = 99999999)'.
+               05  LINE 11 COL 47 PIC X(10) FROM VFX-2-MSG.
        
        01  CHECKSCREEN.
            03  BLANK SCREEN. 

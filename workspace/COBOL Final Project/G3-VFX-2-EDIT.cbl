@@ -54,6 +54,7 @@
        END-PERFORM.
        PERFORM UNTIL VFX-2-CHECK = 'S' OR 's'
            MOVE SPACES TO VFX-2-CHECK
+           PERFORM 400-EDIT-LOAD
            DISPLAY EDITSCREEN
            ACCEPT  E-FNAME
            ACCEPT  E-LNAME
@@ -124,5 +125,30 @@
        DISPLAY BLANK-SCREEN.
        DISPLAY 'RETURNING TO VUFLIX MENU'.
        DISPLAY "PRESS 'ENTER' TO RETURN".
-       
-       
+       ACCEPT VFX-2-RESP.
+      ******************************************************************
+       400-EDIT-LOAD.
+       INSPECT FUNCTION REVERSE(VM-FNAME) 
+       TALLYING WS-CTR FOR LEADING SPACES.                        
+       COMPUTE WS-SCTR = 15 - WS-CTR.
+       STRING WS-BLANKS(1:WS-CTR), VM-FNAME(1:WS-SCTR) INTO 
+                                   VFX-2-ORIG-FNAME.
+       MOVE ZERO TO WS-CTR.
+       INSPECT FUNCTION REVERSE(VM-LNAME) 
+       TALLYING WS-CTR FOR LEADING SPACES.                        
+       COMPUTE WS-SCTR = 15 - WS-CTR.
+       STRING WS-BLANKS(1:WS-CTR), VM-LNAME(1:WS-SCTR) INTO 
+                                   VFX-2-ORIG-LNAME.
+       MOVE ZERO TO WS-CTR.
+       INSPECT FUNCTION REVERSE(VM-ADDRESS) 
+       TALLYING WS-CTR FOR LEADING SPACES.                        
+       COMPUTE WS-SCTR = 20 - WS-CTR.
+       STRING WS-BLANKS(1:WS-CTR), VM-ADDRESS(1:WS-SCTR) INTO 
+                                   VFX-2-ORIG-ADDRESS.
+       MOVE ZERO TO WS-CTR.
+       INSPECT FUNCTION REVERSE(VM-EMAIL)
+       TALLYING WS-CTR FOR LEADING SPACES.                        
+       COMPUTE WS-SCTR = 30 - WS-CTR.
+       STRING WS-BLANKS(1:WS-CTR), VM-EMAIL(1:WS-SCTR) INTO 
+                                   VFX-2-ORIG-EMAIL.
+       MOVE ZERO TO WS-CTR.
