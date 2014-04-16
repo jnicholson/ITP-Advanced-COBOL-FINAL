@@ -196,7 +196,7 @@
        300-PURCHASE.
        OPEN INPUT VTP-FILE.
        PERFORM UNTIL VFX-3-RESP = 'Y'
-           READ VTP-FILE
+           READ VTP-FILE NEXT RECORD
                AT END 
                    MOVE VTP-ID TO VFX-3-VTP-ID
                    MOVE 'Y' TO VFX-3-RESP

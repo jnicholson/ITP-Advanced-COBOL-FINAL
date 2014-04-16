@@ -84,7 +84,7 @@
            MOVE 'N' TO WS-EOF-FLAGGER.
            MOVE 'N' TO WS-FILE-FOUND.
            PERFORM UNTIL WS-EOF
-               READ ISS-FILE
+               READ ISS-FILE NEXT RECORD
                    AT END
                        MOVE 'Y' TO WS-EOF-FLAGGER
                    NOT AT END
@@ -112,7 +112,7 @@
            MOVE 'N' TO WS-EOF-FLAGGER.
            MOVE 'N' TO WS-FILE-FOUND.
            PERFORM UNTIL WS-EOF
-               READ ISS-FILE
+               READ ISS-FILE NEXT RECORD
                    AT END
                        MOVE 'Y' TO WS-EOF-FLAGGER
                    NOT AT END 
@@ -140,7 +140,7 @@
            MOVE 'N' TO WS-EOF-FLAGGER.
            MOVE 'N' TO WS-FILE-FOUND.
            PERFORM UNTIL WS-EOF
-               READ ISS-FILE
+               READ ISS-FILE NEXT RECORD
                    AT END 
                        MOVE 'Y' TO WS-EOF-FLAGGER
                    NOT AT END
@@ -168,7 +168,7 @@
            MOVE 'N' TO WS-EOF-FLAGGER.
            MOVE 'N' TO WS-FILE-FOUND.
            PERFORM UNTIL WS-EOF
-               READ ISS-FILE
+               READ ISS-FILE NEXT RECORD
                    AT END
                        MOVE 'Y' TO WS-EOF-FLAGGER
                    NOT AT END
@@ -196,7 +196,7 @@
            MOVE 'N' TO WS-EOF-FLAGGER.
            MOVE 'N' TO WS-FILE-FOUND.
            PERFORM UNTIL WS-EOF
-               READ ISS-FILE
+               READ ISS-FILE NEXT RECORD
                    AT END
                        MOVE 'Y' TO WS-EOF-FLAGGER
                    NOT AT END
@@ -223,7 +223,7 @@
            MOVE 'N' TO WS-EOF-FLAGGER.
            OPEN INPUT ISS-FILE.
            PERFORM UNTIL WS-EOF
-               READ ISS-FILE
+               READ ISS-FILE NEXT RECORD
                    AT END
                        MOVE ISS-ID TO WS-ORIG-ID
                        MOVE 'Y' TO WS-EOF-FLAGGER
@@ -296,7 +296,7 @@
            MOVE 1 TO WS-Z.
            OPEN INPUT ISS-FILE.
            PERFORM UNTIL WS-EOF
-               READ ISS-FILE
+               READ ISS-FILE NEXT RECORD
                    AT END
                        MOVE 'Y' TO WS-EOF-FLAGGER
                    NOT AT END 
@@ -349,7 +349,7 @@
            MOVE 1 TO WS-Z.
            OPEN INPUT ISS-FILE.
            PERFORM UNTIL WS-EOF
-               READ ISS-FILE
+               READ ISS-FILE NEXT RECORD
                    AT END
                        MOVE 'Y' TO WS-EOF-FLAGGER
                    NOT AT END
@@ -402,7 +402,7 @@
            MOVE 1 TO WS-Z.
            OPEN INPUT ISS-FILE.
            PERFORM UNTIL WS-EOF
-               READ ISS-FILE
+               READ ISS-FILE NEXT RECORD
                    AT END
                        MOVE 'Y' TO WS-EOF-FLAGGER
                    NOT AT END
@@ -455,7 +455,7 @@
            MOVE 1 TO WS-Z.
            OPEN INPUT ISS-FILE.
            PERFORM UNTIL WS-EOF
-               READ ISS-FILE
+               READ ISS-FILE NEXT RECORD
                    AT END
                        MOVE 'Y' TO WS-EOF-FLAGGER
                    NOT AT END
@@ -508,7 +508,7 @@
            MOVE 1 TO WS-Z.
            OPEN INPUT ISS-FILE.
            PERFORM UNTIL WS-EOF
-               READ ISS-FILE
+               READ ISS-FILE NEXT RECORD
                    AT END
                        MOVE 'Y' TO WS-EOF-FLAGGER
                    NOT AT END 
@@ -578,7 +578,7 @@
            MOVE 1 TO WS-Z.
            OPEN INPUT ISS-FILE.
            PERFORM UNTIL WS-EOF
-               READ ISS-FILE
+               READ ISS-FILE NEXT RECORD
                    AT END
                        MOVE 'Y' TO WS-EOF-FLAGGER
                    NOT AT END
@@ -622,7 +622,7 @@
            MOVE 1 TO WS-Z.
            OPEN INPUT ISS-FILE.
            PERFORM UNTIL WS-EOF
-               READ ISS-FILE
+               READ ISS-FILE NEXT RECORD
                    AT END
                        MOVE 'Y' TO WS-EOF-FLAGGER
                    NOT AT END
@@ -666,7 +666,7 @@
            MOVE 1 TO WS-Z.
            OPEN INPUT ISS-FILE.
            PERFORM UNTIL WS-EOF
-               READ ISS-FILE
+               READ ISS-FILE NEXT RECORD
                    AT END
                        MOVE 'Y' TO WS-EOF-FLAGGER
                    NOT AT END
@@ -710,7 +710,7 @@
            MOVE 1 TO WS-Z.
            OPEN INPUT ISS-FILE.
            PERFORM UNTIL WS-EOF
-               READ ISS-FILE
+               READ ISS-FILE NEXT RECORD
                    AT END
                        MOVE 'Y' TO WS-EOF-FLAGGER
                    NOT AT END
@@ -754,7 +754,7 @@
            MOVE 1 TO WS-Z.
            OPEN INPUT ISS-FILE.
            PERFORM UNTIL WS-EOF
-               READ ISS-FILE
+               READ ISS-FILE NEXT RECORD
                    AT END
                        MOVE 'Y' TO WS-EOF-FLAGGER
                    NOT AT END

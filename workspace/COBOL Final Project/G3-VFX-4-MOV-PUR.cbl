@@ -28,7 +28,7 @@
        OPEN INPUT  VTP-FILE.
        OPEN INPUT  VML-FILE.
        PERFORM UNTIL VFX-4-CHECK = 'Y' OR 'y'
-           READ VTP-FILE
+           READ VTP-FILE NEXT RECORD
                AT END
                    MOVE 'Y' TO VFX-4-CHECK
                NOT AT END
