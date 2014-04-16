@@ -16,6 +16,7 @@
        01  VISA-MER-VARS.
            03  VISA-MER-RESP              PIC X.
            03  VISA-MER-CHECK             PIC X.
+           03  VISA-MER-DELETE            PIC X.
            03  VISA-MER-MSG               PIC X(10).
            03  VISA-MER-SEARCH-ID         PIC 9(8).
            03  VISA-MER-SEARCH-EMAIL      PIC X(30).

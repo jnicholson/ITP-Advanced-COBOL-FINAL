@@ -11,8 +11,8 @@
                05  LINE 01 COL 74 PIC X(2) FROM WS-DAY.
                05  LINE 01 COL 76 VALUE '/'.
                05  LINE 01 COL 77 PIC X(4) FROM WS-YEAR.
-               05  LINE 06 COL 38 VALUE 'Visa Merchant'.
-               05  LINE 08 COL 35 VALUE 'Edit Account'.
+               05  LINE 06 COL 35 VALUE 'Visa Merchant'.
+               05  LINE 08 COL 35 VALUE 'Select Account'.
                05  LINE 10 COL 19 VALUE 'Enter ID to continue'.
                05  LINE 10 COL 40 PIC X(8) TO VISA-MER-SEARCH-ID 
                                            FULL REQUIRED AUTO.

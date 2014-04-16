@@ -38,6 +38,7 @@
            EVALUATE WS-SEL
                WHEN '1' CALL 'G3-VISA-MER-ADD'
                WHEN '2' CALL 'G3-VISA-MER-EDIT'
+               WHEN '3' CALL 'G3-VISA-MER-DEL'
            END-EVALUATE
        END-PERFORM.
       ******************************************************************

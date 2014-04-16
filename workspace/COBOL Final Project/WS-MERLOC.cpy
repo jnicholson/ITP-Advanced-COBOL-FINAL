@@ -13,9 +13,10 @@
            03  VISA-M-PROG              PIC X(20) VALUE SPACES.
            03  VISA-M-EXIT              PIC X     VALUE SPACES.
        
-       01  VISA-2-VARS.
+       01  VISA-MERLOC-VARS.
            03  VISA-MERLOC-RESP              PIC X.
            03  VISA-MERLOC-CHECK             PIC X.
+           03  VISA-MERLOC-DELETE            PIC X.
            03  VISA-MERLOC-MSG               PIC X(10).
            03  VISA-MERLOC-SEARCH-ID         PIC 9(8).
            03  VISA-MERLOC-SEARCH-EMAIL      PIC X(30).
