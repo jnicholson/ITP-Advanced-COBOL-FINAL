@@ -40,8 +40,7 @@
                    AT END
                        MOVE 'Y' TO WS-CHECK
                    NOT AT END
-                       WRITE ISS-REC FROM ISS-REC-TXT BEFORE ADVANCING 1
-                                                      LINE
+                       WRITE ISS-REC FROM ISS-REC-TXT
                        ADD 1 TO WS-COUNTER
            END-PERFORM.
            DISPLAY "G3_BUILD_VISA_ISSUER".

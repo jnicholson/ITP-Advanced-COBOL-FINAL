@@ -1,6 +1,6 @@
       ******************************************************************
       *PROGRAM:  Vuflix Purchase titles
-      *AUTHOR:   KATIE TRAN
+      *AUTHOR:   KATIE TRAN, Jarrod Lee
       *DATE:     4/7/2014   
       *ABSTRACT: 
       *THINGS TO DO: CURRENTLY ONLY DISPLAYS TITLES. NEEDS WAY TO 
@@ -28,6 +28,7 @@
       ******************************************************************
        PROCEDURE DIVISION.
        000-MAIN.
+       MOVE 'G2-VFX-3-PUR' TO VFX-M-PROG.
        MOVE FUNCTION CURRENT-DATE TO WS-TSTAMP.
        OPEN INPUT  VM-FILE.
        PERFORM 100-CHECK.
@@ -121,8 +122,7 @@
                    PERFORM 200-DISPLAY
        END-PERFORM.
        CLOSE   VML-SORTED-FILE-TXT.
-       PERFORM 200-PUR-WISH UNTIL VFX-3-RESP = 'P' OR 'p' OR 'W'
-      -    OR 'w' OR 'N' OR 'n' OR 'E' OR 'e'.
+       PERFORM 200-PUR-WISH UNTIL VFX-3-RESP = 'X' OR 'x'.
       *-----------------------------------------------------------------
        200-MOVE.
        MOVE 'C'        TO VFX-3-RESP.
@@ -140,15 +140,15 @@
        IF VFX-3-CHECK = 'Y' OR 'y'
            CONTINUE
        ELSE
-           MOVE SPACES TO VFX-2-RESP
+           MOVE SPACES TO VFX-3-RESP
            PERFORM 100-CHECK
        END-IF.
       *-----------------------------------------------------------------
        200-DISPLAY.
-       ADD  1          TO VFX-3-CTR
+       ADD 1 TO VFX-3-CTR.
        IF VFX-3-CTR GREATER THAN 15
-           PERFORM 200-PUR-WISH UNTIL VFX-3-RESP = 'P' OR 'p' OR 'W'
-      -    OR 'w' OR 'N' OR 'n' OR 'E' OR 'e'
+           PERFORM 200-PUR-WISH UNTIL VFX-3-RESP =  'N' OR 'n' OR 
+                                                    'X' OR 'x'
            DISPLAY PTSCREEN-HEADER
            DISPLAY PTSCREEN-LABEL
            DISPLAY SPACES
@@ -163,13 +163,26 @@
       *----------------------------------------------------------------- 
        200-PUR-WISH.
        MOVE SPACES TO VFX-3-RESP.
+       IF VFX-3-WEIRD = 'R'
+           OPEN INPUT VTP-FILE
+           READ VTP-FILE NEXT RECORD
+               AT END
+                   MOVE SPACES TO VFX-3-WEIRD
+               NOT AT END
+                   CONTINUE
+           END-READ
+           CLOSE VTP-FILE
+       END-IF.
+       MOVE SPACES TO VFX-3-WEIRD.
        DISPLAY CONT-FILE.
        ACCEPT  VFX-3-RESP.
        IF VFX-3-RESP = 'P' OR 'p'
            DISPLAY PTSCREEN-PURCHASE
            ACCEPT  PTSCREEN-PURCHASE
-           PERFORM 300-PURCHASE
-           PERFORM 300-MOV-PUR
+           PERFORM 300-CHECK-PURCHASE
+           IF VFX-3-WEIRD NOT EQUAL 'D'
+               PERFORM 400-PURCHASE
+           END-IF
        ELSE
        IF VFX-3-RESP = 'W' OR 'w'
            PERFORM 300-WISHLIST
@@ -177,37 +190,65 @@
        IF VFX-3-RESP = 'N' OR 'n'
            CONTINUE
        ELSE
-       IF VFX-3-RESP = 'E' OR 'e'
+       IF VFX-3-RESP = 'X' OR 'x'
            GOBACK
        END-IF.
       *-----------------------------------------------------------------
-       300-MOV-PUR.
+       300-CHECK-PURCHASE.
        OPEN INPUT VTP-FILE.
-       READ VTP-FILE
-           INVALID KEY
-               CONTINUE
-           NOT INVALID KEY
-               DISPLAY ALREADY
-               PERFORM
-       END-READ.
-       CLOSE VTP-FILE.
-      *----------------------------------------------------------------- 
-       300-PURCHASE.
-       OPEN I-O VTP-FILE.
        PERFORM UNTIL VFX-3-RESP = 'Y'
            READ VTP-FILE NEXT RECORD
-               AT END 
+               AT END
                    MOVE VTP-ID TO VFX-3-VTP-ID
                    MOVE 'Y' TO VFX-3-RESP
                NOT AT END
-                   CONTINUE
-       END-PERFORM.  
+                   IF VTP-VM-ID-KEY = VFX-3-SEARCH-ID
+                       IF VTP-VML-ID-KEY = VFX-3-VML-ID
+                           DISPLAY ALREADY
+                           MOVE 'R' TO VFX-3-WEIRD
+                           CLOSE VTP-FILE
+                           PERFORM 200-PUR-WISH
+                       END-IF
+                   END-IF
+           END-READ
+       END-PERFORM.
+       
+      * MOVE VFX-3-VML-ID TO VTP-VML-ID-KEY.
+      * READ VTP-FILE KEY VTP-VML-ID-KEY
+      *     INVALID KEY
+      *         CONTINUE
+      *     NOT INVALID KEY
+      *         DISPLAY ALREADY
+      *         PERFORM 200-PUR-WISH
+      * END-READ.
+       CLOSE VTP-FILE.
+      *-----------------------------------------------------------------
+      * 400-WRITE.
+      * ADD 1 TO VFX-3-VTP-ID
+      * MOVE VFX-3-VTP-ID       TO VTP-ID-KEY.
+      * MOVE VFX-3-SEARCH-ID    TO VTP-VM-ID-KEY.
+      * MOVE VFX-3-VML-ID       TO VTP-VML-ID-KEY.
+      * WRITE VTP-REC.
+      * CLOSE VTP-FILE.
+      * DISPLAY PURCHASED.
+      *----------------------------------------------------------------- 
+       400-PURCHASE.
+       OPEN I-O VTP-FILE.
+      * PERFORM UNTIL VFX-3-RESP = 'Y'
+      *     READ VTP-FILE NEXT RECORD
+      *         AT END 
+      *             MOVE VTP-ID TO VFX-3-VTP-ID
+      *             MOVE 'Y' TO VFX-3-RESP
+      *         NOT AT END
+      *             CONTINUE
+      * END-PERFORM.  
        ADD 1 TO VFX-3-VTP-ID
        MOVE VFX-3-VTP-ID       TO VTP-ID-KEY.
        MOVE VFX-3-SEARCH-ID    TO VTP-VM-ID-KEY.
        MOVE VFX-3-VML-ID       TO VTP-VML-ID-KEY.
        WRITE VTP-REC.
        CLOSE VTP-FILE.
+       MOVE 'D' TO VFX-3-WEIRD.
        DISPLAY PURCHASED.
       *-----------------------------------------------------------------
        300-WISHLIST.

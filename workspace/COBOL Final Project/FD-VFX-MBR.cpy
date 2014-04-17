@@ -15,7 +15,8 @@
            03  VM-ID-KEY.
                05  VM-ID       PIC 9(8).
            03  VM-FNAME        PIC X(15).
-           03  VM-LNAME        PIC X(15).
+           03  VM-LNAME-KEY.
+               05  VM-LNAME    PIC X(15).
            03  VM-ADDRESS      PIC X(20).
            03  VM-PHONE        PIC 9(11).
            03  VM-EMAIL-KEY.

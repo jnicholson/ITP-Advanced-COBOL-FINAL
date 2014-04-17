@@ -1,6 +1,6 @@
       ******************************************************************
       *PROGRAM:  Vuflix main menu
-      *AUTHOR:   Henry Hurlocker
+      *AUTHOR:   Jarrod Lee
       *DATE:     4/5/2014   
       *ABSTRACT: 
       ******************************************************************       
@@ -19,6 +19,7 @@
        000-MAIN.
        MOVE FUNCTION CURRENT-DATE TO WS-TSTAMP.
        MOVE 'G2-VFX-MAIN' TO VFX-M-PROG.
+       MOVE SPACES TO VFX-M-SEL.
        PERFORM UNTIL VFX-M-SEL = 'X' OR 'x'
            DISPLAY MENUSCREEN
            ACCEPT MENUSCREEN
@@ -30,6 +31,7 @@
                WHEN '5' CALL 'G3-VFX-5-MOV-WISH'
                WHEN '6' CALL 'G3-VFX-6-ADD-REM'
                WHEN '7' CALL 'G3-VFX-7-MOV-INQ'
+               WHEN '8' CALL 'G3-VFX-8-MBR-INQ'
            END-EVALUATE
        END-PERFORM.
        GOBACK.

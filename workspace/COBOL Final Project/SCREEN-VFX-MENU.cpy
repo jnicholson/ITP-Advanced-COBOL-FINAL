@@ -22,6 +22,7 @@
                05  LINE 14 COL 31 VALUE "   5) Movie Wishlist   ".
                05  LINE 15 COL 31 VALUE "   6) Add/Remove Movie ".
                05  LINE 16 COL 31 VALUE "   7) Movie Inquiry    ".
+               05  LINE 17 COL 31 VALUE "   8) Member Inquiry   ".
                05  LINE 22 COL 31 VALUE "Selection   (X=exit)".
                05  LINE 22 COL 41 PIC X TO VFX-M-SEL AUTO.
        01  EXITSCREEN.

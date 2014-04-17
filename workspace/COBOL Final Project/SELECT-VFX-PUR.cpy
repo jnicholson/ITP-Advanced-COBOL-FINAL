@@ -7,7 +7,8 @@
                ASSIGN TO 'VFX-PUR.DAT'
                ORGANIZATION IS INDEXED
                ACCESS IS DYNAMIC
-               RECORD KEY IS VTP-ID-KEY
+               RECORD KEY      IS VTP-ID-KEY
+               ALTERNATE KEY   IS VTP-VML-ID-KEY
                FILE STATUS IS WS-STAT.
       
 

@@ -14,7 +14,8 @@
                ASSIGN TO 'ISS.DAT'
                ORGANIZATION IS INDEXED
                ACCESS MODE IS DYNAMIC
-               RECORD KEY IS ISS-ID-KEY.
+               RECORD KEY      IS ISS-ID-KEY
+               ALTERNATE KEY   IS ISS-NAME-KEY.
 
 
 

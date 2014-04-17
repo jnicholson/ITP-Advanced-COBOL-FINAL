@@ -7,7 +7,8 @@
                ASSIGN TO "VFX-MBR.DAT"
                ORGANIZATION IS INDEXED
                ACCESS IS DYNAMIC
-               RECORD KEY IS VM-ID-KEY
+               RECORD KEY      IS VM-ID-KEY
+               ALTERNATE KEY   IS VM-LNAME-KEY
                FILE STATUS IS WS-STAT.
 
 
