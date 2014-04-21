@@ -118,8 +118,8 @@
                05  LINE 16 COL 40 PIC X(20) FROM WS-ORIG-EMAIL.
                05  LINE 17 COL 20 VALUE "Original Phone:".
                05  LINE 17 COL 40 PIC 9(11) FROM WS-ORIG-PHONE.
-               05  LINE 19 COL 25 VALUE "1) Return to Search Menu".
-               05  LINE 20 COL 25 VALUE "2) Return to Main Issuer Menu".                                   
+               05  LINE 19 COL 25 VALUE "1) Return to Main Issuer Menu".
+               05  LINE 20 COL 25 VALUE "2) Return to Search Menu".                                   
                05  LINE 22 COL 30 VALUE "SELECT ACTION:".                   
                05  LINE 22 COL 45 PIC X TO WS-ACTION-SELECTION AUTO.
            03  SCREEN-SEARCH-NOT-FOUND-ID.
@@ -127,8 +127,8 @@
                05  LINE 10 COL 15 VALUE "Unable to Find Record With ID N
       -                                 "um:".
                05  LINE 10 COL 50 PIC 9(3) FROM WS-ORIG-ID.
-               05  LINE 12 COL 25 VALUE "1) Return to Search Menu".
-               05  LINE 13 COL 25 VALUE "2) Return to Main Issuer Menu".                                       
+               05  LINE 12 COL 25 VALUE "1) Return to Main Issuer Menu".
+               05  LINE 13 COL 25 VALUE "2) Return to Search Menu".                                       
                05  LINE 22 COL 30 VALUE "SELECT ACTION:".                   
                05  LINE 22 COL 45 PIC X TO WS-ACTION-SELECTION AUTO.    
            03  SCREEN-SEARCH-NOT-FOUND-NAME.                            
@@ -136,8 +136,8 @@
                05  LINE 10 COL 15 VALUE "Unable to Find Record With Name
       -                                 ":".
                05  LINE 10 COL 50 PIC X(20) FROM WS-ORIG-NAME.
-               05  LINE 12 COL 25 VALUE "1) Return to Search Menu".
-               05  LINE 13 COL 25 VALUE "2) Return to Main Issuer Menu".                                       
+               05  LINE 12 COL 25 VALUE "1) Return to Main Issuer Menu".
+               05  LINE 13 COL 25 VALUE "2) Return to Search Menu".                                                                 
                05  LINE 22 COL 30 VALUE "SELECT ACTION:".                   
                05  LINE 22 COL 45 PIC X TO WS-ACTION-SELECTION AUTO.
            03  SCREEN-SEARCH-NOT-FOUND-STATE.
@@ -145,8 +145,8 @@
                05  LINE 10 COL 15 VALUE "Unable to Find Record With Stat
       -                                 "e:".
                05  LINE 10 COL 50 PIC X(2) FROM WS-ORIG-STATE.
-               05  LINE 12 COL 25 VALUE "1) Return to Search Menu".
-               05  LINE 13 COL 25 VALUE "2) Return to Main Issuer Menu".                                       
+               05  LINE 12 COL 25 VALUE "1) Return to Main Issuer Menu".
+               05  LINE 13 COL 25 VALUE "2) Return to Search Menu".                                                                
                05  LINE 22 COL 30 VALUE "SELECT ACTION:".                   
                05  LINE 22 COL 45 PIC X TO WS-ACTION-SELECTION AUTO.
            03  SCREEN-SEARCH-NOT-FOUND-EMAIL.
@@ -154,8 +154,8 @@
                05  LINE 10 COL 15 VALUE "Unable to Find Record With E-Ma
       -                                 "il:".
                05  LINE 10 COL 50 PIC X(20) FROM WS-ORIG-EMAIL.
-               05  LINE 12 COL 25 VALUE "1) Return to Search Menu".
-               05  LINE 13 COL 25 VALUE "2) Return to Main Issuer Menu".                                       
+               05  LINE 12 COL 25 VALUE "1) Return to Main Issuer Menu".                          
+               05  LINE 13 COL 25 VALUE "2) Return to Search Menu".                                       
                05  LINE 22 COL 30 VALUE "SELECT ACTION:".                   
                05  LINE 22 COL 45 PIC X TO WS-ACTION-SELECTION AUTO.
            03  SCREEN-SEARCH-NOT-FOUND-PHONE.
@@ -163,8 +163,8 @@
                05  LINE 10 COL 12 VALUE "Unable to Find Record With Phon
       -                                 "e Num:".
                05  LINE 10 COL 50 PIC X(11) FROM WS-ORIG-PHONE.
-               05  LINE 12 COL 25 VALUE "1) Return to Search Menu".
-               05  LINE 13 COL 25 VALUE "2) Return to Main Issuer Menu".                                       
+               05  LINE 12 COL 25 VALUE "1) Return to Main Issuer Menu".
+               05  LINE 13 COL 25 VALUE "2) Return to Search Menu".                                                                 
                05  LINE 22 COL 30 VALUE "SELECT ACTION:".                   
                05  LINE 22 COL 45 PIC X TO WS-ACTION-SELECTION AUTO.
                

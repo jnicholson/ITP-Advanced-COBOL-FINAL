@@ -24,7 +24,7 @@
        WORKING-STORAGE SECTION.
 
        01  MISC.
-           03  WS-STAT                     PIC XX VALUE ZEROS.
+           03  WS-STAT                     PIC XX.
            03  WS-CHECK                    PIC X.
            03  WS-COUNTER                  PIC 9(4) VALUE ZERO.
            

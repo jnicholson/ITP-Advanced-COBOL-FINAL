@@ -1,11 +1,14 @@
       *******************************************************************
       * PROGRAM       : G3-VISA-ISS-ADD                                 *
-      * AUTHOR        : DUSTYNE BROWN                                   *     
+      * AUTHOR        : DUSTYNE BROWN, JARROD LEE                       *     
       * CREATION DATE : 4/9/14                                          *
-      * LAST EDIT     : 4/12/14                                         *
+      * LAST EDIT     : 4/12/14        4/16/14                          *
       * PURPOSE       : PROVIDES A PROGRAM BRANCH THAT ALLOWS LOOKING   *
       *                  UP ISSUER DATA, ADD DATA, DELETE AND EDIT      *
       *                  DATA.                                          *
+      * ACTIVITY LOG  : 4/9/14-4/12/14 - PROGRAM WRITING                *
+      *                 4/16/14        - CORRECTED READS FROM           *
+      *                                  SEQUENTIAL TO INDEXED          *
       ******************************************************************* 
       
        PROGRAM-ID. G3-VISA-ISS-ADD.
@@ -57,6 +60,7 @@
       *=================================================================*
             
        200-SEARCH-ISSUER.
+           DISPLAY SCREEN-TITLE.
            MOVE 'N' TO WS-EOF-FLAGGER.
            MOVE 0 TO WS-ACTION-SELECTION.
            DISPLAY SCREEN-MENU-CLEAR.
@@ -100,6 +104,10 @@
                DISPLAY SCREEN-SEARCH-NOT-FOUND-ID
                ACCEPT SCREEN-SEARCH-NOT-FOUND-ID
            END-IF.
+           EVALUATE WS-ACTION-SELECTION
+               WHEN '1' PERFORM 100-MAIN
+               WHEN '2' PERFORM 200-SEARCH-ISSUER
+           END-EVALUATE.
       
       *-----------------------------------------------------------------*
        
@@ -128,6 +136,10 @@
                DISPLAY SCREEN-SEARCH-NOT-FOUND-NAME
                ACCEPT SCREEN-SEARCH-NOT-FOUND-NAME
            END-IF.
+           EVALUATE WS-ACTION-SELECTION
+               WHEN '1' PERFORM 100-MAIN
+               WHEN '2' PERFORM 200-SEARCH-ISSUER
+           END-EVALUATE.
       
       *-----------------------------------------------------------------*
        
@@ -156,6 +168,10 @@
                DISPLAY SCREEN-SEARCH-NOT-FOUND-STATE
                ACCEPT SCREEN-SEARCH-NOT-FOUND-STATE
            END-IF.
+           EVALUATE WS-ACTION-SELECTION
+               WHEN '1' PERFORM 100-MAIN
+               WHEN '2' PERFORM 200-SEARCH-ISSUER
+           END-EVALUATE.
       
       *-----------------------------------------------------------------*
        
@@ -184,6 +200,10 @@
                DISPLAY SCREEN-SEARCH-NOT-FOUND-EMAIL
                ACCEPT SCREEN-SEARCH-NOT-FOUND-EMAIL
            END-IF.
+           EVALUATE WS-ACTION-SELECTION
+               WHEN '1' PERFORM 100-MAIN
+               WHEN '2' PERFORM 200-SEARCH-ISSUER
+           END-EVALUATE.
       
       *-----------------------------------------------------------------*
        
@@ -212,6 +232,10 @@
                DISPLAY SCREEN-SEARCH-NOT-FOUND-PHONE
                ACCEPT SCREEN-SEARCH-NOT-FOUND-PHONE
            END-IF.
+           EVALUATE WS-ACTION-SELECTION
+               WHEN '1' PERFORM 100-MAIN
+               WHEN '2' PERFORM 200-SEARCH-ISSUER
+           END-EVALUATE.
       
       *=================================================================*
        
@@ -605,7 +629,7 @@
                ACCEPT SCREEN-SEARCH-NOT-FOUND-ID
                EVALUATE WS-ACTION-SELECTION
                    WHEN '1' PERFORM 500-DELETE-ISSUER
-                   WHEN '2' PERFORM 2000-MAIN-REDIRECT
+                   WHEN '2' PERFORM 100-MAIN
                END-EVALUATE
            END-IF.
       
@@ -649,7 +673,7 @@
                ACCEPT SCREEN-SEARCH-NOT-FOUND-NAME
                EVALUATE WS-ACTION-SELECTION
                    WHEN '1' PERFORM 500-DELETE-ISSUER
-                   WHEN '2' PERFORM 2000-MAIN-REDIRECT
+                   WHEN '2' PERFORM 100-MAIN
                END-EVALUATE
            END-IF.
       
@@ -693,7 +717,7 @@
                ACCEPT SCREEN-SEARCH-NOT-FOUND-STATE
                EVALUATE WS-ACTION-SELECTION
                    WHEN '1' PERFORM 500-DELETE-ISSUER
-                   WHEN '2' PERFORM 2000-MAIN-REDIRECT
+                   WHEN '2' PERFORM 100-MAIN
                END-EVALUATE
            END-IF.
       
@@ -737,7 +761,7 @@
                ACCEPT SCREEN-SEARCH-NOT-FOUND-EMAIL
                EVALUATE WS-ACTION-SELECTION
                    WHEN '1' PERFORM 500-DELETE-ISSUER
-                   WHEN '2' PERFORM 2000-MAIN-REDIRECT
+                   WHEN '2' PERFORM 100-MAIN
                END-EVALUATE
            END-IF.
       
@@ -781,7 +805,7 @@
                ACCEPT SCREEN-SEARCH-NOT-FOUND-PHONE
                EVALUATE WS-ACTION-SELECTION
                    WHEN '1' PERFORM 500-DELETE-ISSUER
-                   WHEN '2' PERFORM 2000-MAIN-REDIRECT
+                   WHEN '2' PERFORM 100-MAIN
                END-EVALUATE
            END-IF.
       
@@ -922,13 +946,17 @@
        1200-DELETE.
            PERFORM UNTIL WS-Z = WS-X
                IF WS-Z = WS-Y
+                   DISPLAY "TEST3"
                    ADD 1 TO WS-Z
                ELSE
+                   DISPLAY "TEST4"
                    MOVE WS-TEMP-FILE-STORAGE(WS-Z) TO ISS-REC
                    WRITE ISS-REC
+                   ADD 1 TO WS-Z
                END-IF
            END-PERFORM.
            CLOSE ISS-FILE.
+           DISPLAY "TEST".
            PERFORM 100-MAIN.
            
       *=================================================================*

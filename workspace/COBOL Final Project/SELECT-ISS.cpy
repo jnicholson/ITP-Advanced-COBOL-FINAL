@@ -1,8 +1,8 @@
       *******************************************************************
       * FILE         : SELECT-ISS                                       *
-      * AUTHOR       : Dustyne Brown                                    *
+      * AUTHOR       : Dustyne Brown, Jarred Lee                        *
       * DATE         : 4/8/14                                           *
-      * LAST EDIT    : 4/12/14                                          *
+      * LAST EDIT    : 4/12/14        4/17/14                           *
       * PURPOSE      : PROVIDES FILE CONTROL FOR G3-VISA-ADD AND        *
       *                     G3-BLD-VISA-ISS                             *
       *******************************************************************     
