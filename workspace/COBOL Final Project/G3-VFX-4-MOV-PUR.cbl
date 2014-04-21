@@ -34,7 +34,7 @@
        DISPLAY PTSCREEN-HEADER.
        DISPLAY PTSCREEN-LABEL.
        DISPLAY SPACES.
-       PERFORM UNTIL VFX-4-CHECK = 'Q' OR 'q'
+       PERFORM UNTIL VFX-4-CHECK = 'Q'
            READ VTP-FILE NEXT RECORD
                AT END
                    MOVE 'Q' TO VFX-4-CHECK
@@ -56,20 +56,28 @@
            MOVE 1 TO VFX-4-CTR
        END-IF.
        IF VTP-VM-ID-KEY = VFX-4-SEARCH-ID
-           MOVE VTP-VML-ID-KEY TO VML-ID-KEY
-           READ VML-FILE KEY VML-ID
-               INVALID KEY
-                   DISPLAY 'SOMETHING WENT WRONG'
-                   ACCEPT VFX-4-RESP
-                   PERFORM 000-MAIN
-               NOT INVALID KEY
-                   MOVE VML-ID     TO VFX-4-ID
-                   MOVE VML-TITLE  TO VFX-4-TITLE
-                   MOVE VML-GENRE  TO VFX-4-GENRE
-                   MOVE VML-PRICE  TO VFX-4-PRICE
-           END-READ
+           IF VTP-VML-ID-KEY = VFX-4-ID
+               MOVE 'O' TO VFX-4-LOOP
+           ELSE
+               MOVE VTP-VML-ID-KEY TO VML-ID-KEY
+               READ VML-FILE KEY VML-ID
+                   INVALID KEY
+                       DISPLAY 'SOMETHING WENT WRONG'
+                       ACCEPT VFX-4-RESP
+                       PERFORM 000-MAIN
+                   NOT INVALID KEY
+                       MOVE VML-ID     TO VFX-4-ID
+                       MOVE VML-TITLE  TO VFX-4-TITLE
+                       MOVE VML-GENRE  TO VFX-4-GENRE
+                       MOVE VML-PRICE  TO VFX-4-PRICE
+               END-READ
+           END-IF
+           IF VFX-4-LOOP = 'O'
+               CONTINUE
+           ELSE
+               DISPLAY VFX-4-VML-LINE
+           END-IF
        END-IF.
-       DISPLAY VFX-4-VML-LINE.
       ******************************************************************
        100-CHECK.
        DISPLAY IDSCREEN.
@@ -87,7 +95,7 @@
                    MOVE SPACES TO VFX-2-MSG
                    PERFORM 200-MOVE
            END-READ
-           IF VFX-4-RESP = 'C' OR 'c'
+           IF VFX-4-RESP = 'C'
                CONTINUE
            ELSE
                DISPLAY IDSCREEN

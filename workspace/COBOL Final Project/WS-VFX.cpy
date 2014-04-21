@@ -62,13 +62,15 @@
            03  VFX-3-RESP              PIC X       VALUE SPACES.
            03  VFX-3-SEL               PIC X       VALUE SPACES.
            03  VFX-3-CHECK             PIC X       VALUE SPACES.
-           03  VFX-3-WEIRD             PIC X       VALUE SPACES.
+           03  VFX-3-ALPUR             PIC X       VALUE SPACES.
+           03  VFX-3-ALWSH             PIC X       VALUE SPACES.
            03  VFX-3-CTR               PIC 99      VALUE ZERO.
            03  VFX-3-EOF-FLAG          PIC X       VALUE 'N'.
                88  VFX-3-EOF                       VALUE 'Y'.
            03  VFX-3-SEARCH-ID         PIC 9(8).
            03  VFX-3-VML-ID            PIC 9(8).
            03  VFX-3-VTP-ID            PIC 9(8).
+           03  VFX-3-VW-ID             PIC 9(8).
            03  VFX-3-EDITOR.
                05  VFX-3-ORIG.
                    07  VFX-3-ORIG-ID              PIC 9(8).
@@ -91,6 +93,7 @@
        01  VFX-4-VARS.
            03  VFX-4-RESP              PIC X.
            03  VFX-4-CHECK             PIC X.
+           03  VFX-4-LOOP              PIC X.
            03  VFX-4-CTR               PIC 99.
            03  VFX-4-SEARCH-ID         PIC 9(8).
            03  VFX-4-EDITOR.
@@ -115,6 +118,7 @@
        01  VFX-5-VARS.
            03  VFX-5-RESP              PIC X.
            03  VFX-5-CHECK             PIC X.
+           03  VFX-5-LOOP              PIC X.
            03  VFX-5-CTR               PIC 99.
            03  VFX-5-SEARCH-ID         PIC 9(8).
            03  VFX-5-EDITOR.

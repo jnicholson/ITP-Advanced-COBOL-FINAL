@@ -86,29 +86,33 @@
            03  LINE 21 COL 75 PIC X TO VFX-3-RESP AUTO.
       
        01  PTSCREEN-PURCHASE.
-           03  LINE 23 COL 01 VALUE "ENTER MOVIE ID:".
-           03  LINE 23 COL 17 PIC X(8) TO VFX-3-VML-ID 
+           03  LINE 23 COL 01 VALUE "ENTER MOVIE ID: ".
+           03  LINE 23 COL 18 PIC X(8) TO VFX-3-VML-ID 
                                        FULL REQUIRED AUTO.
            03  LINE 24 COL 01 PIC X(80) VALUE SPACES.                   
-                                       
+       
+       01  PTSCREEN-WISH.
+           03  LINE 23 COL 01 VALUE "ENTER MOVIE ID: ".
+           03  LINE 23 COL 18 PIC X(8) TO VFX-3-VML-ID
+                                       FULL REQUIRED AUTO.
+           03  LINE 24 COL 01 PIC X(80) VALUE SPACES.
+       
        01  PURCHASED.
            03  LINE 24 COL 01 PIC X(80) VALUE SPACES.
            03  LINE 24 COL 01 VALUE "PURCHASE COMPLETE!".
            
-       01  ALREADY.
+       01  ALPUR.
            03  LINE 24 COL 01 PIC X(80) VALUE SPACES.
            03  LINE 24 COL 01 VALUE "ALREADY PURCHASED...".
-       
-       01  PTSCREEN-PURCHASE-MORE.
-               05 BLANK LINE.
-               05  LINE 24 COL 01 VALUE "PURCHASED.".
-               05  LINE 25 COL 01 VALUE "PRESS Y TO PURCHASE ANOTHER MOV
-      -         "IE OR N TO EXIT MOVIE SELECTION.".
-               05  LINE 25 COL 64 PIC X TO VFX-3-SEL AUTO.
-               
-       01 PTSCREEN-ERROR.
-           05 BLANK LINE.
-           05  LINE 25 COL 01 VALUE "INVALID ENTRY".        
+           
+       01  WISHLISTED.
+           03  LINE 24 COL 01 PIC X(80) VALUE SPACES.
+           03  LINE 24 COL 01 VALUE "ADDED TO WISHLIST!".
+           
+       01  ALWSH.
+           03  LINE 24 COL 01 PIC X(80) VALUE SPACES.
+           03  LINE 24 COL 01 VALUE "ALREADY ON WISHLIST...".
+              
   
 
 

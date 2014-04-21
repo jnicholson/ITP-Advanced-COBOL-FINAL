@@ -34,7 +34,7 @@
        DISPLAY PTSCREEN-HEADER.
        DISPLAY PTSCREEN-LABEL.
        DISPLAY SPACES.
-       PERFORM UNTIL VFX-5-CHECK = 'Q' OR 'q'
+       PERFORM UNTIL VFX-5-CHECK = 'Q'
            READ VW-FILE NEXT RECORD
                AT END
                    MOVE 'Q' TO VFX-5-CHECK
@@ -56,25 +56,33 @@
            MOVE 1 TO VFX-5-CTR
        END-IF.
        IF VW-VM-ID-KEY = VFX-5-SEARCH-ID
-           MOVE VW-VML-ID-KEY TO VML-ID-KEY
-           READ VML-FILE KEY VML-ID
-               INVALID KEY
-                   DISPLAY 'SOMETHING WENT WRONG'
-                   ACCEPT VFX-5-RESP
-                   PERFORM 000-MAIN
-               NOT INVALID KEY
-                   MOVE VML-ID     TO VFX-5-ID
-                   MOVE VML-TITLE  TO VFX-5-TITLE
-                   MOVE VML-GENRE  TO VFX-5-GENRE
-                   MOVE VML-PRICE  TO VFX-5-PRICE
-           END-READ
+           IF VW-VML-ID-KEY = VFX-5-ID
+               MOVE 'O' TO VFX-5-LOOP
+           ELSE
+               MOVE VW-VML-ID-KEY TO VML-ID-KEY
+               READ VML-FILE KEY VML-ID
+                   INVALID KEY
+                       DISPLAY 'SOMETHING WENT WRONG'
+                       ACCEPT VFX-5-RESP
+                       PERFORM 000-MAIN
+                   NOT INVALID KEY
+                       MOVE VML-ID     TO VFX-5-ID
+                       MOVE VML-TITLE  TO VFX-5-TITLE
+                       MOVE VML-GENRE  TO VFX-5-GENRE
+                       MOVE VML-PRICE  TO VFX-5-PRICE
+               END-READ
+           END-IF
+           IF VFX-5-LOOP = 'O'
+               CONTINUE
+           ELSE
+               DISPLAY VFX-5-VML-LINE
+           END-IF
        END-IF.
-       DISPLAY VFX-5-VML-LINE.
       ******************************************************************
        100-CHECK.
        DISPLAY IDSCREEN.
        ACCEPT CHOOSEID.
-       IF VFX-4-SEARCH-ID = '99999999'
+       IF VFX-5-SEARCH-ID = '99999999'
            GOBACK
        END-IF.
        PERFORM UNTIL VFX-5-CHECK = 'Y' OR 'y'
@@ -87,7 +95,7 @@
                    MOVE SPACES TO VFX-2-MSG
                    PERFORM 200-MOVE
            END-READ
-           IF VFX-5-RESP = 'C' OR 'c'
+           IF VFX-5-RESP = 'C'
                CONTINUE
            ELSE
                DISPLAY IDSCREEN
