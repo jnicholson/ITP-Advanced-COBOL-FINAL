@@ -32,9 +32,9 @@
                        WRITE VW-REC FROM VW-REC-TXT
                        ADD 1 TO WS-COUNTER
            END-PERFORM.
-           DISPLAY "G3_BUILD_VISA_MERCHANT".
-           DISPLAY "COMPLETED ADDING ", WS-COUNTER.
-           DISPLAY "ENDED WITH STATUS CODE OF ", WS-STAT.
+           DISPLAY "G3_BLD_VFX_WISH".
+           DISPLAY "    COMPLETED ADDING ", WS-COUNTER.
+           DISPLAY "    ENDED WITH STATUS CODE OF ", WS-STAT.
            CLOSE VW-FILE-TXT
                  VW-FILE.
            EXIT PROGRAM.

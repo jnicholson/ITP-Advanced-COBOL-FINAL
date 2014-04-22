@@ -32,9 +32,9 @@
                        WRITE VML-REC FROM VML-REC-TXT
                        ADD 1 TO WS-COUNTER
            END-PERFORM.
-           DISPLAY "G3_BUILD_VUFLIX_MOVIE_LIST".
-           DISPLAY "COMPLETED ADDING ", WS-COUNTER.
-           DISPLAY "ENDED WITH STATUS CODE OF ", WS-STAT.
+           DISPLAY "G3_BLD_VFX_MOV".
+           DISPLAY "    COMPLETED ADDING ", WS-COUNTER.
+           DISPLAY "    ENDED WITH STATUS CODE OF ", WS-STAT.
           CLOSE VML-FILE-TXT
                 VML-FILE.
       

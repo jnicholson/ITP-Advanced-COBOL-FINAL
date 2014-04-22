@@ -33,11 +33,13 @@
        CALL 'G3-BLD-VFX-PUR'.
        CALL 'G3-BLD-VISA-ISS'.
        CALL 'G3-BLD-VISA-MERLOC'.
+       DISPLAY "            PRESS ENTER TO CONTINUE".
        ACCEPT WS-RESP.
        DISPLAY BLANK-SCREEN.
        CALL 'G3-BLD-VISA-MER'.
        CALL 'G3-BLD-VFX-MBR'.
        CALL 'G3-BLD-CAP1-CHOLD'.
+       DISPLAY "            PRESS ENTER TO CONTINUE".
        ACCEPT WS-RESP.
        
        EXIT PROGRAM.
