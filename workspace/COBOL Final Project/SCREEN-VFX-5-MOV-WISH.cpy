@@ -68,6 +68,26 @@
                05  LINE 10 COL 46 VALUE "GENRE".
                05  LINE 10 COL 57 VALUE "PRICE".
                
-      
+       01  CONT-FILE.
+           03  LINE 21 COL 01 VALUE "PRESS 'P' FOR PURCHASE, ".
+           03  LINE 21 COL 24 VALUE "'N' FOR NEXT PAGE, ".
+           03  LINE 21 COL 43 VALUE "OR 'X' TO EXIT.".
+           03  LINE 21 COL 59 PIC X TO VFX-5-RESP AUTO.
 
+       01  PTSCREEN-PURCHASE.
+           03  LINE 23 COL 01 VALUE "ENTER MOVIE ID: ".
+           03  LINE 23 COL 18 PIC X(8) TO VFX-5-VML-ID 
+                                       FULL REQUIRED AUTO.
+           03  LINE 24 COL 01 PIC X(80) VALUE SPACES.
 
+       01  ALPUR.
+           03  LINE 24 COL 01 PIC X(80) VALUE SPACES.
+           03  LINE 24 COL 01 VALUE "ALREADY PURCHASED...".
+       
+       01  PURCHASED.
+           03  LINE 24 COL 01 PIC X(80) VALUE SPACES.
+           03  LINE 24 COL 01 VALUE "PURCHASE COMPLETE!".
+       
+       
+       
+       

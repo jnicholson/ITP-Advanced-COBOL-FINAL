@@ -119,8 +119,11 @@
            03  VFX-5-RESP              PIC X.
            03  VFX-5-CHECK             PIC X.
            03  VFX-5-LOOP              PIC X.
+           03  VFX-5-ALPUR             PIC X.
            03  VFX-5-CTR               PIC 99.
            03  VFX-5-SEARCH-ID         PIC 9(8).
+           03  VFX-5-VML-ID            PIC 9(8).
+           03  VFX-5-VTP-ID            PIC 9(8).
            03  VFX-5-EDITOR.
                05  VFX-5-ORIG.
                    07  VFX-5-ORIG-ID              PIC 9(8).

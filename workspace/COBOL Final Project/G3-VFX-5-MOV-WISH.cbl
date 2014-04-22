@@ -10,12 +10,14 @@
        COPY SELECT-VFX-WISH.
        COPY SELECT-VFX-MOV.
        COPY SELECT-VFX-MBR.
+       COPY SELECT-VFX-PUR.
       ******************************************************************
        DATA DIVISION.
        FILE SECTION.
        COPY FD-VFX-WISH.
        COPY FD-VFX-MOV.
        COPY FD-VFX-MBR.
+       COPY FD-VFX-PUR.
        
        WORKING-STORAGE SECTION.
        COPY WS-VFX.
@@ -41,6 +43,7 @@
                NOT AT END
                    PERFORM 100-DISPLAY
        END-PERFORM.
+       PERFORM 200-PUR UNTIL VFX-5-RESP = 'X' OR 'x'.
        CLOSE   VW-FILE
                VML-FILE
                VM-FILE.
@@ -50,6 +53,7 @@
        100-DISPLAY.
        ADD 1 TO VFX-5-CTR.
        IF VFX-5-CTR GREATER THAN 15
+           PERFORM 200-PUR UNTIL VFX-5-RESP = 'N' OR 'n' OR 'X' OR 'x'
            DISPLAY PTSCREEN-HEADER
            DISPLAY PTSCREEN-LABEL
            DISPLAY SPACES
@@ -122,3 +126,65 @@
            MOVE SPACES TO VFX-5-RESP
            PERFORM 100-CHECK
        END-IF.
+      ******************************************************************
+       200-PUR.
+       MOVE SPACES TO VFX-5-RESP.
+       IF VFX-5-ALPUR = 'A'
+           OPEN INPUT VTP-FILE
+           READ VTP-FILE NEXT RECORD
+               AT END
+                   MOVE SPACES TO VFX-5-ALPUR
+               NOT AT END
+                   CONTINUE
+           END-READ
+           CLOSE VTP-FILE
+       END-IF.
+       MOVE SPACES TO VFX-5-ALPUR.
+       DISPLAY CONT-FILE.
+       ACCEPT  VFX-5-RESP.
+       IF VFX-5-RESP = 'P' OR 'p'
+           DISPLAY PTSCREEN-PURCHASE
+           ACCEPT  PTSCREEN-PURCHASE
+           PERFORM 300-CHECK-PURCHASE
+           IF VFX-5-ALPUR NOT EQUAL 'P'
+               PERFORM 400-PURCHASE
+           END-IF
+       ELSE
+       IF VFX-5-RESP = 'N' OR 'n'
+           CONTINUE
+       ELSE
+       IF VFX-5-RESP = 'X' OR 'x'
+           GOBACK
+       END-IF.
+      ******************************************************************
+       300-CHECK-PURCHASE.
+       OPEN INPUT VTP-FILE.
+       PERFORM UNTIL VFX-5-RESP = 'Y'
+           READ VTP-FILE NEXT RECORD
+               AT END
+                   MOVE VTP-ID TO VFX-5-VTP-ID
+                   MOVE 'Y' TO VFX-5-RESP
+               NOT AT END
+                   IF VTP-VM-ID-KEY = VFX-5-SEARCH-ID
+                       IF VTP-VML-ID-KEY = VFX-5-VML-ID
+                           DISPLAY ALPUR
+                           MOVE 'A' TO VFX-5-ALPUR
+                           CLOSE VTP-FILE
+                           PERFORM 200-PUR
+                       END-IF
+                   END-IF
+           END-READ
+       END-PERFORM.
+       CLOSE VTP-FILE.
+      ******************************************************************
+       400-PURCHASE.
+       OPEN I-O VTP-FILE. 
+       ADD 1 TO VFX-5-VTP-ID
+       MOVE VFX-5-VTP-ID       TO VTP-ID-KEY.
+       MOVE VFX-5-SEARCH-ID    TO VTP-VM-ID-KEY.
+       MOVE VFX-5-VML-ID       TO VTP-VML-ID-KEY.
+       WRITE VTP-REC.
+       CLOSE VTP-FILE.
+       MOVE 'P' TO VFX-5-ALPUR.
+       DISPLAY PURCHASED.
+       

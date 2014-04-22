@@ -142,8 +142,8 @@
        200-DISPLAY.
        ADD 1 TO VFX-3-CTR.
        IF VFX-3-CTR GREATER THAN 15
-           PERFORM 200-PUR-WISH UNTIL VFX-3-RESP =  'N' OR 'n' OR 
-                                                    'X' OR 'x'
+           PERFORM 200-PUR-WISH UNTIL VFX-3-RESP = 'N' OR 'n' OR 
+                                                   'X' OR 'x'
            DISPLAY PTSCREEN-HEADER
            DISPLAY PTSCREEN-LABEL
            DISPLAY SPACES
