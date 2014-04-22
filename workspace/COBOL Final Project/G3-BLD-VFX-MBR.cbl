@@ -4,7 +4,7 @@
       *DATE:     4/8/2014   
       *ABSTRACT: 
       ******************************************************************
-       PROGRAM-ID. G3-BUILD-VUFLIX-MEMBER.
+       PROGRAM-ID. G3-BLD-VFX-MBR.
       ******************************************************************
        ENVIRONMENT DIVISION.
        COPY SELECT-VFX-MBR.
@@ -21,11 +21,12 @@
 
       ****************************************************************** 
        PROCEDURE DIVISION.
-       000-MAIN.
-       OPEN INPUT  VM-FILE-TXT.
-       OPEN OUTPUT VM-FILE.
-       DISPLAY 'VUFLIX-MEMBER-ISAM-BUILD'.
-       
+           000-MAIN.
+           OPEN INPUT  VM-FILE-TXT.
+           OPEN OUTPUT VM-FILE.
+           DISPLAY 'G3-BLD-VFX-MBR'.
+           DISPLAY "    COMPLETED ADDING ", WS-COUNTER.
+           DISPLAY "    ENDED WITH STATUS CODE OF ", WS-STAT.
        
       
            PERFORM UNTIL WS-CHECK = 'Y'

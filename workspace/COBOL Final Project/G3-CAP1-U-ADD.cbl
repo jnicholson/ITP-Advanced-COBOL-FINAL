@@ -29,6 +29,7 @@
                ACCEPT FORM-ID
                ACCEPT FORM-FNAME
                ACCEPT FORM-LNAME
+               ACCEPT FORM-PHONE
                ACCEPT FORM-STREET
                ACCEPT FORM-ZIP
                ACCEPT FORM-EMAIL
@@ -47,6 +48,7 @@
            MOVE WS-ACCNT-NUM TO CH-ID.
            MOVE WS-FNAME TO CH-FNAME.
            MOVE WS-LNAME TO CH-LNAME.
+           MOVE WS-PHONE TO CH-PHONE.
            MOVE WS-ADDRESS TO CH-ADDRESS.
            MOVE WS-ZIP TO CH-ZIP.
            MOVE WS-EMAIL TO CH-EMAIL.

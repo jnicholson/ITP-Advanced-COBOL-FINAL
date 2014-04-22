@@ -32,9 +32,9 @@
                        WRITE CH-REC FROM CH-REC-TXT
                        ADD 1 TO WS-COUNTER
            END-PERFORM.
-           DISPLAY "G3_BUILD_VUFLIX_MOVIE_LIST".
-           DISPLAY "COMPLETED ADDING ", WS-COUNTER.
-           DISPLAY "ENDED WITH STATUS CODE OF ", WS-STAT.
+           DISPLAY "G3-BLD-CAP1-CHOLD".
+           DISPLAY "    COMPLETED ADDING ", WS-COUNTER.
+           DISPLAY "    ENDED WITH STATUS CODE OF ", WS-STAT.
           CLOSE CH-FILE-TXT
                 CH-FILE.
       

@@ -20,6 +20,7 @@
        PROCEDURE DIVISION.
        000-MAIN.
        MOVE FUNCTION CURRENT-DATE TO WS-TSTAMP.
+       MOVE 'G3-VISA-MER-MAIN' TO WS-PROG.
        PERFORM UNTIL WS-SEL = 'X' OR 'x'
            DISPLAY MENUSCREEN
            ACCEPT MENUSCREEN
@@ -39,6 +40,8 @@
                WHEN '1' CALL 'G3-VISA-MER-ADD'
                WHEN '2' CALL 'G3-VISA-MER-EDIT'
                WHEN '3' CALL 'G3-VISA-MER-DEL'
+               WHEN '4' CALL 'G3-VISA-MER-SEARCH'
+               WHEN '5' CALL 'G3-VISA-MER-LIST'
            END-EVALUATE
        END-PERFORM.
       ******************************************************************

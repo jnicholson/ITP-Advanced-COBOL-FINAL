@@ -33,9 +33,9 @@
                        WRITE VTP-REC FROM VTP-REC-TXT
                        ADD 1 TO WS-COUNTER
            END-PERFORM.
-           DISPLAY "G3_BUILD_VUFLIX_PURCHASED".
-           DISPLAY "COMPLETED ADDING ", WS-COUNTER.
-           DISPLAY "ENDED WITH STATUS CODE OF ", WS-STAT.
+           DISPLAY "G3_BLD_VFX_PUR".
+           DISPLAY "    COMPLETED ADDING ", WS-COUNTER.
+           DISPLAY "    ENDED WITH STATUS CODE OF ", WS-STAT.
            CLOSE VTP-FILE-TXT
                  VTP-FILE.
                  

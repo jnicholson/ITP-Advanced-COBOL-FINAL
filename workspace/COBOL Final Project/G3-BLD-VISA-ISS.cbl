@@ -43,9 +43,9 @@
                        WRITE ISS-REC FROM ISS-REC-TXT
                        ADD 1 TO WS-COUNTER
            END-PERFORM.
-           DISPLAY "G3_BUILD_VISA_ISSUER".
-           DISPLAY "COMPLETED ADDING ", WS-COUNTER.
-           DISPLAY "ENDED WITH STATUS CODE OF ", WS-STAT.
+           DISPLAY "G3_BLD_VISA_ISS".
+           DISPLAY "    COMPLETED ADDING ", WS-COUNTER.
+           DISPLAY "    ENDED WITH STATUS CODE OF ", WS-STAT.
            CLOSE ISS-FILE-TXT
                  ISS-FILE.
            EXIT PROGRAM.

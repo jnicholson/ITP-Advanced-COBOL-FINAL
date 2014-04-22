@@ -26,25 +26,28 @@
            03  FORM.
                05  FORM-ID.
                    07  LINE 10 COL 17 VALUE "ID: ".
-                   07  LINE 10 COL 32 PIC 9(8) TO WS-ACCNT-NUM AUTO.
+                   07  LINE 10 COL 32 PIC X(8) TO WS-ACCNT-NUM AUTO.
                05  FORM-FNAME.
                    07  LINE 11 COL 17 VALUE "FIRST NAME: ".
                    07  LINE 11 COL 32 PIC X(20) TO WS-FNAME.
                05  FORM-LNAME.
                    07  LINE 12 COL 17 VALUE "LAST NAME: ".
                    07  LINE 12 COL 32 PIC X(20) TO WS-LNAME.
+               05  FORM-PHONE.
+                   07  LINE 13 COL 17 VALUE "Phone:".
+                   07  LINE 13 COL 32 PIC X(10) TO WS-PHONE.
                05  FORM-STREET.
-                   07  LINE 13 COL 17 VALUE "ADDRESS: ".
-                   07  LINE 13 COL 32 PIC X(20) TO WS-ADDRESS.
+                   07  LINE 14 COL 17 VALUE "ADDRESS: ".
+                   07  LINE 14 COL 32 PIC X(20) TO WS-ADDRESS.
                05  FORM-ZIP.
-                   07  LINE 14 COL 17 VALUE "ZIP-CODE: ".
-                   07  LINE 14 COL 32 PIC 9(5) TO WS-ZIP AUTO.
+                   07  LINE 15 COL 17 VALUE "ZIP-CODE: ".
+                   07  LINE 15 COL 32 PIC X(5) TO WS-ZIP AUTO.
                05  FORM-EMAIL.
-                   07  LINE 15 COL 17 VALUE "EMAIL: ".
-                   07  LINE 15 COL 32 PIC X(30) TO WS-EMAIL.
+                   07  LINE 16 COL 17 VALUE "EMAIL: ".
+                   07  LINE 16 COL 32 PIC X(30) TO WS-EMAIL.
                05 FORM-SEL.
-                   07  LINE 20 COL 27 PIC X TO CAP1-M-SEL AUTO.
-                   07  LINE 20 COL 29 VALUE "Press 'S' to save changes".
+                   07  LINE 21 COL 27 PIC X TO CAP1-M-SEL AUTO.
+                   07  LINE 21 COL 29 VALUE "Press 'S' to save changes".
                    
 
                

@@ -31,9 +31,9 @@
                        WRITE MER-REC FROM MER-REC-TXT
                        ADD 1 TO WS-COUNTER
            END-PERFORM.
-           DISPLAY "G3_BUILD_VISA_MERCHANT".
-           DISPLAY "COMPLETED ADDING ", WS-COUNTER.
-           DISPLAY "ENDED WITH STATUS CODE OF ", WS-STAT.
+           DISPLAY "G3_BLD_VISA_MER".
+           DISPLAY "    COMPLETED ADDING ", WS-COUNTER.
+           DISPLAY "    ENDED WITH STATUS CODE OF ", WS-STAT.
           CLOSE MER-FILE-TXT
                 MER-FILE.
            EXIT PROGRAM.
