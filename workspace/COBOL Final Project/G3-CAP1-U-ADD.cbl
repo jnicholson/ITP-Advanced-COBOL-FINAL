@@ -13,6 +13,9 @@
        DATA DIVISION.
        COPY FD-CHOLD.
        WORKING-STORAGE SECTION.
+       COPY WS-CAP1.
+       
+       SCREEN SECTION.
        COPY SCREEN-CAP1-U-ADD.
       ******************************************************************
        PROCEDURE DIVISION.
@@ -41,10 +44,10 @@
            DISPLAY 'CREATING...'
            DISPLAY "PRESS 'ENTER' TO CONTINUE".
            ACCEPT WS-FLAG.
-           MOVE WS-ACNT-NUM TO CH-ID.
+           MOVE WS-ACCNT-NUM TO CH-ID.
            MOVE WS-FNAME TO CH-FNAME.
            MOVE WS-LNAME TO CH-LNAME.
-           MOVE WS-STREET TO CH-ADDRESS.
+           MOVE WS-ADDRESS TO CH-ADDRESS.
            MOVE WS-ZIP TO CH-ZIP.
            MOVE WS-EMAIL TO CH-EMAIL.
            WRITE CH-REC.

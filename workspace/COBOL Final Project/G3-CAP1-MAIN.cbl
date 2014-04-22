@@ -45,7 +45,7 @@
            ACCEPT MENUSCREEN
            EVALUATE WS-SEL
                WHEN '1' CALL 'G3-CAP1-U-ADD'
-               WHEN '2' 
+               WHEN '2' CALL 'G3-CAP1-U-INQ'
                WHEN '3' CALL 'G3-CAP1-RPT'
                WHEN '4' CALL 'G3-CAP1-PAY'
            END-EVALUATE
