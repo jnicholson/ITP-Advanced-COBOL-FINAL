@@ -78,10 +78,12 @@
            DISPLAY "PRESS 'ENTER' TO RETURN".
       ******************************************************************
        300-GET-ID.
-           PERFORM UNTIL VISA-M-EOF = 'Y'
-               READ MER-FILE 
-                   AT END 
-                       MOVE 'Y' TO VISA-M-EOF
-                       COMPUTE VISA-MER-EDIT-ID = MER-ID + 1
-                   NOT AT END
-           END-PERFORM.
+       MOVE ZERO TO MER-ID
+               START MER-FILE KEY NOT LESS THAN MER-ID
+           INVALID KEY
+               DISPLAY 'OOPS'
+           NOT INVALID KEY
+               READ MER-FILE NEXT RECORD
+               COMPUTE MER-ID = MER-ID - 1
+               MOVE MER-ID TO VISA-MER-EDIT-ID
+       END-START.

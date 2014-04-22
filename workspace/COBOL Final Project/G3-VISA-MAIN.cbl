@@ -47,7 +47,6 @@
            EVALUATE WS-SEL
                WHEN '1' CALL 'G3-VISA-ISS-ADD'
                WHEN '2' CALL 'G3-VISA-MER-MAIN'
-               WHEN '3'
            END-EVALUATE
        END-PERFORM
        EXIT PROGRAM.

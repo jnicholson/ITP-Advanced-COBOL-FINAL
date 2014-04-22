@@ -9,13 +9,10 @@
                05  LINE 01 COL 74 PIC X(2) FROM WS-DAY.
                05  LINE 01 COL 76 VALUE "/".
                05  LINE 01 COL 77 PIC X(4) FROM WS-YEAR.
-               05  LINE 02 COL 76 PIC X(2) FROM WS-HOUR.
-               05  LINE 02 COL 78 VALUE ":".
-               05  LINE 02 COL 79 PIC X(2) FROM WS-MINUTE.
                05  LINE 06 COL 35 VALUE "MERCHANT SIGNUP".
            03 E-ID.
                05  LINE 10 COL 17 VALUE "ID".
-               05  LINE 10 COL 32 PIC 9(8) TO VISA-MER-EDIT-ID.
+               05  LINE 10 COL 32 PIC 9(8) FROM VISA-MER-EDIT-ID.
            03 E-NAME.
                05  LINE 11 COL 17 VALUE "Name".
                05  LINE 11 COL 32 PIC X(24) TO VISA-MER-EDIT-NAME.
