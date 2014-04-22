@@ -23,11 +23,10 @@
            DISPLAY ACCT-SIGNUP.
            
            PERFORM UNTIL CAP1-M-SEL = 'S' or 's'
+               ACCEPT FORM-ID
                ACCEPT FORM-FNAME
                ACCEPT FORM-LNAME
                ACCEPT FORM-STREET
-               ACCEPT FORM-CITY
-               ACCEPT FORM-STATE
                ACCEPT FORM-ZIP
                ACCEPT FORM-EMAIL
                ACCEPT FORM-SEL
@@ -45,9 +44,7 @@
            MOVE WS-ACNT-NUM TO CH-ID.
            MOVE WS-FNAME TO CH-FNAME.
            MOVE WS-LNAME TO CH-LNAME.
-           MOVE WS-STREET TO CH-STREET.
-           MOVE WS-CITY TO CH-CITY.
-           MOVE WS-STATE TO CH-STATE.
+           MOVE WS-STREET TO CH-ADDRESS.
            MOVE WS-ZIP TO CH-ZIP.
            MOVE WS-EMAIL TO CH-EMAIL.
            WRITE CH-REC.

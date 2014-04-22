@@ -7,6 +7,7 @@
       *******************************************************************
        01 WS-STAT          PIC XX.
        01 WS-FLAG          PIC X.
+       01 WS-ERROR         PIC X(20) VALUE SPACES.
        01  WS-TSTAMP.
            03  WS-YEAR                     PIC XXXX.
            03  WS-MONTH                    PIC XX.
@@ -23,8 +24,6 @@
            03  WS-FNAME    PIC X(20).
            03  WS-LNAME    PIC X(20).
            03  WS-STREET   PIC X(20).
-           03  WS-CITY     PIC X(20).
-           03  WS-STATE    PIC XX.
            03  WS-ZIP      PIC 9(5).
            03  WS-EMAIL    PIC X(30).
            03  WS-ACNT-NUM PIC 9(8).
@@ -32,6 +31,8 @@
        SCREEN SECTION.
        01  BLANK-SCREEN.
            03  BLANK SCREEN.
+       01  INVALID-MSG.
+           03 LINE 21 COL 29 FROM WS-ERROR.
        01  ACCT-SIGNUP.
            03  BLANK SCREEN.
            03  HEAD.
@@ -49,7 +50,7 @@
            03  FORM.
                05  FORM-ID.
                    07 LINE 10 COL 17 VALUE "ID: ".
-                   07 LINE 10 COL 32 PIC 9(8) FROM WS-ACNT-NUM.
+                   07 LINE 10 COL 32 PIC 9(8) TO WS-ACNT-NUM AUTO.
                05  FORM-FNAME.
                    07 LINE 11 COL 17 VALUE "FIRST NAME: ".
                    07 LINE 11 COL 32 PIC X(20) TO WS-FNAME.
@@ -57,23 +58,18 @@
                    07 LINE 12 COL 17 VALUE "LAST NAME: ".
                    07 LINE 12 COL 32 PIC X(20) TO WS-LNAME.
                05  FORM-STREET.
-                   07 LINE 13 COL 17 VALUE "STREET: ".
+                   07 LINE 13 COL 17 VALUE "ADDRESS: ".
                    07 LINE 13 COL 32 PIC X(20) TO WS-STREET.
-               05  FORM-CITY.
-                   07 LINE 14 COL 17 VALUE "CITY: ".
-                   07 LINE 14 COL 32 PIC X(20) TO WS-CITY.
-               05 FORM-STATE.
-                   07 LINE 15 COL 17 VALUE "STATE: ".
-                   07 LINE 15 COL 32 PIC X(2) TO WS-STATE.
                05  FORM-ZIP.
-                   07 LINE 16 COL 17 VALUE "ZIP-CODE: ".
-                   07 LINE 16 COL 32 PIC 9(5) TO WS-ZIP.
+                   07 LINE 14 COL 17 VALUE "ZIP-CODE: ".
+                   07 LINE 14 COL 32 PIC 9(5) TO WS-ZIP AUTO.
                05  FORM-EMAIL.
-                   07 LINE 17 COL 17 VALUE " EMAIL: ".
-                   07 LINE 18 COL 32 PIC X(30) TO WS-EMAIL.
+                   07 LINE 15 COL 17 VALUE "EMAIL: ".
+                   07 LINE 15 COL 32 PIC X(30) TO WS-EMAIL.
                05 FORM-SEL.
                    07  LINE 20 COL 27 PIC X TO CAP1-M-SEL AUTO.
                    07  LINE 20 COL 29 VALUE "Press 'S' to save changes".
+                   
 
                
                
