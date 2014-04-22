@@ -122,9 +122,18 @@
                05  LINE 15 COL 15 PIC X(20) FROM CAP1-ORIG-EMAIL.
                05  LINE 15 COL 42 VALUE "Email".
                05  LINE 15 COL 60 PIC X(20) TO CAP1-EDIT-EMAIL.
-
            03  E-SEL.
                05  LINE 20 COL 23 PIC X TO CAP1-CHECK AUTO.
                05  LINE 20 COL 25 VALUE "Press 'S' to SAVE ".
                05  LINE 20 COL 43 VALUE "or 'R' to RETURN".
                05  LINE 21 COL 29 VALUE "(all other keys start over)".
+       01  EDIT-CONFIRM.
+           03  EDITING.
+               05  LINE 10 COL 38 VALUE "EDITING...".
+               05  LINE 11 COL 31 VALUE "PRESS 'ENTER' TO CONTINUE".
+           03  EXITING.
+               05  LINE 10 COL 29 VALUE 'RETURNING TO CAPITAL ONE MENU'.
+               05  LINE 11 COL 31 VALUE "PRESS 'ENTER' TO CONTINUE".
+               
+               
+               

@@ -17,9 +17,10 @@
        01 WS-SCTR    PIC 99.
        01 WS-BLANKS  PIC X(25) VALUE SPACES.
        COPY SCREEN-CAP1-U-EDIT.
-       
+      ****************************************************************** 
        PROCEDURE DIVISION.
        000-MAIN.
+       
            MOVE FUNCTION CURRENT-DATE TO WS-TSTAMP.
            MOVE 'G3-CAP1-U-EDIT' TO CAP1-M-PROG.
            OPEN I-O CH-FILE.
@@ -27,6 +28,7 @@
            PERFORM 300-EDIT.
            CLOSE CH-FILE.
            EXIT PROGRAM.
+      ******************************************************************     
        100-CHECK.
            DISPLAY IDSCREEN.
            ACCEPT CHOOSEID.
@@ -68,7 +70,7 @@
                    PERFORM 000-MAIN
                END-IF
            END-PERFORM.
-           
+      ******************************************************************     
        200-MOVE.
            MOVE 'C' TO CAP1-RESP.
            MOVE CH-ID TO CAP1-ORIG-ID.
@@ -86,10 +88,10 @@
                MOVE SPACES TO CAP1-RESP
                PERFORM 100-CHECK
            END-IF.
+      ******************************************************************     
        300-EDIT.
            DISPLAY BLANK-SCREEN.
-           DISPLAY 'EDITING...'
-           DISPLAY "PRESS 'ENTER' TO CONTINUE".
+           DISPLAY EDITING.
            ACCEPT CAP1-RESP.
            IF CAP1-EDIT-ID NOT EQUAL SPACES
                MOVE CAP1-EDIT-ID TO CH-ID
@@ -111,9 +113,8 @@
            END-IF.
            REWRITE CH-REC.
            DISPLAY BLANK-SCREEN.
-           DISPLAY 'RETURNING TO CAPITAL ONE MENU'.
-           DISPLAY "PRESS 'ENTER' TO CONTINUE".
-              
+           DISPLAY EXITING.
+      ******************************************************************        
        400-EDIT-LOAD.
        INSPECT FUNCTION REVERSE(CH-FNAME)
            TALLYING WS-CTR FOR LEADING SPACES.
