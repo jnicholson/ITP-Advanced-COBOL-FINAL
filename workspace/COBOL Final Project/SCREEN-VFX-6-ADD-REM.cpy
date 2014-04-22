@@ -32,10 +32,10 @@
                05  LINE 01 COL 74 PIC X(2) FROM WS-DAY.
                05  LINE 01 COL 76 VALUE "/".
                05  LINE 01 COL 77 PIC X(4) FROM WS-YEAR.
-               05  LINE 04 COL 01 VALUE "MOVIE ID".
-               05  LINE 04 COL 10 VALUE "TITLE".
-               05  LINE 04 COL 46 VALUE "GENRE".
-               05  LINE 04 COL 57 VALUE "PRICE".
+               05  LINE 03 COL 01 VALUE "MOVIE ID".
+               05  LINE 03 COL 10 VALUE "TITLE".
+               05  LINE 03 COL 46 VALUE "GENRE".
+               05  LINE 03 COL 57 VALUE "PRICE".
        
        01  PTSCREEN-EDIT.
            03  LINE 23 COL 01 VALUE "ENTER MOVIE ID: ".

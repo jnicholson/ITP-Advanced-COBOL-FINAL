@@ -8,7 +8,10 @@
                ORGANIZATION IS INDEXED
                ACCESS IS DYNAMIC
                RECORD KEY      IS VTP-ID-KEY
+               ALTERNATE KEY   IS VTP-VM-ID-KEY
+                               WITH DUPLICATES
                ALTERNATE KEY   IS VTP-VML-ID-KEY
+                               WITH DUPLICATES
                FILE STATUS IS WS-STAT.
       
 

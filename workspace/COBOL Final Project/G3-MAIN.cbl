@@ -5,7 +5,7 @@
       *ABSTRACT: Main menu app to navigate through all main pages. 
       ******************************************************************
        IDENTIFICATION DIVISION. 
-       PROGRAM-ID. G3-MAIN.
+       PROGRAM-ID. G3-MAIN IS INITIAL.
       ******************************************************************
        ENVIRONMENT DIVISION.
       ******************************************************************

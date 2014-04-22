@@ -95,7 +95,7 @@
            03  VFX-4-RESP              PIC X.
            03  VFX-4-CHECK             PIC X.
            03  VFX-4-LOOP              PIC X.
-           03  VFX-4-CTR               PIC 99.
+           03  VFX-4-CTR               PIC 99 VALUE ZERO.
            03  VFX-4-SEARCH-ID         PIC 9(8).
            03  VFX-4-EDITOR.
                05  VFX-4-ORIG.

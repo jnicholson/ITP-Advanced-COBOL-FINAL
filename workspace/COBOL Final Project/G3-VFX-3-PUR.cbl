@@ -6,7 +6,7 @@
       *THINGS TO DO: CURRENTLY ONLY DISPLAYS TITLES. NEEDS WAY TO 
       *              PURCHASE TITLES. NEED TO FINISH SORT SYSTEM.
       ******************************************************************
-       PROGRAM-ID. G3-VFX-3-PUR.
+       PROGRAM-ID. G3-VFX-3-PUR IS INITIAL.
       ******************************************************************
        ENVIRONMENT DIVISION.
        COPY SELECT-VFX-MOV.
@@ -57,7 +57,7 @@
        PERFORM UNTIL VFX-3-CHECK = 'Y' OR 'y'
            MOVE SPACES TO VFX-3-CHECK
            MOVE VFX-3-SEARCH-ID TO VM-ID-KEY
-           READ VM-FILE
+           READ VM-FILE KEY IS VM-ID-KEY
                INVALID KEY
                    MOVE 'INVALID ID' TO VFX-2-MSG
                NOT INVALID KEY

@@ -4,7 +4,7 @@
       *DATE:     4/9/2014   
       *ABSTRACT: 
       ******************************************************************
-       PROGRAM-ID. G3-VFX-4-MOV-PUR.
+       PROGRAM-ID. G3-VFX-4-MOV-PUR IS INITIAL.
       ******************************************************************
        ENVIRONMENT DIVISION.
        COPY SELECT-VFX-PUR.
@@ -34,12 +34,24 @@
        DISPLAY PTSCREEN-HEADER.
        DISPLAY PTSCREEN-LABEL.
        DISPLAY SPACES.
+       
+       MOVE VFX-4-SEARCH-ID TO VTP-VM-ID-KEY.
+       START VTP-FILE KEY NOT LESS THAN VTP-VM-ID-KEY                                      
+           INVALID KEY
+               DISPLAY 'OOPS'
+               ACCEPT VFX-4-RESP
+           NOT INVALID KEY
+               READ VTP-FILE NEXT RECORD
+                   
+               PERFORM 100-DISPLAY
+       END-START.
        PERFORM UNTIL VFX-4-CHECK = 'Q'
            READ VTP-FILE NEXT RECORD
                AT END
                    MOVE 'Q' TO VFX-4-CHECK
                NOT AT END
                    PERFORM 100-DISPLAY
+           END-READ
        END-PERFORM.
        CLOSE   VTP-FILE
                VML-FILE

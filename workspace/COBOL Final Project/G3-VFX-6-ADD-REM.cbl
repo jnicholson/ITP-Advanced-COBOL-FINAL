@@ -4,7 +4,7 @@
       *DATE:     4/21/2014   
       *ABSTRACT: 
       ******************************************************************
-       PROGRAM-ID. G3-VFX-6-ADD-REM.
+       PROGRAM-ID. G3-VFX-6-ADD-REM IS INITIAL.
       ******************************************************************
        ENVIRONMENT DIVISION.
        COPY SELECT-VFX-MOV.
