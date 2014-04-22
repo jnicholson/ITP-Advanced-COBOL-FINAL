@@ -10,6 +10,7 @@
        ENVIRONMENT DIVISION.
       ******************************************************************
        DATA DIVISION.
+       
        WORKING-STORAGE SECTION.
        COPY WS-MENU.
        
