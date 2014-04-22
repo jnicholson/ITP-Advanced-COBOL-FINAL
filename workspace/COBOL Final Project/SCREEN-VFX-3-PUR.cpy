@@ -2,7 +2,7 @@
        01  PTSCREEN-HEADER.
            03  BLANK SCREEN.
            03  PURCHASETITLE.
-               05  LINE 01 COL 01 PIC X(15) FROM VFX-M-PROG.
+               05  LINE 01 COL 01 PIC X(20) FROM VFX-M-PROG.
                05  LINE 01 COL 38 VALUE "TEAM 3".
                05  LINE 01 COL 71 PIC X(2) FROM WS-MONTH.
                05  LINE 01 COL 73 VALUE "/".
@@ -15,7 +15,7 @@
        01  IDSCREEN.
            03  BLANK SCREEN.
            03  CHOOSEID.
-               05  LINE 01 COL 01 PIC X(15) FROM VFX-M-PROG.
+               05  LINE 01 COL 01 PIC X(20) FROM VFX-M-PROG.
                05  LINE 01 COL 38 VALUE 'TEAM 3'.
                05  LINE 01 COL 71 PIC X(2) FROM WS-MONTH.
                05  LINE 01 COL 73 VALUE '/'.
@@ -33,7 +33,7 @@
        01  CHECKSCREEN.
            03  BLANK SCREEN. 
            03  CHECK.
-               05  LINE 01 COL 01 PIC X(15) FROM VFX-M-PROG.
+               05  LINE 01 COL 01 PIC X(20) FROM VFX-M-PROG.
                05  LINE 01 COL 38 VALUE "TEAM 3".
                05  LINE 01 COL 71 PIC X(2) FROM WS-MONTH.
                05  LINE 01 COL 73 VALUE "/".
@@ -72,7 +72,15 @@
                05  LINE 22 COL 41 PIC X TO VFX-3-SEL AUTO.
        
        01  PTSCREEN-LABEL.
+           03  BLANK SCREEN.
            03  PURCHASETITLE.
+               05  LINE 01 COL 01 PIC X(20) FROM VFX-M-PROG.
+               05  LINE 01 COL 38 VALUE "TEAM 3".
+               05  LINE 01 COL 71 PIC X(2) FROM WS-MONTH.
+               05  LINE 01 COL 73 VALUE "/".
+               05  LINE 01 COL 74 PIC X(2) FROM WS-DAY.
+               05  LINE 01 COL 76 VALUE "/".
+               05  LINE 01 COL 77 PIC X(4) FROM WS-YEAR.
                05  LINE 04 COL 01 VALUE "MOVIE ID".
                05  LINE 04 COL 10 VALUE "TITLE".
                05  LINE 04 COL 46 VALUE "GENRE".

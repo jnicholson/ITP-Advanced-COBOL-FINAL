@@ -4,7 +4,7 @@
        01  IDSCREEN.
            03  BLANK SCREEN.
            03  CHOOSEID.
-               05  LINE 01 COL 01 PIC X(15) FROM VFX-M-PROG.
+               05  LINE 01 COL 01 PIC X(20) FROM VFX-M-PROG.
                05  LINE 01 COL 38 VALUE 'TEAM 3'.
                05  LINE 01 COL 71 PIC X(2) FROM WS-MONTH.
                05  LINE 01 COL 73 VALUE '/'.
@@ -22,7 +22,7 @@
        01  CHECKSCREEN.
            03  BLANK SCREEN. 
            03  CHECK.
-               05  LINE 01 COL 01 PIC X(15) FROM VFX-M-PROG.
+               05  LINE 01 COL 01 PIC X(20) FROM VFX-M-PROG.
                05  LINE 01 COL 38 VALUE "TEAM 3".
                05  LINE 01 COL 71 PIC X(2) FROM WS-MONTH.
                05  LINE 01 COL 73 VALUE "/".
@@ -53,7 +53,7 @@
        01  EDITSCREEN.
            03  BLANK SCREEN. 
            03  EDIT.
-               05  LINE 01 COL 01 PIC X(15) FROM VFX-M-PROG.
+               05  LINE 01 COL 01 PIC X(20) FROM VFX-M-PROG.
                05  LINE 01 COL 38 VALUE "TEAM 3".
                05  LINE 01 COL 71 PIC X(2) FROM WS-MONTH.
                05  LINE 01 COL 73 VALUE "/".
