@@ -28,7 +28,7 @@
       ******************************************************************
        PROCEDURE DIVISION.
        000-MAIN.
-       MOVE 'G2-VFX-3-PUR' TO VFX-M-PROG.
+       MOVE 'G3-VFX-3-PUR' TO VFX-M-PROG.
        MOVE FUNCTION CURRENT-DATE TO WS-TSTAMP.
        OPEN INPUT  VM-FILE.
        PERFORM 100-CHECK.
@@ -73,6 +73,7 @@
        END-PERFORM.
       *-----------------------------------------------------------------
        100-SORT-ID.
+       MOVE SPACES TO VFX-3-SEL.
        SORT    SORT-FILE
                ON ASCENDING KEY SORT-ID-TXT 
                    USING  VML-FILE-TXT
@@ -80,6 +81,7 @@
        PERFORM 150-READ-FILE.     
       *-----------------------------------------------------------------
        100-SORT-NAME.
+       MOVE SPACES TO VFX-3-SEL.
        SORT    SORT-FILE
                ON ASCENDING KEY SORT-TITLE-TXT 
                    USING  VML-FILE-TXT
@@ -87,6 +89,7 @@
        PERFORM 150-READ-FILE. 
       *-----------------------------------------------------------------
        100-SORT-GENRE.
+       MOVE SPACES TO VFX-3-SEL.
        SORT    SORT-FILE
                ON ASCENDING KEY SORT-GENRE-TXT
                                 SORT-TITLE-TXT
@@ -95,6 +98,7 @@
        PERFORM 150-READ-FILE. 
       *-----------------------------------------------------------------
        100-SORT-PRICE.
+       MOVE SPACES TO VFX-3-SEL.
        SORT    SORT-FILE
                ON ASCENDING KEY SORT-PRICE-TXT
                                 SORT-TITLE-TXT
@@ -103,8 +107,9 @@
        PERFORM 150-READ-FILE. 
       *-----------------------------------------------------------------
        150-READ-FILE. 
-       DISPLAY PTSCREEN-HEADER.
+       MOVE SPACES TO VFX-3-SEL.
        DISPLAY PTSCREEN-LABEL.
+       DISPLAY SPACES.
        DISPLAY SPACES.
        MOVE 'N' TO VFX-3-EOF-FLAG.
        MOVE 1 TO VFX-3-CTR.
@@ -144,8 +149,8 @@
        IF VFX-3-CTR GREATER THAN 15
            PERFORM 200-PUR-WISH UNTIL VFX-3-RESP = 'N' OR 'n' OR 
                                                    'X' OR 'x'
-           DISPLAY PTSCREEN-HEADER
            DISPLAY PTSCREEN-LABEL
+           DISPLAY SPACES
            DISPLAY SPACES
            MOVE 1 TO VFX-3-CTR
        END-IF.
@@ -153,7 +158,10 @@
        MOVE VML-SORTED-TITLE-TXT  TO VFX-3-TITLE.
        MOVE VML-SORTED-GENRE-TXT  TO VFX-3-GENRE.
        MOVE VML-SORTED-PRICE-TXT  TO VFX-3-PRICE.
-       DISPLAY VFX-3-VML-LINE.
+       MOVE VML-SORTED-SH-TXT     TO VFX-3-SH.
+       IF VFX-3-SH = 'S' OR 's'
+           DISPLAY VFX-3-VML-LINE
+       END-IF.
       *----------------------------------------------------------------- 
        200-PUR-WISH.
        MOVE SPACES TO VFX-3-RESP.

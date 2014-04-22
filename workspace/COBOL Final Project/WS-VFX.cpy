@@ -64,6 +64,7 @@
            03  VFX-3-CHECK             PIC X       VALUE SPACES.
            03  VFX-3-ALPUR             PIC X       VALUE SPACES.
            03  VFX-3-ALWSH             PIC X       VALUE SPACES.
+           03  VFX-3-SH                PIC X       VALUE SPACES.
            03  VFX-3-CTR               PIC 99      VALUE ZERO.
            03  VFX-3-EOF-FLAG          PIC X       VALUE 'N'.
                88  VFX-3-EOF                       VALUE 'Y'.
@@ -143,4 +144,46 @@
                05  FILLER              PIC X       VALUE SPACES.
                05  VFX-5-PRICE         PIC $Z9.99.
 
-
+       01  VFX-6-VARS.
+           03  VFX-6-RESP              PIC X.
+           03  VFX-6-SEL               PIC X.
+           03  VFX-6-CHECK             PIC X.
+           03  VFX-6-CTR               PIC 99 VALUE ZEROS.
+           03  VFX-6-VML-ID            PIC 9(8).
+           03  VFX-6-EDITOR.
+               05  VFX-6-NEW.
+                   07  VFX-6-NEW-ID                PIC 9(8).
+                   07  VFX-6-NEW-TITLE             PIC X(35).
+                   07  VFX-6-NEW-GENRE             PIC X(10).
+                   07  VFX-6-NEW-PRICE             PIC 9(2)V99.
+                   07  VFX-6-NEW-SH                PIC X.
+               05  VFX-6-ORIG.
+                   07  VFX-6-ORIG-ID               PIC 9(8).
+                   07  VFX-6-ORIG-TITLE            PIC X(35).
+                   07  VFX-6-ORIG-GENRE            PIC X(10).
+                   07  VFX-6-ORIG-PRICE            PIC 9(2)V99.
+                   07  VFX-6-ORIG-SH               PIC X.
+               05  VFX-6-EDIT.
+                   07  VFX-6-EDIT-ID               PIC 9(8).
+                   07  VFX-6-EDIT-TITLE            PIC X(35).
+                   07  VFX-6-EDIT-GENRE            PIC X(10).
+                   07  VFX-6-EDIT-PRICE            PIC 9(2)V99.
+                   07  VFX-6-EDIT-SH               PIC X.
+           03  VFX-6-VML-LINE.
+               05  VFX-6-ID            PIC X(8).
+               05  FILLER              PIC X       VALUE SPACES.
+               05  VFX-6-TITLE         PIC X(35).
+               05  FILLER              PIC X       VALUE SPACES.
+               05  VFX-6-GENRE         PIC X(10).
+               05  FILLER              PIC X       VALUE SPACES.
+               05  VFX-6-PRICE         PIC $Z9.99.
+       
+       
+       
+       
+       
+       
+       
+       
+       
+       

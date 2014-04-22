@@ -21,9 +21,11 @@
                05  LINE 12 COL 26 VALUE "Phone".
                05  LINE 12 COL 45 PIC X(11) FROM VISA-MER-ORIG-PHONE.
                05  LINE 13 COL 26 VALUE "Email".
-               05  LINE 13 COL 45 PIC X(10) FROM VISA-MER-ORIG-ACCT.
-               05  LINE 14 COL 26 VALUE "CC Number".
-               05  LINE 14 COL 45 PIC X(9) FROM VISA-MER-ORIG-ROUTE.
+               05  LINE 13 COL 45 PIC X(30) FROM VISA-MER-ORIG-EMAIL.
+               05  LINE 14 COL 26 VALUE "Account".
+               05  LINE 14 COL 45 PIC X(10) FROM VISA-MER-ORIG-ACCT.
+               05  LINE 15 COL 26 VALUE "Routing".
+               05  LINE 15 COL 45 PIC X(9) FROM VISA-MER-ORIG-ROUTE.
                05  LINE 18 COL 28 VALUE "Is this your information?".
                05  LINE 20 COL 30 PIC X TO VISA-MER-CHECK AUTO.
                05  LINE 20 COL 32 VALUE "Press 'Y' to confirm".

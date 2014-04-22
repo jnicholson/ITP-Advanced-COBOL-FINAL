@@ -2,7 +2,7 @@
        01  MENUSCREEN.
            03  BLANK SCREEN.
            03  MENU.
-               05  LINE 01 COL 01 PIC X(20) FROM WS-PROG.
+               05  LINE 01 COL 01 PIC X(25) FROM WS-PROG.
                05  LINE 01 COL 37 VALUE "TEAM 3".
                05  LINE 01 COL 71 PIC X(2) FROM WS-MONTH.
                05  LINE 01 COL 73 VALUE "/".
@@ -32,9 +32,8 @@
                05  LINE 10 COL 31 VALUE "   1) Add Merchant   ".
                05  LINE 11 COL 31 VALUE "   2) Edit Merchant ".
                05  LINE 12 COL 31 VALUE "   3) Delete Merchant ".
-               05  LINE 13 COL 31 VALUE "   4) Search Merchant by ID ".
-               05  LINE 14 COL 31 VALUE "   5) Search Merchant by Name" 
-               .
+               05  LINE 13 COL 31 VALUE "   4) Search Merchant".
+               05  LINE 14 COL 31 VALUE "   5) List Merchant".
                05  LINE 22 COL 31 VALUE "Selection   (X=exit)".
                05  LINE 22 COL 41 PIC X TO WS-SEL AUTO.
       ****************************************************************** 
