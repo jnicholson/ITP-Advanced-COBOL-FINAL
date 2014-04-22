@@ -17,9 +17,7 @@
        01  WS-MEMBER.
            03  WS-FNAME        PIC X(15).
            03  WS-LNAME        PIC X(15).
-           03  WS-STREET       PIC X(25).
-           03  WS-CITY         PIC X(20).
-           03  WS-STATE        PIC XX.
+           03  WS-ADDRESS      PIC X(25).
            03  WS-ZIP          PIC 9(5).
            03  WS-ACCNT-NUM    PIC 9(8).
            03  WS-EMAIL        PIC X(35).
@@ -42,11 +40,8 @@
            03  LINE 3 COL 1 VALUE "LAST NAME:".
            03  LINE 3 COL 11 PIC X(15) FROM WS-LNAME.
            03  LINE 4 COL 1 VALUE "ADDRESS:".
-           03  LINE 4 COL 9 PIC X(25) FROM WS-STREET JUSTIFIED RIGHT.
-           03  LINE 4 COL 35 PIC X(20) FROM WS-CITY.
+           03  LINE 4 COL 9 PIC X(25) FROM WS-ADDRESS JUSTIFIED RIGHT.
            03  LINE 5 COL 9 PIC 9(5) FROM WS-ZIP.
-           03  LINE 5 COL 14 VALUE ",".
-           03  LINE 5 COL 15 PIC XX FROM WS-STATE.
                                                                                                                               
       ******************************************************************                                                                                             
        PROCEDURE DIVISION.                                                                                                                                           
