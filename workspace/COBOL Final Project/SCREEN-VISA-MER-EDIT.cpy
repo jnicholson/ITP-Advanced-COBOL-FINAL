@@ -37,16 +37,21 @@
            03  E-PHONE.
                05  LINE 14 COL 45 VALUE "Phone".
                05  LINE 14 COL 70 PIC X(11) TO   VISA-MER-EDIT-PHONE.
-               05  LINE 15 COL 01 VALUE "Account".
-               05  LINE 15 COL 27 PIC X(10) FROM VISA-MER-ORIG-ACCT.
+               05  LINE 15 COL 01 VALUE "Email".
+               05  LINE 15 COL 07 PIC X(30) FROM VISA-MER-ORIG-EMAIL.
+           03  E-EMAIL.
+               05  LINE 15 COL 45 VALUE "Email".
+               05  LINE 15 COL 51 PIC X(30) TO VISA-MER-EDIT-EMAIL.
+               05  LINE 16 COL 01 VALUE "Account".
+               05  LINE 16 COL 27 PIC X(10) FROM VISA-MER-ORIG-ACCT.
            03  E-ACCOUNT.
-               05  LINE 15 COL 45 VALUE "Account".
-               05  LINE 15 COL 71 PIC X(10) TO   VISA-MER-EDIT-ACCT.
-               05  LINE 16 COL 01 VALUE "Routing Number".
-               05  LINE 16 COL 28 PIC X(9) FROM VISA-MER-ORIG-ROUTE.
+               05  LINE 16 COL 45 VALUE "Account".
+               05  LINE 16 COL 71 PIC X(10) TO   VISA-MER-EDIT-ACCT.
+               05  LINE 17 COL 01 VALUE "Routing Number".
+               05  LINE 17 COL 28 PIC X(9) FROM VISA-MER-ORIG-ROUTE.
            03  E-ROUTE.
-               05  LINE 16 COL 45 VALUE "Routing Number".
-               05  LINE 16 COL 72 PIC X(9) TO   VISA-MER-EDIT-ROUTE.
+               05  LINE 17 COL 45 VALUE "Routing Number".
+               05  LINE 17 COL 72 PIC X(9) TO   VISA-MER-EDIT-ROUTE.
            03  E-SEL.
                05  LINE 20 COL 23 PIC X TO VISA-MER-CHECK AUTO.
                05  LINE 20 COL 25 VALUE "Press 'S' to SAVE ".

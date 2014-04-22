@@ -7,10 +7,32 @@
        PROGRAM-ID. G3-VISA-MER-ADD.
       ******************************************************************
        ENVIRONMENT DIVISION.
-       COPY SELECT-MER.
+       SELECT MER-FILE
+               ASSIGN TO 'MER.DAT'
+               ORGANIZATION IS INDEXED
+               ACCESS MODE IS SEQUENTIAL
+               RECORD KEY IS MER-ID-KEY
+               ALTERNATE RECORD KEY IS MER-NAME-KEY
+               ALTERNATE RECORD KEY IS MER-EMAIL-KEY
+               ALTERNATE RECORD KEY IS MER-PHONE-KEY
+               FILE STATUS IS WS-STAT.
       ******************************************************************
        DATA DIVISION.
-       COPY FD-MER.
+       FD  MER-FILE.		   
+       01  MER-REC.	
+           03 
+        MER-ID-KEY.
+               05  MER-ID	PIC 9(8).
+           03  MER-NAME-KEY.
+               05  MER-NAME	   PIC X(25).
+           03  MER-ADDRESS	   PIC X(25).
+           03  MER-ZIP		   PIC 9(5).
+           03  MER-PHONE-KEY.
+               05  MER-PHONE	   PIC 9(11). 
+           03  MER-EMAIL-KEY.
+               05 MER-EMAIL    PIC X(30).
+           03  MER-ACCOUNT	   PIC 9(10).
+           03  MER-ROUTE	   PIC 9(9).
        
        WORKING-STORAGE SECTION.
        COPY WS-MER.
@@ -23,9 +45,9 @@
            MOVE FUNCTION CURRENT-DATE TO WS-TSTAMP
            MOVE "G3-VISA-MER-ADD" TO VISA-M-PROG
            OPEN I-O MER-FILE
+           PERFORM 300-GET-ID.
            DISPLAY SIGNUPSCREEN
        PERFORM UNTIL VISA-M-SEL = 's' OR 'S'
-           ACCEPT  E-ID
            ACCEPT  E-NAME
            ACCEPT  E-ADDRESS
            ACCEPT  E-ZIP
@@ -54,4 +76,12 @@
            DISPLAY BLANK-SCREEN.
            DISPLAY 'RETURNING TO VISA MENU'.
            DISPLAY "PRESS 'ENTER' TO RETURN".
-           
+      ******************************************************************
+       300-GET-ID.
+           PERFORM UNTIL VISA-M-EOF = 'Y'
+               READ MER-FILE 
+                   AT END 
+                       MOVE 'Y' TO VISA-M-EOF
+                       COMPUTE VISA-MER-EDIT-ID = MER-ID + 1
+                   NOT AT END
+           END-PERFORM.
