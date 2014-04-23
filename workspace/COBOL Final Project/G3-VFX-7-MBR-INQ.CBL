@@ -23,11 +23,12 @@
            MOVE FUNCTION CURRENT-DATE TO WS-TSTAMP.
            MOVE 'G3-VFX-7-MBR-INQ' TO VFX-M-PROG.
            OPEN INPUT VM-FILE.
-           
+           MOVE SPACES TO VFX-M-SEL.
            PERFORM UNTIL VFX-M-SEL = 'X' OR 'x'
                MOVE SPACES TO VFX-M-SEL
                DISPLAY MENUSCREEN
                ACCEPT MENUSCREEN
+               MOVE SPACES TO WS-RESP
                EVALUATE VFX-M-SEL
                    WHEN '1' PERFORM 200-ID
                    WHEN '2' PERFORM 300-LNAME
@@ -64,6 +65,7 @@
            DISPLAY DISPLAY-SCREEN.
            DISPLAY SPACES.
            DISPLAY SPACES.
+           
            MOVE ZERO TO COUNTER.
            PERFORM UNTIL COUNTER > 15
                ADD 1 TO COUNTER
@@ -90,6 +92,7 @@
                    DISPLAY PTSCREEN-EDIT
                    ACCEPT  PTSCREEN-EDIT
                    PERFORM 600-MBR-DISP
+                   MOVE 'X' TO WS-RESP
                ELSE
                IF WS-RESP = 'N' OR 'n'
                    CONTINUE
@@ -105,5 +108,6 @@
                NOT INVALID KEY
                    DISPLAY MBRSCREEN
                    ACCEPT WS-RESP
+                   MOVE SPACES TO WS-RESP
            END-READ.        
-           PERFORM 100-MAIN.
+           
