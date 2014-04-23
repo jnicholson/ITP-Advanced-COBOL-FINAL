@@ -9,6 +9,7 @@
                ACCESS IS DYNAMIC
                RECORD KEY      IS VM-ID-KEY
                ALTERNATE KEY   IS VM-LNAME-KEY
+               ALTERNATE KEY   IS VM-EMAIL-KEY
                FILE STATUS IS WS-STAT.
 
 
