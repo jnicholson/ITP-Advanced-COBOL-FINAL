@@ -4,7 +4,7 @@
       *DATE:     4/7/2014   
       *ABSTRACT: 
       ******************************************************************
-       PROGRAM-ID. G3-VUFL-2-EA.
+       PROGRAM-ID. G3-VUFL-2-EA IS INITIAL.
       ******************************************************************
        ENVIRONMENT DIVISION.
        COPY SELECT-VFX-MBR.

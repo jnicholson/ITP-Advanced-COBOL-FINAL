@@ -9,6 +9,7 @@
            03 MBR-FNAME            PIC X(15).
            03 FILLER               PIC X(4).
            03 MBR-EMAIL            PIC X(30).
+       01  VFX-7-SEARCH-ID         PIC 9(8).
        01  VFX-7-LNAME             PIC X(15).    
        01  VFX-7-EMAIL             PIC X(30).
        01  VFX-7-MBR-ID            PIC 9(8).
@@ -49,7 +50,7 @@
                05  LINE 06 COL 38 VALUE 'Vuflix'.
                05  LINE 08 COL 33 VALUE 'Member Inqury'.
                05  LINE 10 COL 27 VALUE 'Enter ID to continue'.
-               05  LINE 10 COL 48 PIC X(8) TO VFX-4-SEARCH-ID 
+               05  LINE 10 COL 48 PIC X(8) TO VFX-7-SEARCH-ID 
                                            FULL REQUIRED AUTO.
                05  LINE 11 COL 46 PIC X(10) FROM VFX-2-MSG.        
 

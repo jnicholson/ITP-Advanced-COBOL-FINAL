@@ -4,7 +4,7 @@
       *DATE:     4/9/2014   
       *ABSTRACT: 
       ******************************************************************
-       PROGRAM-ID. G3-VFX-5-MOV-WISH.
+       PROGRAM-ID. G3-VFX-5-MOV-WISH IS INITIAL.
       ******************************************************************
        ENVIRONMENT DIVISION.
        COPY SELECT-VFX-WISH.

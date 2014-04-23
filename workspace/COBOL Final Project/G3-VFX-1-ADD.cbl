@@ -4,7 +4,7 @@
       *DATE:     4/17/2014   
       *ABSTRACT: 
       ******************************************************************
-       PROGRAM-ID. G3-VFX-1-ADD.
+       PROGRAM-ID. G3-VFX-1-ADD IS INITIAL.
       ******************************************************************
        ENVIRONMENT DIVISION.
        COPY SELECT-VFX-MBR.
