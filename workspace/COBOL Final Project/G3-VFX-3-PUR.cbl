@@ -95,6 +95,8 @@
       *-----------------------------------------------------------------
        100-SORT-NAME.
        MOVE SPACES TO VFX-3-SEL.
+       MOVE SPACES TO VFX-3-EOF-FLAG.
+       MOVE SPACES TO VFX-3-RESP.
        DISPLAY NAMESCREEN.
        ACCEPT CHOOSENAME.
        MOVE VFX-3-SEARCH-TITLE TO VML-TITLE-KEY.
@@ -114,6 +116,8 @@
       *-----------------------------------------------------------------
        100-SORT-GENRE.
        MOVE SPACES TO VFX-3-SEL.
+       MOVE SPACES TO VFX-3-EOF-FLAG.
+       MOVE SPACES TO VFX-3-RESP.
        DISPLAY GENRESCREEN.
        ACCEPT CHOOSEGENRE.
        MOVE VFX-3-SEARCH-GENRE TO VML-GENRE-KEY.
@@ -133,6 +137,8 @@
       *-----------------------------------------------------------------
        100-SORT-PRICE.
        MOVE SPACES TO VFX-3-SEL.
+       MOVE SPACES TO VFX-3-EOF-FLAG.
+       MOVE SPACES TO VFX-3-RESP.
        DISPLAY PRICESCREEN.
        ACCEPT CHOOSEPRICE.
        MOVE VFX-3-SEARCH-PRICE TO VML-PRICE-KEY.

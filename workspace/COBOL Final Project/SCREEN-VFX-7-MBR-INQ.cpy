@@ -153,7 +153,7 @@
                05  LINE 16 COL 26 VALUE "Email".
                05  LINE 16 COL 45 PIC X(30)    FROM VM-EMAIL.
                05  LINE 17 COL 26 VALUE "CC Number".
-               05  LINE 17 COL 45 PIC X(16)    FROM VM-CC.
+               05  LINE 17 COL 45 PIC X(8)    FROM VM-CC.
                05  LINE 21 COL 31 VALUE "Press Enter to Return.".
        
        01  ERRORSCREEN.

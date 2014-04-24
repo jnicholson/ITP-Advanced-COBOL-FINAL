@@ -30,7 +30,7 @@
                    07  VFX-1-NEW-PHONE             PIC 9(11).
                    07  VFX-1-NEW-EMAIL             PIC X(30).
                    07  VFX-1-NEW-ZIP               PIC 9(5).
-                   07  VFX-1-NEW-CC                PIC 9(16).
+                   07  VFX-1-NEW-CC                PIC 9(8).
        
        01  VFX-2-VARS.
            03  VFX-2-RESP                          PIC X.
@@ -49,7 +49,7 @@
                    07  VFX-2-ORIG-ZIP              PIC 9(5).
                    07  VFX-2-ORIG-PHONE            PIC 9(11).
                    07  VFX-2-ORIG-EMAIL            PIC X(30).
-                   07  VFX-2-ORIG-CC               PIC 9(16).
+                   07  VFX-2-ORIG-CC               PIC 9(8).
                05 VFX-2-EDIT.
                    07  VFX-2-EDIT-ID               PIC 9(8).
                    07  VFX-2-EDIT-FNAME            PIC X(15).
@@ -58,7 +58,7 @@
                    07  VFX-2-EDIT-PHONE            PIC 9(11).
                    07  VFX-2-EDIT-EMAIL            PIC X(30).
                    07  VFX-2-EDIT-ZIP              PIC 9(5).
-                   07  VFX-2-EDIT-CC               PIC 9(16).
+                   07  VFX-2-EDIT-CC               PIC 9(8).
             
        01  VFX-3-VARS.
            03  VFX-3-RESP              PIC X       VALUE SPACES.
@@ -88,7 +88,7 @@
                    07  VFX-3-ORIG-PHONE            PIC 9(11).
                    07  VFX-3-ORIG-EMAIL            PIC X(30).
                    07  VFX-3-ORIG-ZIP              PIC 9(5).
-                   07  VFX-3-ORIG-CC               PIC 9(16).
+                   07  VFX-3-ORIG-CC               PIC 9(8).
            03  VFX-3-VML-LINE.
                05  VFX-3-ID            PIC X(8).
                05  FILLER              PIC X       VALUE SPACES.
@@ -115,7 +115,7 @@
                    07  VFX-4-ORIG-PHONE            PIC 9(11).
                    07  VFX-4-ORIG-EMAIL            PIC X(30).
                    07  VFX-4-ORIG-ZIP              PIC 9(5).
-                   07  VFX-4-ORIG-CC               PIC 9(16).
+                   07  VFX-4-ORIG-CC               PIC 9(8).
            03  VFX-4-VML-LINE.
                05  VFX-4-ID            PIC X(8).
                05  FILLER              PIC X       VALUE SPACES.
@@ -145,7 +145,7 @@
                    07  VFX-5-ORIG-PHONE            PIC 9(11).
                    07  VFX-5-ORIG-EMAIL            PIC X(30).
                    07  VFX-5-ORIG-ZIP              PIC 9(5).
-                   07  VFX-5-ORIG-CC               PIC 9(16).
+                   07  VFX-5-ORIG-CC               PIC 9(8).
            03  VFX-5-VML-LINE.
                05  VFX-5-ID            PIC X(8).
                05  FILLER              PIC X       VALUE SPACES.

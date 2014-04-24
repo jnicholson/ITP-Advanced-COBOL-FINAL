@@ -35,7 +35,7 @@
                05  LINE 14 COL 45 PIC X(30) TO VFX-1-NEW-EMAIL.
                05  LINE 15 COL 26 VALUE "CC Number".
            03  A-CC.
-               05  LINE 15 COL 45 PIC X(16) TO VFX-1-NEW-CC.
+               05  LINE 15 COL 45 PIC X(8) TO VFX-1-NEW-CC.
            03  A-SEL.
                05  LINE 20 COL 23 PIC X TO VFX-1-CHECK AUTO.
                05  LINE 20 COL 25 VALUE "Press 'S' to SAVE ".

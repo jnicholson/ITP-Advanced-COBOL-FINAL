@@ -8,7 +8,7 @@
            03  VM-PHONE-TXT        PIC 9(11).
            03  VM-EMAIL-TXT        PIC X(30).
            03  VM-ZIP-TXT          PIC 9(5).
-           03  VM-CC-TXT           PIC 9(16).
+           03  VM-CC-TXT           PIC 9(8).
            
        FD  VM-FILE.
        01  VM-REC.
@@ -22,7 +22,7 @@
            03  VM-EMAIL-KEY.
                05  VM-EMAIL    PIC X(30).
            03  VM-ZIP          PIC 9(5).
-           03  VM-CC           PIC 9(16).
+           03  VM-CC           PIC 9(8).
        
       
 

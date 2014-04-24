@@ -60,7 +60,7 @@
                05  LINE 16 COL 26 VALUE "Email".
                05  LINE 16 COL 45 PIC X(30)    FROM VFX-5-ORIG-EMAIL.
                05  LINE 17 COL 26 VALUE "CC Number".
-               05  LINE 17 COL 45 PIC X(16)    FROM VFX-5-ORIG-CC.
+               05  LINE 17 COL 45 PIC X(8)    FROM VFX-5-ORIG-CC.
                05  LINE 19 COL 28 VALUE "Is this information correct?".
                05  LINE 21 COL 30 PIC X        TO VFX-5-CHECK AUTO.
                05  LINE 21 COL 32 VALUE "Press 'Y' to confirm".

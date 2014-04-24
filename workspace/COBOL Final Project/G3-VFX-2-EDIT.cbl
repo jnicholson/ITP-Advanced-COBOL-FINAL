@@ -70,7 +70,8 @@
            ACCEPT  E-SEL
            IF VFX-2-CHECK = 'R' OR 'r'
                MOVE SPACES TO VFX-2-CHECK
-               CLOSE VM-FILE
+               CLOSE   VM-FILE
+                       ZIP-MST-OUT
                PERFORM 000-MAIN
            END-IF
        END-PERFORM.
