@@ -1,11 +1,11 @@
-      *Skeleton COBOL Copybook
-       SELECT CCT-FILE-TXT
-               ASSIGN TO "CC-TRAN.TXT"
+      *Skeleton COBOL Copybook - Jesse Nicholson 4/24/2014
+       SELECT CC-TRANS-FILE-TXT
+               ASSIGN TO 'CC-TRANSACTION.TXT'
                ORGANIZATION IS LINE SEQUENTIAL.
-               
-       SELECT CCT-FILE
-               ASSIGN TO "CC-TRAN.DAT"
+       
+       SELECT CTY-FILE 
+               ASSIGN TO 'CC-TRANSACTION.DAT'
                ORGANIZATION IS INDEXED
                ACCESS MODE IS DYNAMIC
-               RECORD KEY IS CC-TRAN-ID-KEY
+               RECORD KEY IS CC-TRAN-KEY
                FILE STATUS IS WS-STAT.
