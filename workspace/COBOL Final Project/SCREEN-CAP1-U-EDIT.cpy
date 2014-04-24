@@ -115,13 +115,17 @@
                05  LINE 10 COL 26 VALUE 'Last Name'.
                05  LINE 10 COL 45 PIC X(20) FROM CAP1-ORIG-L-NAME.  
                05  LINE 11 COL 26 VALUE 'Phone Number'.
-               05  LINE 11 COL 45 PIC X(10) FROM CAP1-ORIG-PHONE.
+               05  LINE 11 COL 45 PIC X(11) FROM CAP1-ORIG-PHONE.
                05  LINE 12 COL 26 VALUE 'Address'.
                05  LINE 12 COL 45 PIC X(20) FROM CAP1-ORIG-ADDRESS.                                                                
                05  LINE 13 COL 26 VALUE 'Zip'.
                05  LINE 13 COL 45 PIC X(5)  FROM CAP1-ORIG-ZIP.
                05  line 14 COL 26 VALUE 'Email'.
                05  LINE 14 COL 45 PIC X(30) FROM CAP1-ORIG-EMAIL.
+               05  line 15 col 26 value 'Limit'.
+               05  LINE 15 COL 45 PIC 9(4)  FROM CAP1-ORIG-LIMIT.
+               05  LINE 16 COL 26 VALUE 'Balance'.
+               05  LINE 16 COL 45 PIC 9(4).99 FROM CAP1-ORIG-BAL.
                05  LINE 19 COL 28 VALUE 'Is this your information?'.
                05  LINE 21 COL 30 PIC X     TO CAP1-CHECK AUTO.
                05  LINE 21 COL 32 VALUE "Press 'Y' to confirm".     
@@ -174,6 +178,7 @@
                05  LINE 16 COL 14 PIC X(23) FROM CAP1-ORIG-EMAIL.
                05  LINE 16 COL 42 VALUE 'Email'.
                05  LINE 16 COL 60 PIC X(20) TO   CAP1-EDIT-EMAIL.
+
 
            03  E-SEL.
                05  LINE 21 COL 23 PIC X     TO CAP1-CHECK AUTO.

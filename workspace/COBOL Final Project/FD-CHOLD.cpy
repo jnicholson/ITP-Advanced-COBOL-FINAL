@@ -11,11 +11,13 @@
            03  CH-ID-TXT       PIC 9(8).
            03  CH-FNAME-TXT    PIC X(20).
            03  CH-LNAME-TXT    PIC X(20).
-           03  CH-PHONE-TXT    PIC 9(10).
+           03  CH-PHONE-TXT    PIC 9(11).
            03  CH-ADDRESS-TXT  PIC X(20).
            03  CH-EMAIL-TXT    PIC X(35).
            03  CH-ZIP-TXT      PIC 9(5).
-           03  CH-CC-TXT       PIC 9(16).
+           03  CH-LIMIT-TXT    PIC 9(4).
+           03  CH-BAL-TXT      PIC 9(4)V99.
+
 
        FD  CH-FILE.
        01  CH-REC.
@@ -25,10 +27,13 @@
            03  CH-LNAME-KEY.
                05  CH-LNAME    PIC X(20).
            03  CH-PHONE-KEY.
-               05  CH-PHONE    PIC 9(10).
+               05  CH-PHONE    PIC 9(11).
            03  CH-ADDRESS      PIC X(20).
-           03  CH-ZIP          PIC 9(5).
            03  CH-EMAIL-KEY.
-               05  CH-EMAIL    PIC X(35).  
+               05  CH-EMAIL    PIC X(35).           
+           03  CH-ZIP          PIC 9(5).
+           03  CH-LIMIT        PIC 9(4).
+           03  CH-BAL          PIC 9(4)V99.
+
 
 
