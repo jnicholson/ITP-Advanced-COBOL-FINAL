@@ -21,4 +21,4 @@
                    07 CC-TRAN-DAY                  PIC X(2).
                    07 CC-TRAN-HOUR                 PIC X(2).
                    07 CC-TRAN-MIN                  PIC X(2).
-          03 CC-TRANSACTION-PRICE                  PIC S99V99
+          03 CC-TRAN-PRICE                         PIC S99V99.
