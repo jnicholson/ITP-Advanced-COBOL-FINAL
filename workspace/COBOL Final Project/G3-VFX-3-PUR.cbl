@@ -99,7 +99,8 @@
        MOVE SPACES TO VFX-3-RESP.
        DISPLAY NAMESCREEN.
        ACCEPT CHOOSENAME.
-       MOVE VFX-3-SEARCH-TITLE TO VML-TITLE-KEY.
+       MOVE FUNCTION UPPER-CASE(VFX-3-SEARCH-TITLE) TO VML-TITLE-KEY.
+      *MOVE VFX-3-SEARCH-TITLE TO VML-TITLE-KEY.
        START VML-FILE KEY NOT LESS THAN VML-TITLE-KEY.
        MOVE 1 TO VFX-3-CTR.
        DISPLAY PTSCREEN-LABEL
@@ -120,7 +121,8 @@
        MOVE SPACES TO VFX-3-RESP.
        DISPLAY GENRESCREEN.
        ACCEPT CHOOSEGENRE.
-       MOVE VFX-3-SEARCH-GENRE TO VML-GENRE-KEY.
+       MOVE FUNCTION UPPER-CASE(VFX-3-SEARCH-GENRE) TO VML-GENRE-KEY.
+      *MOVE VFX-3-SEARCH-GENRE TO VML-GENRE-KEY.
        START VML-FILE KEY NOT LESS THAN VML-GENRE-KEY.
        MOVE 1 TO VFX-3-CTR.
        DISPLAY PTSCREEN-LABEL
@@ -243,7 +245,6 @@
        PERFORM UNTIL VFX-3-RESP = 'Y'
            READ VTP-FILE NEXT RECORD
                AT END
-                   MOVE VTP-ID TO VFX-3-VTP-ID
                    MOVE 'Y' TO VFX-3-RESP
                NOT AT END
                    IF VTP-VM-ID-KEY = VFX-3-SEARCH-ID
@@ -263,7 +264,6 @@
        PERFORM UNTIL VFX-3-RESP = 'Y'
            READ VW-FILE NEXT RECORD
                AT END
-                   MOVE VW-ID TO VFX-3-VW-ID
                    MOVE 'Y' TO VFX-3-RESP
                NOT AT END
                    IF VW-VM-ID-KEY = VFX-3-SEARCH-ID
@@ -280,7 +280,7 @@
       *----------------------------------------------------------------- 
        400-PURCHASE.
        OPEN I-O VTP-FILE. 
-       ADD 1 TO VFX-3-VTP-ID
+       PERFORM 500-GET-VTP.
        MOVE VFX-3-VTP-ID       TO VTP-ID-KEY.
        MOVE VFX-3-SEARCH-ID    TO VTP-VM-ID-KEY.
        MOVE VFX-3-VML-ID       TO VTP-VML-ID-KEY.
@@ -291,7 +291,7 @@
       *-----------------------------------------------------------------
        400-WISHLIST.
        OPEN I-O VW-FILE. 
-       ADD 1 TO VFX-3-VW-ID
+       PERFORM 500-GET-VW.
        MOVE VFX-3-VW-ID       TO VW-ID-KEY.
        MOVE VFX-3-SEARCH-ID    TO VW-VM-ID-KEY.
        MOVE VFX-3-VML-ID       TO VW-VML-ID-KEY.
@@ -299,5 +299,27 @@
        CLOSE VW-FILE.
        MOVE 'W' TO VFX-3-ALWSH.
        DISPLAY WISHLISTED.
-
-       
+      ******************************************************************
+       500-GET-VTP.
+       MOVE ZERO TO VTP-ID
+               START VTP-FILE KEY NOT LESS THAN VTP-ID
+           INVALID KEY
+               DISPLAY 'OOPS'
+               ACCEPT VFX-3-RESP
+           NOT INVALID KEY
+               READ VTP-FILE NEXT RECORD
+               COMPUTE VTP-ID = VTP-ID - 1
+               MOVE VTP-ID TO VFX-3-VTP-ID
+       END-START.
+      ******************************************************************
+       500-GET-VW.
+       MOVE ZERO TO VW-ID
+               START VW-FILE KEY NOT LESS THAN VW-ID
+           INVALID KEY
+               DISPLAY 'OOPS'
+               ACCEPT VFX-3-RESP
+           NOT INVALID KEY
+               READ VW-FILE NEXT RECORD
+               COMPUTE VW-ID = VW-ID - 1
+               MOVE VW-ID TO VFX-3-VW-ID
+       END-START.

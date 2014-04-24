@@ -171,7 +171,6 @@
        PERFORM UNTIL VFX-5-RESP = 'Y'
            READ VTP-FILE NEXT RECORD
                AT END
-                   MOVE VTP-ID TO VFX-5-VTP-ID
                    MOVE 'Y' TO VFX-5-RESP
                NOT AT END
                    IF VTP-VM-ID-KEY = VFX-5-SEARCH-ID
@@ -188,7 +187,7 @@
       ******************************************************************
        400-PURCHASE.
        OPEN I-O VTP-FILE. 
-       ADD 1 TO VFX-5-VTP-ID
+       PERFORM 500-GET-ID.
        MOVE VFX-5-VTP-ID       TO VTP-ID-KEY.
        MOVE VFX-5-SEARCH-ID    TO VTP-VM-ID-KEY.
        MOVE VFX-5-VML-ID       TO VTP-VML-ID-KEY.
@@ -196,4 +195,16 @@
        CLOSE VTP-FILE.
        MOVE 'P' TO VFX-5-ALPUR.
        DISPLAY PURCHASED.
+      ******************************************************************
+       500-GET-ID.
+       MOVE ZERO TO VTP-ID
+               START VTP-FILE KEY NOT LESS THAN VTP-ID
+           INVALID KEY
+               DISPLAY 'OOPS'
+               ACCEPT VFX-3-RESP
+           NOT INVALID KEY
+               READ VTP-FILE NEXT RECORD
+               COMPUTE VTP-ID = VTP-ID - 1
+               MOVE VTP-ID TO VFX-3-VTP-ID
+       END-START.
        

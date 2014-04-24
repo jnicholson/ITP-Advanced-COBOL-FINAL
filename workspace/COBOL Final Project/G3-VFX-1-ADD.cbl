@@ -79,6 +79,7 @@
                START VM-FILE KEY NOT LESS THAN VM-ID
            INVALID KEY
                DISPLAY 'OOPS'
+               ACCEPT VFX-1-RESP
            NOT INVALID KEY
                READ VM-FILE NEXT RECORD
                COMPUTE VM-ID = VM-ID - 1

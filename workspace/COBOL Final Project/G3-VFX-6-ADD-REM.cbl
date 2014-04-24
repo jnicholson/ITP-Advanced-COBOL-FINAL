@@ -43,13 +43,12 @@
        PERFORM UNTIL VFX-6-RESP = 'Y'
            READ VML-FILE NEXT RECORD
                AT END 
-                   MOVE VML-ID TO VFX-6-VML-ID
                    MOVE 'Y' TO VFX-6-RESP
                NOT AT END
                    CONTINUE
        END-PERFORM.  
-       ADD 1 TO VFX-6-VML-ID.
-       MOVE VFX-6-VML-ID TO VFX-6-NEW-ID.
+       PERFORM 400-GET-ID.
+      *MOVE VFX-6-VML-ID TO VFX-6-NEW-ID.
        PERFORM 200-ADD.
        PERFORM 300-ADD.
       ******************************************************************
@@ -181,3 +180,15 @@
                PERFORM 000-MAIN
            END-IF
        END-PERFORM.
+      ******************************************************************
+       400-GET-ID.
+       MOVE ZERO TO VML-ID
+               START VML-FILE KEY NOT LESS THAN VML-ID
+           INVALID KEY
+               DISPLAY 'OOPS'
+               ACCEPT VFX-6-RESP
+           NOT INVALID KEY
+               READ VML-FILE NEXT RECORD
+               COMPUTE VML-ID = VML-ID - 1
+               MOVE VML-ID TO VFX-6-NEW-ID
+       END-START.
