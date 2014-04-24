@@ -122,7 +122,7 @@
                05  LINE 13 COL 45 PIC X(5)  FROM CAP1-ORIG-ZIP.
                05  line 14 COL 26 VALUE 'Email'.
                05  LINE 14 COL 45 PIC X(30) FROM CAP1-ORIG-EMAIL.
-               05  line 15 col 26 value 'Limit'.
+               05  line 15 COL 26 value 'Limit'.
                05  LINE 15 COL 45 PIC 9(4)  FROM CAP1-ORIG-LIMIT.
                05  LINE 16 COL 26 VALUE 'Balance'.
                05  LINE 16 COL 45 PIC 9(4).99 FROM CAP1-ORIG-BAL.
@@ -160,9 +160,9 @@
                05  LINE 12 COL 60 PIC X(20) TO   CAP1-EDIT-L-NAME. 
            03  E-PHONE.
                05  LINE 13 COL 01 VALUE 'Phone Number'.
-               05  LINE 13 COL 14 PIC X(10) FROM CAP1-ORIG-PHONE.
+               05  LINE 13 COL 14 PIC X(11) FROM CAP1-ORIG-PHONE.
                05  LINE 13 COL 42 VALUE 'Phone Number'.
-               05  LINE 13 COL 60 PIC X(10) TO   CAP1-EDIT-PHONE.
+               05  LINE 13 COL 60 PIC X(11) TO   CAP1-EDIT-PHONE.
            03  E-ADDRESS.
                05  LINE 14 COL 01 VALUE 'Address'.
                05  LINE 14 COL 14 PIC X(20) FROM CAP1-ORIG-ADDRESS.       
@@ -170,15 +170,19 @@
                05  LINE 14 COL 60 PIC X(20) TO   CAP1-EDIT-ADDRESS.
            03  E-ZIP.
                05  LINE 15 COL 01 VALUE 'Zip'.
-               05  LINE 15 COL 14 PIC X(23) FROM CAP1-ORIG-ZIP.
+               05  LINE 15 COL 14 PIC X(5) FROM CAP1-ORIG-ZIP.
                05  LINE 15 COL 42 VALUE 'Zip'.
                05  LINE 15 COL 60 PIC X(5)  TO   CAP1-EDIT-ZIP.
            03  E-EMAIL.
                05  LINE 16 COL 01 VALUE 'Email'.
-               05  LINE 16 COL 14 PIC X(23) FROM CAP1-ORIG-EMAIL.
+               05  LINE 16 COL 14 PIC X(35) FROM CAP1-ORIG-EMAIL.
                05  LINE 16 COL 42 VALUE 'Email'.
-               05  LINE 16 COL 60 PIC X(20) TO   CAP1-EDIT-EMAIL.
-
+               05  LINE 16 COL 48 PIC X(32) TO   CAP1-EDIT-EMAIL.
+           03  E-LIMIT.
+               05  LINE 17 COL 01 VALUE 'Limit'.
+               05  LINE 17 COL 14 PIC 9(4) FROM CAP1-ORIG-LIMIT.
+               05  LINE 17 COL 42 VALUE 'Limit'.
+               05  LINE 17 COL 60 PIC 9(4) TO  CAP1-EDIT-LIMIT.
 
            03  E-SEL.
                05  LINE 21 COL 23 PIC X     TO CAP1-CHECK AUTO.

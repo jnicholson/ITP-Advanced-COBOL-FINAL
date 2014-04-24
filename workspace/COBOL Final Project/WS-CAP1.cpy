@@ -8,7 +8,7 @@
        01  WS-STAT             PIC 99.
        01  WS-FLAG             PIC X     VALUE 'Y'.
        01  WS-ERROR            PIC X(20) VALUE SPACES.
-       01  WS-SEARCH-NUM       PIC 9.
+       01  WS-SEARCH-NUM       PIC X.
        01  WS-BLANKS           PIC X(25) VALUE SPACES.
        01  WS-CTR              PIC 99.
        01  WS-SCTR             PIC 99.
@@ -52,7 +52,7 @@
                    07  CAP1-ORIG-ADDRESS   PIC X(20).
                    07  CAP1-ORIG-ZIP       PIC 9(5).
                    07  CAP1-ORIG-EMAIL     PIC X(30).
-                   07  CAP1-ORIG-LIMIT     PIC 9(5).
+                   07  CAP1-ORIG-LIMIT     PIC 9(4).
                    07  CAP1-ORIG-BAL       PIC 9(4)V99.
                05  CAP1-EDIT-REC.
                    07  CAP1-EDIT-ID        PIC 9(8).
@@ -62,5 +62,5 @@
                    07  CAP1-EDIT-ADDRESS   PIC X(20).
                    07  CAP1-EDIT-ZIP       PIC 9(5).
                    07  CAP1-EDIT-EMAIL     PIC X(30).
-                   07  CAP1-EDIT-LIMIT     PIC 9(5).
+                   07  CAP1-EDIT-LIMIT     PIC 9(4).
                    07  CAP1-EDIT-BAL       PIC 9(4)V99.

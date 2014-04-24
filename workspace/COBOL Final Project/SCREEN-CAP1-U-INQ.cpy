@@ -125,6 +125,12 @@
            03  EMAIL.
                05  LINE 16 COL 28 VALUE 'Email Address:'.
                05  LINE 16 COL 44 PIC X(35) FROM WS-EMAIL.
+           03  CC-LIMIT.
+               05  LINE 17 COL 28 VALUE 'Limit:'.
+               05  LINE 17 COL 44 PIC X(5)  FROM WS-LIMIT.
+           03  ACC-BAL.
+               05  LINE 18 COL 28 VALUE 'Balance:'.
+               05  LINE 18 COL 41 PIC ZZ,ZZZ.99 FROM WS-BAL.
            03  CONFIRMATION.
-               05  LINE 18 COL 28 VALUE 'Search another account? (Y/N)'.
-               05  LINE 18 COL 58 PIC X TO WS-FLAG.
+               05  LINE 19 COL 28 VALUE 'Search another account? (Y/N)'.
+               05  LINE 19 COL 58 PIC X TO WS-FLAG.

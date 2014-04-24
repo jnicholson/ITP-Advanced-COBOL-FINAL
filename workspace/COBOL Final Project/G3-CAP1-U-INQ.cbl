@@ -5,7 +5,7 @@
       *ABSTRACT: User Inquiry                                           *                                                                                            
       *******************************************************************                                                                                            
        IDENTIFICATION DIVISION.                                                                                                                                      
-       PROGRAM-ID. G3-CAP1-U-INQ AS "G3-CAP1-U-INQ".                                                                                   
+       PROGRAM-ID. G3-CAP1-U-INQ AS "G3-CAP1-U-INQ" IS INITIAL.                                                                      
       *******************************************************************                                                                                             
        ENVIRONMENT DIVISION.
        COPY SELECT-CHOLD.                                                                                      
@@ -22,7 +22,9 @@
        PROCEDURE DIVISION.                                                                                                                                           
        000-MAIN.
        MOVE FUNCTION CURRENT-DATE TO WS-TSTAMP.
-       OPEN I-O CH-FILE. 
+       OPEN I-O CH-FILE.
+       MOVE SPACES TO CAP1-SEARCH.
+       MOVE SPACES TO WS-SEARCH-NUM.
        PERFORM 100-CHOICE-LOOP UNTIL WS-FLAG EQUALS 'N' OR 'n'.
        EXIT PROGRAM.
       ******************************************************************* 
@@ -39,6 +41,7 @@
        END-EVALUATE.
       *******************************************************************
        200-ID-LOOKUP.
+       
        DISPLAY ID-SCREEN.
        ACCEPT ID-INQ.
        MOVE CAP1-SEARCH TO CH-ID-KEY.
@@ -102,6 +105,8 @@
        MOVE CH-ADDRESS TO WS-ADDRESS.
        MOVE CH-ZIP TO WS-ZIP.
        MOVE CH-EMAIL TO WS-EMAIL.
+       MOVE CH-LIMIT TO WS-LIMIT.
+       MOVE CH-BAL TO WS-BAL.
       ******************************************************************* 
        700-VAR-RESET.
        MOVE '0' TO WS-SEARCH-NUM. 

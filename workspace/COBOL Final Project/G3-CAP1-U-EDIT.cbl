@@ -23,6 +23,8 @@
        MOVE FUNCTION CURRENT-DATE TO WS-TSTAMP.
        MOVE 'G3-CAP1-U-EDIT' TO CAP1-M-PROG.
        OPEN I-O CH-FILE.
+       MOVE ZERO TO WS-SEARCH-NUM.
+       MOVE SPACES TO CAP1-SEARCH.
        PERFORM 100-CHECK.
        PERFORM 700-EDIT.
        CLOSE CH-FILE.
@@ -40,6 +42,7 @@
        END-EVALUATE.
       ******************************************************************* 
        200-ID-LOOKUP.
+       
        DISPLAY IDSCREEN.
        ACCEPT CHOOSEID.
        IF CAP1-SEARCH = '99999999'
@@ -123,6 +126,7 @@
            ACCEPT E-ADDRESS
            ACCEPT E-ZIP
            ACCEPT E-EMAIL
+           ACCEPT E-LIMIT
            ACCEPT E-SEL
            IF CAP1-CHECK = 'R' OR 'r'
                MOVE SPACES TO CAP1-CHECK
@@ -155,6 +159,8 @@
        IF CAP1-EDIT-EMAIL NOT EQUAL SPACES
            MOVE CAP1-EDIT-EMAIL TO CH-EMAIL
        END-IF.
+       IF CAP1-EDIT-LIMIT NOT EQUAL SPACES
+           MOVE CAP1-EDIT-LIMIT TO CH-LIMIT.
        REWRITE CH-REC.
        DISPLAY BLANK-SCREEN.
        DISPLAY 'RETURNING TO CAPITAL ONE MENU'.
