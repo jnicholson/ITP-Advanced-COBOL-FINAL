@@ -36,7 +36,15 @@
                ACCEPT FORM-EMAIL
                ACCEPT FORM-LIMIT
                ACCEPT FORM-SEL
-               
+           IF CAP1-M-SEL = 'R' OR 'r'
+               MOVE SPACES TO CAP1-M-SEL
+               CLOSE CH-FILE
+               DISPLAY BLANK-SCREEN
+               DISPLAY 'RETURNING TO CAPITAL ONE MENU'
+               DISPLAY "PRESS 'ENTER' TO RETURN"
+               ACCEPT CAP1-RESP
+               GOBACK
+           END-IF               
            END-PERFORM.
            
            PERFORM 100-ADD.

@@ -48,9 +48,11 @@
                05  FORM-LIMIT.
                    07  LINE 17 COL 17 VALUE "LIMIT: ".
                    07  LINE 17 COL 32 PIC X(5) TO WS-LIMIT.
-               05 FORM-SEL.
-                   07  LINE 21 COL 27 PIC X TO CAP1-M-SEL AUTO.
-                   07  LINE 21 COL 29 VALUE "Press 'S' to save changes".
+           03  FORM-SEL.
+               05  LINE 20 COL 23 PIC X TO CAP1-M-SEL AUTO.
+               05  LINE 20 COL 25 VALUE "Press 'S' to SAVE ".
+               05  LINE 20 COL 43 VALUE "or 'R' to RETURN".
+               05  LINE 21 COL 29 VALUE "(all other keys start over)".
                    
 
                
