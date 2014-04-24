@@ -71,6 +71,9 @@
            03  VFX-3-EOF-FLAG          PIC X       VALUE 'N'.
                88  VFX-3-EOF                       VALUE 'Y'.
            03  VFX-3-SEARCH-ID         PIC 9(8).
+           03  VFX-3-SEARCH-TITLE      PIC X(35).
+           03  VFX-3-SEARCH-GENRE      PIC X(10).
+           03  VFX-3-SEARCH-PRICE      PIC 9(2)V99.
            03  VFX-3-VML-ID            PIC 9(8).
            03  VFX-3-VTP-ID            PIC 9(8).
            03  VFX-3-VW-ID             PIC 9(8).

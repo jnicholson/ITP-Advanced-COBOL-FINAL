@@ -15,21 +15,6 @@
                05  VML-TITLE           PIC X(35).
            03  VML-GENRE-KEY.
                05  VML-GENRE           PIC X(10).
-           03  VML-PRICE               PIC 9(2)V99.
+           03  VML-PRICE-KEY.
+               05  VML-PRICE           PIC 9(2)V99.
            03  VML-SH                  PIC X.
-
-       SD  SORT-FILE.
-           01  SORT-REC.
-               03  SORT-ID-TXT         PIC 9(8).
-               03  SORT-TITLE-TXT      PIC X(35).
-               03  SORT-GENRE-TXT      PIC X(10).
-               03  SORT-PRICE-TXT      PIC 9(2)V99.
-               03  SORT-SH-TXT         PIC X.
-               
-       FD  VML-SORTED-FILE-TXT.
-       01  VML-SORTED-REC-TXT.
-           03  VML-SORTED-ID-TXT       PIC 9(8).
-           03  VML-SORTED-TITLE-TXT    PIC X(35).
-           03  VML-SORTED-GENRE-TXT    PIC X(10).
-           03  VML-SORTED-PRICE-TXT    PIC 9(2)V99.
-           03  VML-SORTED-SH-TXT       PIC X.

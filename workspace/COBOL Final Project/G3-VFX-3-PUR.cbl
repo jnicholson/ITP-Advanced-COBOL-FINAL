@@ -95,47 +95,59 @@
       *-----------------------------------------------------------------
        100-SORT-NAME.
        MOVE SPACES TO VFX-3-SEL.
-       SORT    SORT-FILE
-               ON ASCENDING KEY SORT-TITLE-TXT 
-                   USING  VML-FILE-TXT
-                   GIVING VML-SORTED-FILE-TXT.
-       PERFORM 150-READ-FILE. 
-      *-----------------------------------------------------------------
-       100-SORT-GENRE.
-       MOVE SPACES TO VFX-3-SEL.
-       SORT    SORT-FILE
-               ON ASCENDING KEY SORT-GENRE-TXT
-                                SORT-TITLE-TXT
-                   USING  VML-FILE-TXT
-                   GIVING VML-SORTED-FILE-TXT.
-       PERFORM 150-READ-FILE. 
-      *-----------------------------------------------------------------
-       100-SORT-PRICE.
-       MOVE SPACES TO VFX-3-SEL.
-       SORT    SORT-FILE
-               ON ASCENDING KEY SORT-PRICE-TXT
-                                SORT-TITLE-TXT
-                   USING  VML-FILE-TXT
-                   GIVING VML-SORTED-FILE-TXT.
-       PERFORM 150-READ-FILE. 
-      *-----------------------------------------------------------------
-       150-READ-FILE. 
-       MOVE SPACES TO VFX-3-SEL.
-       DISPLAY PTSCREEN-LABEL.
-       DISPLAY SPACES.
-       DISPLAY SPACES.
-       MOVE 'N' TO VFX-3-EOF-FLAG.
+       DISPLAY NAMESCREEN.
+       ACCEPT CHOOSENAME.
+       MOVE VFX-3-SEARCH-TITLE TO VML-TITLE-KEY.
+       START VML-FILE KEY NOT LESS THAN VML-TITLE-KEY.
        MOVE 1 TO VFX-3-CTR.
-       OPEN INPUT  VML-SORTED-FILE-TXT.
+       DISPLAY PTSCREEN-LABEL
+       DISPLAY SPACES
+       DISPLAY SPACES
        PERFORM UNTIL VFX-3-EOF
-           READ VML-SORTED-FILE-TXT      
+           READ VML-FILE NEXT RECORD   
                AT END                
                    MOVE 'Y' TO VFX-3-EOF-FLAG 
                NOT AT END
-                   
                    PERFORM 200-DISPLAY
        END-PERFORM.
-       CLOSE   VML-SORTED-FILE-TXT.
+       PERFORM 200-PUR-WISH UNTIL VFX-3-RESP = 'X' OR 'x'.
+      *-----------------------------------------------------------------
+       100-SORT-GENRE.
+       MOVE SPACES TO VFX-3-SEL.
+       DISPLAY GENRESCREEN.
+       ACCEPT CHOOSEGENRE.
+       MOVE VFX-3-SEARCH-GENRE TO VML-GENRE-KEY.
+       START VML-FILE KEY NOT LESS THAN VML-GENRE-KEY.
+       MOVE 1 TO VFX-3-CTR.
+       DISPLAY PTSCREEN-LABEL
+       DISPLAY SPACES
+       DISPLAY SPACES
+       PERFORM UNTIL VFX-3-EOF
+           READ VML-FILE NEXT RECORD   
+               AT END                
+                   MOVE 'Y' TO VFX-3-EOF-FLAG 
+               NOT AT END
+                   PERFORM 200-DISPLAY
+       END-PERFORM.
+       PERFORM 200-PUR-WISH UNTIL VFX-3-RESP = 'X' OR 'x'.
+      *-----------------------------------------------------------------
+       100-SORT-PRICE.
+       MOVE SPACES TO VFX-3-SEL.
+       DISPLAY PRICESCREEN.
+       ACCEPT CHOOSEPRICE.
+       MOVE VFX-3-SEARCH-PRICE TO VML-PRICE-KEY.
+       START VML-FILE KEY NOT LESS THAN VML-PRICE-KEY.
+       MOVE 1 TO VFX-3-CTR.
+       DISPLAY PTSCREEN-LABEL
+       DISPLAY SPACES
+       DISPLAY SPACES
+       PERFORM UNTIL VFX-3-EOF
+           READ VML-FILE NEXT RECORD   
+               AT END                
+                   MOVE 'Y' TO VFX-3-EOF-FLAG 
+               NOT AT END
+                   PERFORM 200-DISPLAY
+       END-PERFORM.
        PERFORM 200-PUR-WISH UNTIL VFX-3-RESP = 'X' OR 'x'.
       *-----------------------------------------------------------------
        200-MOVE.
