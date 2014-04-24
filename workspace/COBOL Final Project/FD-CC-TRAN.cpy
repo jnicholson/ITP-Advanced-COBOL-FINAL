@@ -9,11 +9,11 @@
                    07  CC-TRAN-DAY-TXT         PIC X(2).
                    07  CC-TRAN-HOUR-TXT        PIC X(2).
                    07  CC-TRAN-MIN-TXT         PIC X(2).
-          03 CC-TRAN-TXT                       PIC S99V99
+          03 CC-TRAN-TXT                       PIC S99V99.
        
        FD  CC-TRAN-FILE.
        01  CC-TRAN.
-           03 CC-TRAN-KEY
+           03 CC-TRAN-KEY.
                05  CC-ID                           PIC 9(8).
                05 CC-TRAN-TSTAMP.
                    07 CC-TRAN-YEAR                 PIC X(4).
