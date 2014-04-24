@@ -1,18 +1,24 @@
-      *Skeleton COBOL Copybook - PIC X(44) - Ryan Timmerman - 4/2/14*
-       FD  CCT-FILE-TXT.
-       01  CCT-REC-TXT.
-           03  CCT-ID-TXT                PIC 9(8).
-           03  CCT-DATE-TXT              PIC 9(8).
-           03  CCT-AMT-TXT               PIC 9(10)V99.
-           03  CCT-MOVIE-ID-TXT          PIC 9(8).
-           03  CCT-CARD-ID-TXT           PIC 9(8).
+      *Skeleton COBOL Copybook - Jesse Nicholson*
+       FD  CC-TRAN-FILE-TXT.
+       01  CC-TRAN-TXT.
+           03  CC-TRAN-KEY-TXT.
+               05  CC-ID-TXT                   PIC 9(8).
+               05  CC-TRAN-TSTAMP-TXT.
+                   07  CC-TRAN-YEAR-TXT        PIC X(4).
+                   07  CC-TRAN-MONTH-TXT       PIC X(2).
+                   07  CC-TRAN-DAY-TXT         PIC X(2).
+                   07  CC-TRAN-HOUR-TXT        PIC X(2).
+                   07  CC-TRAN-MIN-TXT         PIC X(2).
+          03 CC-TRAN-TXT                       PIC S99V99
        
-       FD  CCT-FILE.
-       01  CCT-REC.
-           03  CCT-ID-KEY.
-               05 CCT-ID         PIC 9(8).
-           03  CCT-DATE          PIC 9(8).
-           03  CCT-AMT           PIC 9(10)V99.
-           03  CCT-MOVIE-ID      PIC 9(8).
-           03  CCT-CARD-ID       PIC 9(8).
-
+       FD  CC-TRAN-FILE.
+       01  CC-TRAN.
+           03 CC-TRAN-KEY
+               05  CC-ID                           PIC 9(8).
+               05 CC-TRAN-TSTAMP.
+                   07 CC-TRAN-YEAR                 PIC X(4).
+                   07 CC-TRAN-MONTH                PIC X(2).
+                   07 CC-TRAN-DAY                  PIC X(2).
+                   07 CC-TRAN-HOUR                 PIC X(2).
+                   07 CC-TRAN-MIN                  PIC X(2).
+          03 CC-TRANSACTION-PRICE                  PIC S99V99
