@@ -4,25 +4,28 @@
       *DATE    : 04/22/2014                                            *
       *ABSTRACT: ALLOWS THE SEARCH FOR A VUFLIX MEMBER                 *
       ******************************************************************
-       program-id. G3_VFX_7_MBR_INQ IS INITIAL.
+       program-id. G3-VFX-7-MBR-INQ IS INITIAL.
       *----------------------------------------------------------------- 
        environment division.
-       COPY 'SELECT-VFX-MBR'.
-       configuration section.
+       COPY SELECT-VFX-MBR.
+       COPY SELECT-ZIP.
       *----------------------------------------------------------------- 
        data division.
-       COPY 'FD-VFX-MBR'.
+       COPY FD-VFX-MBR.
+       COPY FD-ZIP.
+       
        working-storage section.
-       COPY 'WS-VFX'.
+       COPY WS-VFX.
       *Screen Section is in screen copybook due to WS needs. 
-       COPY 'SCREEN-VFX-7-MBR-INQ'.
+       COPY SCREEN-VFX-7-MBR-INQ.
        
       *-----------------------------------------------------------------
        procedure division.
        100-MAIN.
            MOVE FUNCTION CURRENT-DATE TO WS-TSTAMP.
            MOVE 'G3-VFX-7-MBR-INQ' TO VFX-M-PROG.
-           OPEN INPUT VM-FILE.
+           OPEN INPUT  VM-FILE
+                       ZIP-MST-OUT.
            MOVE SPACES TO VFX-M-SEL.
            PERFORM UNTIL VFX-M-SEL = 'X' OR 'x'
                MOVE SPACES TO VFX-M-SEL
@@ -35,7 +38,8 @@
                    WHEN '3' PERFORM 400-EMAIL
                END-EVALUATE
            END-PERFORM.
-           CLOSE VM-FILE.
+           CLOSE   VM-FILE
+                   ZIP-MST-OUT.
            EXIT PROGRAM.
            STOP RUN.
       *-----------------------------------------------------------------
@@ -106,6 +110,11 @@
                    DISPLAY ERRORSCREEN
                    ACCEPT WS-RESP
                NOT INVALID KEY
+                   MOVE    VM-ZIP      TO                  ZIP-KEY
+                   START   ZIP-MST-OUT KEY NOT LESS THAN   ZIP-KEY
+                   READ    ZIP-MST-OUT KEY IS              ZIP-KEY
+                   MOVE    ZIP-CITYO   TO                  VFX-7-CITY
+                   MOVE    ZIP-STATEO  TO                  VFX-7-STATE
                    DISPLAY MBRSCREEN
                    ACCEPT WS-RESP
                    MOVE SPACES TO WS-RESP

@@ -8,10 +8,12 @@
       ******************************************************************
        ENVIRONMENT DIVISION.
        COPY SELECT-VFX-MBR.
+       COPY SELECT-ZIP.
       ******************************************************************
        DATA DIVISION.
        FILE SECTION.
        COPY FD-VFX-MBR.
+       COPY FD-ZIP.
        
        WORKING-STORAGE SECTION.
        COPY WS-VFX.
@@ -23,10 +25,12 @@
        000-MAIN.
        MOVE FUNCTION CURRENT-DATE TO WS-TSTAMP.
        MOVE 'G3-VFX-2-EDIT' TO VFX-M-PROG.
-       OPEN I-O VM-FILE.
+       OPEN I-O    VM-FILE
+                   ZIP-MST-OUT.
        PERFORM 100-CHECK.
        PERFORM 300-EDIT.
-       CLOSE VM-FILE.
+       CLOSE       VM-FILE
+                   ZIP-MST-OUT.
        GOBACK.
       ******************************************************************
        100-CHECK.
@@ -73,17 +77,22 @@
       ******************************************************************
        200-MOVE.
        MOVE 'C'        TO VFX-2-RESP.
+       MOVE VM-ZIP     TO ZIP-KEY.
+       START   ZIP-MST-OUT KEY NOT LESS THAN   ZIP-KEY.
+       READ    ZIP-MST-OUT KEY IS              ZIP-KEY.
        MOVE SPACES     TO VFX-2-ORIG.
        MOVE VM-ID      TO VFX-2-ORIG-ID.
        MOVE VM-FNAME   TO VFX-2-ORIG-FNAME.
        MOVE VM-LNAME   TO VFX-2-ORIG-LNAME.
        MOVE VM-ADDRESS TO VFX-2-ORIG-ADDRESS.
+       MOVE ZIP-CITYO  TO VFX-2-ORIG-CITY.
+       MOVE ZIP-STATEO TO VFX-2-ORIG-STATE.
+       MOVE VM-ZIP     TO VFX-2-ORIG-ZIP.
        MOVE VM-PHONE   TO VFX-2-ORIG-PHONE.
        MOVE VM-EMAIL   TO VFX-2-ORIG-EMAIL.
-       MOVE VM-ZIP     TO VFX-2-ORIG-ZIP.
        MOVE VM-CC      TO VFX-2-ORIG-CC.
        DISPLAY CHECKSCREEN.
-       ACCEPT CHECK.
+       ACCEPT  CHECK.
        IF VFX-2-CHECK = 'Y' OR 'y'
            CONTINUE
        ELSE
@@ -141,6 +150,12 @@
        COMPUTE WS-SCTR = 20 - WS-CTR.
        STRING WS-BLANKS(1:WS-CTR), VM-ADDRESS(1:WS-SCTR) INTO 
                                    VFX-2-ORIG-ADDRESS.
+       MOVE ZERO TO WS-CTR.
+       INSPECT FUNCTION REVERSE(ZIP-CITYO)
+       TALLYING WS-CTR FOR LEADING SPACES.
+       COMPUTE WS-SCTR = 30 - WS-CTR.
+       STRING WS-BLANKS(1:WS-CTR), ZIP-CITYO(1:WS-SCTR) INTO
+                                   VFX-2-ORIG-CITY.
        MOVE ZERO TO WS-CTR.
        INSPECT FUNCTION REVERSE(VM-EMAIL)
        TALLYING WS-CTR FOR LEADING SPACES.                        

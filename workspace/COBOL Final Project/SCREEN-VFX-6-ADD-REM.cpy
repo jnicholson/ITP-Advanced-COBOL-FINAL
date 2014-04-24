@@ -16,9 +16,9 @@
       
        01 PTSCREEN-ADD-REM.
            03 PURCHASETITLE.
-               05  LINE 8 COL 31 VALUE "   Choose Wisely    ".
-               05  LINE 10 COL 31 VALUE "   1) Add           ".
-               05  LINE 11 COL 31 VALUE "   2) Edit          ".
+               05  LINE 08 COL 31 VALUE "    Choose Wisely    ".
+               05  LINE 10 COL 31 VALUE "      1) Add        ".
+               05  LINE 11 COL 31 VALUE "      2) Edit       ".
                05  LINE 22 COL 31 VALUE "Selection   (X=exit)".
                05  LINE 22 COL 41 PIC X TO VFX-6-SEL AUTO.
                

@@ -8,10 +8,12 @@
       ******************************************************************
        ENVIRONMENT DIVISION.
        COPY SELECT-VFX-MBR.
+       COPY SELECT-ZIP.
       ******************************************************************
        DATA DIVISION.
        FILE SECTION.
        COPY FD-VFX-MBR.
+       COPY FD-ZIP.
        
        WORKING-STORAGE SECTION.
        COPY WS-VFX.

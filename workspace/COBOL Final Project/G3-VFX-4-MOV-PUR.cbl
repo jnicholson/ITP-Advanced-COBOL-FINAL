@@ -10,12 +10,14 @@
        COPY SELECT-VFX-PUR.
        COPY SELECT-VFX-MOV.
        COPY SELECT-VFX-MBR.
+       COPY SELECT-ZIP.
       ******************************************************************
        DATA DIVISION.
        FILE SECTION.
        COPY FD-VFX-PUR.
        COPY FD-VFX-MOV.
        COPY FD-VFX-MBR.
+       COPY FD-ZIP.
        
        WORKING-STORAGE SECTION.
        COPY WS-VFX.
@@ -29,7 +31,8 @@
        MOVE 'G3-VFX-4-MOV-PUR' TO VFX-M-PROG.
        OPEN INPUT  VTP-FILE
                    VML-FILE
-                   VM-FILE.
+                   VM-FILE
+                   ZIP-MST-OUT.
        PERFORM 100-CHECK.
        DISPLAY PTSCREEN-HEADER.
        DISPLAY PTSCREEN-LABEL.
@@ -55,7 +58,8 @@
        END-PERFORM.
        CLOSE   VTP-FILE
                VML-FILE
-               VM-FILE.
+               VM-FILE
+               ZIP-MST-OUT.
        ACCEPT  VFX-4-RESP.
        GOBACK.
       ******************************************************************
@@ -117,14 +121,19 @@
       ******************************************************************
        200-MOVE.
        MOVE 'C'        TO VFX-4-RESP.
+       MOVE VM-ZIP     TO ZIP-KEY.
+       START   ZIP-MST-OUT KEY NOT LESS THAN   ZIP-KEY.
+       READ    ZIP-MST-OUT KEY IS              ZIP-KEY.
        MOVE SPACES     TO VFX-4-ORIG.
        MOVE VM-ID      TO VFX-4-ORIG-ID.
        MOVE VM-FNAME   TO VFX-4-ORIG-FNAME.
        MOVE VM-LNAME   TO VFX-4-ORIG-LNAME.
        MOVE VM-ADDRESS TO VFX-4-ORIG-ADDRESS.
+       MOVE ZIP-CITYO  TO VFX-4-ORIG-CITY.
+       MOVE ZIP-STATEO TO VFX-4-ORIG-STATE.
+       MOVE VM-ZIP     TO VFX-4-ORIG-ZIP.
        MOVE VM-PHONE   TO VFX-4-ORIG-PHONE.
        MOVE VM-EMAIL   TO VFX-4-ORIG-EMAIL.
-       MOVE VM-ZIP     TO VFX-4-ORIG-ZIP.
        MOVE VM-CC      TO VFX-4-ORIG-CC.
        DISPLAY CHECKSCREEN.
        ACCEPT CHECK.

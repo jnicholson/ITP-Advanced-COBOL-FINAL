@@ -1,6 +1,6 @@
       ******************************************************************
       *PROGRAM:  Vuflix Purchase titles
-      *AUTHOR:   KATIE TRAN, Jarrod Lee
+      *AUTHOR:   Jarrod Lee, KATIE TRAN
       *DATE:     4/7/2014   
       *ABSTRACT: 
       *THINGS TO DO: CURRENTLY ONLY DISPLAYS TITLES. NEEDS WAY TO 
@@ -13,12 +13,14 @@
        COPY SELECT-VFX-PUR.
        COPY SELECT-VFX-MBR.
        COPY SELECT-VFX-WISH.
+       COPY SELECT-ZIP.
       ******************************************************************
        DATA DIVISION.
        COPY FD-VFX-MOV.
        COPY FD-VFX-PUR.
        COPY FD-VFX-MBR.
        COPY FD-VFX-WISH.
+       COPY FD-ZIP.
        
        WORKING-STORAGE SECTION.
        COPY WS-VFX.
@@ -30,7 +32,9 @@
        000-MAIN.
        MOVE 'G3-VFX-3-PUR' TO VFX-M-PROG.
        MOVE FUNCTION CURRENT-DATE TO WS-TSTAMP.
-       OPEN INPUT  VM-FILE.
+       OPEN I-O    VM-FILE
+                   VML-FILE
+                   ZIP-MST-OUT.
        PERFORM 100-CHECK.
        MOVE SPACES TO VFX-3-SEL.
        MOVE SPACES TO VFX-3-RESP.
@@ -45,7 +49,9 @@
                WHEN '4' PERFORM 100-SORT-PRICE
            END-EVALUATE
        END-PERFORM.
-       CLOSE   VM-FILE.
+       CLOSE   VM-FILE
+               VML-FILE
+               ZIP-MST-OUT.
        GOBACK.
       *-----------------------------------------------------------------
        100-CHECK.
@@ -74,11 +80,18 @@
       *-----------------------------------------------------------------
        100-SORT-ID.
        MOVE SPACES TO VFX-3-SEL.
-       SORT    SORT-FILE
-               ON ASCENDING KEY SORT-ID-TXT 
-                   USING  VML-FILE-TXT
-                   GIVING VML-SORTED-FILE-TXT.
-       PERFORM 150-READ-FILE.     
+       MOVE 1 TO VFX-3-CTR.
+       DISPLAY PTSCREEN-LABEL
+       DISPLAY SPACES
+       DISPLAY SPACES
+       PERFORM UNTIL VFX-3-EOF
+           READ VML-FILE NEXT RECORD   
+               AT END                
+                   MOVE 'Y' TO VFX-3-EOF-FLAG 
+               NOT AT END
+                   PERFORM 200-DISPLAY
+       END-PERFORM.
+       PERFORM 200-PUR-WISH UNTIL VFX-3-RESP = 'X' OR 'x'.
       *-----------------------------------------------------------------
        100-SORT-NAME.
        MOVE SPACES TO VFX-3-SEL.
@@ -119,6 +132,7 @@
                AT END                
                    MOVE 'Y' TO VFX-3-EOF-FLAG 
                NOT AT END
+                   
                    PERFORM 200-DISPLAY
        END-PERFORM.
        CLOSE   VML-SORTED-FILE-TXT.
@@ -126,14 +140,19 @@
       *-----------------------------------------------------------------
        200-MOVE.
        MOVE 'C'        TO VFX-3-RESP.
+       MOVE VM-ZIP     TO ZIP-KEY.
+       START   ZIP-MST-OUT KEY NOT LESS THAN   ZIP-KEY.
+       READ    ZIP-MST-OUT KEY IS              ZIP-KEY.
        MOVE SPACES     TO VFX-3-ORIG.
        MOVE VM-ID      TO VFX-3-ORIG-ID.
        MOVE VM-FNAME   TO VFX-3-ORIG-FNAME.
        MOVE VM-LNAME   TO VFX-3-ORIG-LNAME.
        MOVE VM-ADDRESS TO VFX-3-ORIG-ADDRESS.
+       MOVE ZIP-CITYO  TO VFX-3-ORIG-CITY.
+       MOVE ZIP-STATEO TO VFX-3-ORIG-STATE.
+       MOVE VM-ZIP     TO VFX-3-ORIG-ZIP.
        MOVE VM-PHONE   TO VFX-3-ORIG-PHONE.
        MOVE VM-EMAIL   TO VFX-3-ORIG-EMAIL.
-       MOVE VM-ZIP     TO VFX-3-ORIG-ZIP.
        MOVE VM-CC      TO VFX-3-ORIG-CC.
        DISPLAY CHECKSCREEN.
        ACCEPT CHECK.
@@ -145,6 +164,7 @@
        END-IF.
       *-----------------------------------------------------------------
        200-DISPLAY.
+       MOVE SPACES TO VFX-3-SEL.
        ADD 1 TO VFX-3-CTR.
        IF VFX-3-CTR GREATER THAN 15
            PERFORM 200-PUR-WISH UNTIL VFX-3-RESP = 'N' OR 'n' OR 
@@ -154,11 +174,11 @@
            DISPLAY SPACES
            MOVE 1 TO VFX-3-CTR
        END-IF.
-       MOVE VML-SORTED-ID-TXT     TO VFX-3-ID.
-       MOVE VML-SORTED-TITLE-TXT  TO VFX-3-TITLE.
-       MOVE VML-SORTED-GENRE-TXT  TO VFX-3-GENRE.
-       MOVE VML-SORTED-PRICE-TXT  TO VFX-3-PRICE.
-       MOVE VML-SORTED-SH-TXT     TO VFX-3-SH.
+       MOVE VML-ID     TO VFX-3-ID
+       MOVE VML-TITLE  TO VFX-3-TITLE
+       MOVE VML-GENRE  TO VFX-3-GENRE
+       MOVE VML-PRICE  TO VFX-3-PRICE
+       MOVE VML-SH     TO VFX-3-SH
        IF VFX-3-SH = 'S' OR 's'
            DISPLAY VFX-3-VML-LINE
        END-IF.

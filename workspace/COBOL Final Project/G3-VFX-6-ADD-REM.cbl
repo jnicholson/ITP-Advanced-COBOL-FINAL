@@ -75,6 +75,7 @@
            DISPLAY PTSCREEN-HEADER
            DISPLAY PTSCREEN-LABEL
            DISPLAY SPACES
+           DISPLAY SPACES
            MOVE 1 TO VFX-6-CTR
        END-IF.
        
