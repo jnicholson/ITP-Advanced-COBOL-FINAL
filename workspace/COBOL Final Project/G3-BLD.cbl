@@ -39,6 +39,7 @@
        CALL 'G3-BLD-VISA-MER'.
        CALL 'G3-BLD-VFX-MBR'.
        CALL 'G3-BLD-CAP1-CHOLD'.
+       CALL 'G3-BLD-CAP1-CCTRAN'.
        DISPLAY "            PRESS ENTER TO CONTINUE".
        ACCEPT WS-RESP.
        
