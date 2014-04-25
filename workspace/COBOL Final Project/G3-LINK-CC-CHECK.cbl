@@ -43,7 +43,6 @@
        200-CHECK-LIMIT.
            MOVE LK-CC-ID TO CC-ID
            START CC-TRAN-FILE KEY NOT LESS THAN CC-ID
-           
            PERFORM UNTIL WS-EOF = 'Y'
                READ CC-TRAN-FILE NEXT RECORD
                    AT END
