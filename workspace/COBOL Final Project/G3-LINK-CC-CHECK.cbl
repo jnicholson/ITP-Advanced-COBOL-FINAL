@@ -30,6 +30,7 @@
            OPEN INPUT CH-FILE
                 INPUT CC-TRAN-FILE
            MOVE LK-CC-ID TO CH-ID
+           MOVE 'N' TO LK-COMPLETED
            READ CH-FILE
                INVALID KEY
                    MOVE 'N' TO LK-COMPLETED
@@ -53,5 +54,8 @@
                            COMPUTE WS-TOTAL = WS-TOTAL + CC-TRAN-PRICE
                        END-IF
                END-READ
-           END-PERFORM.
+           END-PERFORM
+           IF WS-TOTAL IS LESS THAN CH-LIMIT THEN
+              MOVE 'Y' TO LK-COMPLETED
+           END-IF.
       ******************************************************************         
