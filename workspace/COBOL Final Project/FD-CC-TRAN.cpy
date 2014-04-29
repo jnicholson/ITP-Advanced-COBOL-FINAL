@@ -9,8 +9,8 @@
                    07  CC-TRAN-DAY-TXT         PIC X(2).
                    07  CC-TRAN-HOUR-TXT        PIC X(2).
                    07  CC-TRAN-MIN-TXT         PIC X(2).
-          03 CC-TRAN-TXT                       PIC S99V99
-                    SIGN IS LEADING SEPARATE.
+          03 TRAN-TYPE-TXT                     PIC X(1).
+          03 CC-TRAN-TXT                       PIC 99V99.
        
        FD  CC-TRAN-FILE.
        01  CC-TRAN-REC.
@@ -22,4 +22,5 @@
                    07 CC-TRAN-DAY              PIC X(2).
                    07 CC-TRAN-HOUR             PIC X(2).
                    07 CC-TRAN-MIN              PIC X(2).
-          03 CC-TRAN-PRICE                     PIC S99V99.
+          03 TRAN-TYPE                         PIC X(1).
+          03 CC-TRAN-PRICE                     PIC 99V99.
