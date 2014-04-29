@@ -19,13 +19,15 @@
        01  LK-CC-ID                PIC 9(8).
        01  LK-PRICE                PIC 99V99.
        01  LK-COMPLETED            PIC X.
+       01  LK-PURITEM              PIC X(25).
        
-       PROCEDURE DIVISION USING LK-CC-ID, LK-PRICE.
+       PROCEDURE DIVISION USING LK-CC-ID, LK-PRICE, LK-PURITEM.
        100-MAIN.
            OPEN I-O CC-TRAN-FILE
            MOVE LK-CC-ID TO CC-ID
            MOVE FUNCTION CURRENT-DATE TO CC-TRAN-TSTAMP.
            MOVE LK-PRICE TO CC-TRAN-PRICE.
+           MOVE LK-PURITEM TO CC-TRAN-ITEM.
            WRITE CC-TRAN-REC.
            CLOSE CC-TRAN-FILE.
        EXIT PROGRAM.
