@@ -5,6 +5,11 @@
        01  WS-SCTR                     PIC 99      VALUE ZEROS.
        01  WS-BLANKS                   PIC X(25)   VALUE SPACES.
        
+       
+       01  LK-PRICE                    PIC 99V99   VALUE ZEROS.
+       01  LK-COMPLETED                PIC X       VALUE SPACES.
+       01  LK-PURITEM                  PIC X(25)   VALUE SPACES.
+       
        01  WS-TSTAMP.
            03  WS-YEAR                 PIC XXXX    VALUE SPACES.
            03  WS-MONTH                PIC XX      VALUE SPACES.

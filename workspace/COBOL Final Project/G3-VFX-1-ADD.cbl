@@ -56,6 +56,19 @@
        END-PERFORM.
       ******************************************************************
        200-ADD.
+       CALL 'G3-LINK-CC-CHECK' USING   VFX-1-NEW-CC, LK-PRICE, 
+                                       LK-COMPLETED.
+       IF LK-COMPLETED = 'B'
+           MOVE SPACES TO LK-COMPLETED
+           MOVE SPACES TO VFX-1-CHECK
+           CLOSE VM-FILE
+           DISPLAY BLANK-SCREEN
+           DISPLAY 'CREDIT CARD DOES NOT EXIST...'
+           DISPLAY 'RETURNING TO ADD SCREEN TO TRY AGAIN...'
+           DISPLAY "PRESS 'ENTER' TO CONTINUE"
+           ACCEPT VFX-1-RESP
+           PERFORM 000-MAIN
+       END-IF.
        DISPLAY BLANK-SCREEN.
        DISPLAY 'ADDING NEW MEMBER...'.
        DISPLAY "PRESS 'ENTER' TO CONTINUE".

@@ -1,4 +1,7 @@
       *Skeleton COBOL Copybook - KATIE TRAN - 4/7/2014
+       01  BLANK-SCREEN.
+           03  BLANK SCREEN.
+           
        01  PTSCREEN-HEADER.
            03  BLANK SCREEN.
            03  PURCHASETITLE.

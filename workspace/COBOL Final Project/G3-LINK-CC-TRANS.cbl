@@ -18,7 +18,6 @@
        LINKAGE SECTION.
        01  LK-CC-ID                PIC 9(8).
        01  LK-PRICE                PIC 99V99.
-       01  LK-COMPLETED            PIC X.
        01  LK-PURITEM              PIC X(25).
        
        PROCEDURE DIVISION USING LK-CC-ID, LK-PRICE, LK-PURITEM.

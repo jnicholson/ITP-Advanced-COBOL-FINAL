@@ -99,22 +99,25 @@
                05  LINE 16 COL 32 PIC X(5)     FROM VFX-2-ORIG-ZIP.
            03  E-ZIP.
                05  LINE 16 COL 45 VALUE "Zip".
-               05  LINE 16 COL 76 PIC X(5)     TO VFX-2-EDIT-ZIP.
+               05  LINE 16 COL 76 PIC X(5)     TO VFX-2-EDIT-ZIP
+                                               FULL REQUIRED.
                05  LINE 17 COL 01 VALUE "Phone".
                05  LINE 17 COL 26 PIC X(11)    FROM VFX-2-ORIG-PHONE.
            03  E-PHONE.
                05  LINE 17 COL 45 VALUE "Phone".
-               05  LINE 17 COL 70 PIC X(11)    TO VFX-2-EDIT-PHONE.
+               05  LINE 17 COL 70 PIC X(11)    TO VFX-2-EDIT-PHONE
+                                               FULL REQUIRED.
                05  LINE 18 COL 01 VALUE "Email".
                05  LINE 18 COL 07 PIC X(30)    FROM VFX-2-ORIG-EMAIL.
            03  E-EMAIL.
                05  LINE 18 COL 45 VALUE "Email".
                05  LINE 18 COL 51 PIC X(30)    TO VFX-2-EDIT-EMAIL.
                05  LINE 19 COL 01 VALUE "CC Number".
-               05  LINE 19 COL 29 PIC X(8)    FROM VFX-2-ORIG-CC.
+               05  LINE 19 COL 29 PIC X(8)     FROM VFX-2-ORIG-CC.
            03  E-CC.
                05  LINE 19 COL 45 VALUE "CC Number".
-               05  LINE 19 COL 73 PIC X(8)    TO VFX-2-EDIT-CC.
+               05  LINE 19 COL 73 PIC X(8)     TO VFX-2-EDIT-CC
+                                               FULL REQUIRED.
            03  E-SEL.
                05  LINE 22 COL 23 PIC X        TO VFX-2-CHECK AUTO.
                05  LINE 22 COL 25 VALUE "Press 'S' to SAVE ".

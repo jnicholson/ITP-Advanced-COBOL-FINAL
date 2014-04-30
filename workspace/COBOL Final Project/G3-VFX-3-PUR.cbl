@@ -3,8 +3,6 @@
       *AUTHOR:   Jarrod Lee, KATIE TRAN
       *DATE:     4/7/2014   
       *ABSTRACT: 
-      *THINGS TO DO: CURRENTLY ONLY DISPLAYS TITLES. NEEDS WAY TO 
-      *              PURCHASE TITLES. NEED TO FINISH SORT SYSTEM.
       ******************************************************************
        PROGRAM-ID. G3-VFX-3-PUR IS INITIAL.
       ******************************************************************
@@ -216,6 +214,7 @@
            CLOSE VTP-FILE
        END-IF.
        MOVE SPACES TO VFX-3-ALPUR.
+       MOVE SPACES TO VFX-3-ALWSH.
        DISPLAY CONT-FILE.
        ACCEPT  VFX-3-RESP.
        IF VFX-3-RESP = 'P' OR 'p'
@@ -281,6 +280,36 @@
        400-PURCHASE.
        OPEN I-O VTP-FILE. 
        PERFORM 500-GET-VTP.
+       
+       MOVE VFX-3-VML-ID TO VML-ID-KEY.
+       START   VML-FILE KEY NOT LESS THAN  VML-ID-KEY.
+       READ    VML-FILE KEY IS             VML-ID-KEY.
+       
+       CALL 'G3-LINK-CC-CHECK' USING VFX-3-ORIG-CC, VML-PRICE,
+                               LK-COMPLETED.
+       IF LK-COMPLETED = 'N'
+           MOVE SPACES TO LK-COMPLETED
+           DISPLAY BLANK-SCREEN
+           DISPLAY 'YOU HAVE INSUFFICIENT FUNDS...'
+           DISPLAY 'COME BACK WHEN YOU GET PAID...'
+           DISPLAY 'RETURNING TO VUFLIX MENU...'
+           DISPLAY "PRESS 'ENTER' TO CONTINUE"
+           ACCEPT VFX-3-RESP
+           CLOSE   VTP-FILE
+                   VM-FILE
+                   VML-FILE
+                   ZIP-MST-OUT
+           GOBACK
+       ELSE
+       IF LK-COMPLETED = 'Y'
+           MOVE SPACES TO LK-COMPLETED
+       END-IF.
+       
+       MOVE SPACES TO LK-PURITEM.
+       
+       STRING 'VFX:', VML-TITLE DELIMITED BY SIZE INTO LK-PURITEM.
+       CALL 'G3-LINK-CC-TRANS' USING VFX-3-ORIG-CC, VML-PRICE,
+                               LK-PURITEM.
        MOVE VFX-3-VTP-ID       TO VTP-ID-KEY.
        MOVE VFX-3-SEARCH-ID    TO VTP-VM-ID-KEY.
        MOVE VFX-3-VML-ID       TO VTP-VML-ID-KEY.
