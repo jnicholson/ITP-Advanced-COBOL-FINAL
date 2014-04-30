@@ -60,8 +60,7 @@
        OPEN I-O CH-FILE.
        PERFORM 100-CHECK.
        PERFORM 200-CREATE-TRAN.
-      * EXIT PROGRAM
-       STOP RUN.
+       EXIT PROGRAM.
       ******************************************************************
        100-CHECK.
        DISPLAY IDSCREEN.
@@ -82,7 +81,6 @@
        PERFORM UNTIL (CAP1-CHECK = 'S' OR 's') AND (WS-TRAN-TYPE = 'D'
                 OR 'W')
            MOVE SPACES TO CAP1-CHECK
-      *     PERFORM 400-EDIT-LOAD
            DISPLAY INPUTSCREEN
            ACCEPT FORM-PAYMENT-TYPE
            IF WS-TRAN-TYPE NOT EQUAL 'D' OR 'W' THEN
@@ -105,8 +103,7 @@
                DISPLAY 'EXITING....'
                DISPLAY "PRESS 'ENTER' TO CONTINUE"
                ACCEPT CAP1-RESP
-      *         EXIT PROGRAM
-               STOP RUN
+               EXIT PROGRAM
            END-IF
        END-IF.
        DISPLAY BLANK-SCREEN.
