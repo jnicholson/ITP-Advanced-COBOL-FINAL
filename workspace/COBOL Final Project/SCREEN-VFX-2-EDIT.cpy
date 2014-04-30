@@ -111,10 +111,10 @@
                05  LINE 18 COL 45 VALUE "Email".
                05  LINE 18 COL 51 PIC X(30)    TO VFX-2-EDIT-EMAIL.
                05  LINE 19 COL 01 VALUE "CC Number".
-               05  LINE 19 COL 21 PIC X(8)    FROM VFX-2-ORIG-CC.
+               05  LINE 19 COL 29 PIC X(8)    FROM VFX-2-ORIG-CC.
            03  E-CC.
                05  LINE 19 COL 45 VALUE "CC Number".
-               05  LINE 19 COL 65 PIC X(8)    TO VFX-2-EDIT-CC.
+               05  LINE 19 COL 73 PIC X(8)    TO VFX-2-EDIT-CC.
            03  E-SEL.
                05  LINE 22 COL 23 PIC X        TO VFX-2-CHECK AUTO.
                05  LINE 22 COL 25 VALUE "Press 'S' to SAVE ".
