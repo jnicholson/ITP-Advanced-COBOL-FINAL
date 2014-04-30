@@ -33,7 +33,7 @@
            MOVE 'N' TO LK-COMPLETED
            READ CH-FILE
                INVALID KEY
-                   MOVE 'N' TO LK-COMPLETED
+                   MOVE 'B' TO LK-COMPLETED
                NOT INVALID KEY
                    PERFORM 200-CHECK-LIMIT
            END-READ
