@@ -9,6 +9,7 @@
                    07  CC-TRAN-DAY-TXT         PIC X(2).
                    07  CC-TRAN-HOUR-TXT        PIC X(2).
                    07  CC-TRAN-MIN-TXT         PIC X(2).
+                   07  CC-TRAN-SEC-TXT         PIC X(2).
           03 TRAN-TYPE-TXT                     PIC X(1).
           03 CC-TRAN-TXT                       PIC 99V99.
           03 CC-TRAN-ITEM-TXT                  PIC X(25).
@@ -23,6 +24,7 @@
                    07 CC-TRAN-DAY              PIC X(2).
                    07 CC-TRAN-HOUR             PIC X(2).
                    07 CC-TRAN-MIN              PIC X(2).
+                   07 CC-TRAN-SEC              PIC X(2).
           03 TRAN-TYPE                         PIC X(1).
           03 CC-TRAN-PRICE                     PIC 99V99.
           03 CC-TRAN-ITEM                      PIC X(25).
