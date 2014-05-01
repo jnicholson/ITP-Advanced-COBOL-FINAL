@@ -34,6 +34,7 @@
                05  LINE 12 COL 31 VALUE '  3) Account Edit        '.
                05  LINE 13 COL 31 VALUE '  4) Account Transactions'.
                05  LINE 14 COL 31 VALUE '  5) Account Payment     '.
+               05  LINE 15 COL 31 VALUE '  6) End of Month Recalc '.
                05  LINE 22 COL 31 VALUE 'Selection   (X=exit)     '.
                05  LINE 22 COL 41 PIC X TO WS-SEL AUTO.
                
@@ -51,6 +52,8 @@
                WHEN '2' CALL 'G3-CAP1-U-INQ'
                WHEN '3' CALL 'G3-CAP1-U-EDIT'
                WHEN '4' CALL 'G3-CAP1-TRANS'
+               WHEN '5' CALL 'G3-CAP1-MAN-TRAN'
+               WHEN '6' CALL 'G3-CAP1-MONTH-END'
            END-EVALUATE
        END-PERFORM
        EXIT PROGRAM.

@@ -26,9 +26,6 @@
                05  LINE 01 COL 74 PIC X(2) FROM WS-DAY.
                05  LINE 01 COL 76 VALUE "/".
                05  LINE 01 COL 77 PIC X(4) FROM WS-YEAR.
-               05  LINE 02 COL 76 PIC X(2) FROM WS-HOUR.
-               05  LINE 02 COL 78 VALUE ":".
-               05  LINE 02 COL 79 PIC X(2) FROM WS-MINUTE.
                05  LINE 08 COL 31 VALUE "      VISA MAIN      ".
                05  LINE 10 COL 31 VALUE "   1) Issuers        ".
                05  LINE 11 COL 31 VALUE "   2) Merchants      ".
@@ -49,5 +46,6 @@
                WHEN '2' CALL 'G3-VISA-MER-MAIN'
            END-EVALUATE
        END-PERFORM
+       MOVE SPACES TO WS-SEL
        EXIT PROGRAM.
                
