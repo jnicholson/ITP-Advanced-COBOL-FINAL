@@ -5,6 +5,8 @@
       * PURPOSE       : CAPITAL ONE WORKING STORAGE SECTION             *
       *******************************************************************
        
+       01  WS-SEL              PIC X     VALUE SPACES.
+       01  WS-EXIT             PIC X     VALUE SPACES.
        01  WS-STAT             PIC 99.
        01  WS-FLAG             PIC X     VALUE 'Y'.
        01  WS-ERROR            PIC X(20) VALUE SPACES.
