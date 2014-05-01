@@ -21,6 +21,8 @@
       ******************************************************************* 
        PROCEDURE DIVISION.
        000-MAIN.
+       OPEN I-O CC-TRAN-FILE.
+       MOVE ZEROS TO CC-ID.
        MOVE FUNCTION CURRENT-DATE TO WS-TSTAMP.
        MOVE 'G3-CAP1-TRANS' TO CAP1-M-PROG.
        PERFORM 100-SEARCH UNTIL WS-FLAG EQUALS 'N' OR 'n'.
@@ -28,8 +30,6 @@
        STOP RUN.
       ******************************************************************* 
        100-SEARCH.
-       OPEN I-O CC-TRAN-FILE.
-       MOVE ZEROS TO CC-ID.
        DISPLAY MAIN-SCREEN.
        ACCEPT MAIN-SCREEN.
        PERFORM 200-MOVES.
@@ -58,7 +58,6 @@
        END-PERFORM.
        DISPLAY CONFIRMATION.
        ACCEPT CONFIRMATION.
-       CLOSE CC-TRAN-FILE.
       *******************************************************************
        200-MOVES.
        MOVE ZEROS TO CC-TRAN-REC.
