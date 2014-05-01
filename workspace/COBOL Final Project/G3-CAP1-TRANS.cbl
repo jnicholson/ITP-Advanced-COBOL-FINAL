@@ -21,13 +21,60 @@
       ******************************************************************* 
        PROCEDURE DIVISION.
        000-MAIN.
-       OPEN I-O CH-FILE
-                CC-TRAN-FILE.
+       OPEN I-O CC-TRAN-FILE.
        MOVE FUNCTION CURRENT-DATE TO WS-TSTAMP.
        MOVE 'G3-CAP1-TRANS' TO CAP1-M-PROG.
-       DISPLAY MAIN-SCREEN.
-       ACCEPT MAIN-SCREEN.
+       PERFORM 100-SEARCH UNTIL WS-FLAG EQUALS 'N' OR 'n'.
+       
+       STOP RUN.
       ******************************************************************* 
        100-SEARCH.
-       MOVE WS-ACCNT-NUM TO CH-ID-KEY.
-           
+       DISPLAY MAIN-SCREEN.
+       ACCEPT MAIN-SCREEN.
+       PERFORM 200-MOVES.
+       DISPLAY TRANS-DISP.
+       PERFORM UNTIL WS-FLAG EQUALS 'N'
+           READ CC-TRAN-FILE NEXT RECORD
+               AT END
+                   MOVE 'N' TO WS-FLAG
+               NOT AT END
+                   IF WS-CTR EQUALS 23 THEN
+                       DISPLAY NEXT-PAGE
+                       ACCEPT NEXT-PAGE
+                       IF WS-FLAG EQUALS 'Y' OR 'y' THEN
+                           CONTINUE
+                       ELSE
+                           MOVE 12 TO WS-CTR
+                           DISPLAY TRANS-DISP
+                       END-IF
+                   END-IF
+                   
+                   IF CC-ID EQUALS WS-ACCNT-NUM THEN 
+                       DISPLAY TRANS-REC
+                       ADD 1 TO WS-CTR
+                   END-IF
+           END-READ
+       END-PERFORM.
+       DISPLAY CONFIRMATION.
+       ACCEPT CONFIRMATION.
+      *******************************************************************
+       200-MOVES.
+       MOVE ZEROS TO CC-TRAN-REC.
+       MOVE 'Y' TO WS-FLAG.
+       MOVE '12' TO WS-CTR.
+                   
+                   
+                   
+                   
+                   
+                   
+                   
+                   
+                   
+                   
+                   
+                   
+                   
+                   
+                   
+                   

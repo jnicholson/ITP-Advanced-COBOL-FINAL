@@ -16,7 +16,7 @@
        FD  CC-TRAN-FILE.
        01  CC-TRAN-REC.
            03 CC-TRAN-KEY.
-               05  CC-ID                       PIC 9(8).
+               05 CC-ID                        PIC 9(8).
                05 CC-TRAN-TSTAMP.
                    07 CC-TRAN-YEAR             PIC X(4).
                    07 CC-TRAN-MONTH            PIC X(2).
