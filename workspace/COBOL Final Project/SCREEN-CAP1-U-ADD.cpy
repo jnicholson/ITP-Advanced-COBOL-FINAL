@@ -19,9 +19,6 @@
                05  LINE 01 COL 74 PIC X(2) FROM WS-DAY.
                05  LINE 01 COL 76 VALUE "/".
                05  LINE 01 COL 77 PIC X(4) FROM WS-YEAR.
-               05  LINE 02 COL 76 PIC X(2) FROM WS-HOUR.
-               05  LINE 02 COL 78 VALUE ":".
-               05  LINE 02 COL 79 PIC X(2) FROM WS-MINUTE.
                05  LINE 06 COL 35 VALUE "CAPITAL ONE SIGNUP".
            03  FORM.
                05  FORM-ID.
