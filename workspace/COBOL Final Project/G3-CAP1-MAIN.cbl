@@ -28,13 +28,13 @@
                05  LINE 02 COL 76 PIC X(2) FROM WS-HOUR.
                05  LINE 02 COL 78 VALUE ':'.
                05  LINE 02 COL 79 PIC X(2) FROM WS-MINUTE.
-               05  LINE 08 COL 31 VALUE '   CAPITAL ONE MAIN    '.
-               05  LINE 10 COL 31 VALUE '  1) Account Signup    '.
-               05  LINE 11 COL 31 VALUE '  2) Account Inquiry   '.
-               05  LINE 12 COL 31 VALUE '  3) Account Edit      '.
-               05  LINE 13 COL 31 VALUE '  4) Account Statement '.
-               05  LINE 14 COL 31 VALUE '  5) Account Payment   '.
-               05  LINE 22 COL 31 VALUE 'Selection   (X=exit)   '.
+               05  LINE 08 COL 31 VALUE '   CAPITAL ONE MAIN      '.
+               05  LINE 10 COL 31 VALUE '  1) Account Signup      '.
+               05  LINE 11 COL 31 VALUE '  2) Account Inquiry     '.
+               05  LINE 12 COL 31 VALUE '  3) Account Edit        '.
+               05  LINE 13 COL 31 VALUE '  4) Account Transactions'.
+               05  LINE 14 COL 31 VALUE '  5) Account Payment     '.
+               05  LINE 22 COL 31 VALUE 'Selection   (X=exit)     '.
                05  LINE 22 COL 41 PIC X TO WS-SEL AUTO.
                
        COPY SCREEN-EXIT.
@@ -50,7 +50,7 @@
                WHEN '1' CALL 'G3-CAP1-U-ADD'
                WHEN '2' CALL 'G3-CAP1-U-INQ'
                WHEN '3' CALL 'G3-CAP1-U-EDIT'
-               WHEN '4' CALL 'G3-CAP1-U-RPT'
+               WHEN '4' CALL 'G3-CAP1-TRANS'
            END-EVALUATE
        END-PERFORM
        EXIT PROGRAM.
