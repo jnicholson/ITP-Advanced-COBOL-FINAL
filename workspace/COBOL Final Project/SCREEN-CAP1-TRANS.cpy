@@ -48,7 +48,7 @@
                05  LINE WS-CTR COL 49 PIC X(25) FROM CC-TRAN-ITEM.
        01  NEXT-PAGE.
            03  LINE 23 COL 33 VALUE 'Next page? (Y/N)'.
-           03  LINE 23 COL 50 PIC X TO WS-FLAG.
+           03  LINE 23 COL 50 PIC X TO WS-EOR-FLAG.
        
        01  CONFIRMATION.
            03  LINE 23 COL 33 VALUE 'Search another? (Y/N)'.

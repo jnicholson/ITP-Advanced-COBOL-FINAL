@@ -42,17 +42,19 @@
                    IF WS-CTR EQUALS 23 THEN
                        DISPLAY NEXT-PAGE
                        ACCEPT NEXT-PAGE
-                       IF WS-FLAG EQUALS 'Y' OR 'y' THEN
-                           CONTINUE
+                       IF WS-EOR-FLAG EQUALS 'N' OR 'n' THEN
+                           MOVE 'N' TO WS-FLAG
                        ELSE
                            MOVE 12 TO WS-CTR
                            DISPLAY TRANS-DISP
                        END-IF
                    END-IF
                    
-                   IF CC-ID EQUALS WS-ACCNT-NUM THEN 
-                       DISPLAY TRANS-REC
-                       ADD 1 TO WS-CTR
+                   IF WS-FLAG NOT EQUAL TO 'N'
+                       IF CC-ID EQUALS WS-ACCNT-NUM THEN 
+                           DISPLAY TRANS-REC
+                           ADD 1 TO WS-CTR
+                       END-IF
                    END-IF
            END-READ
        END-PERFORM.
