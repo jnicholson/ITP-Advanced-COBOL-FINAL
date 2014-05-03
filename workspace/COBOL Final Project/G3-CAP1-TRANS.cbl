@@ -24,8 +24,7 @@
        MOVE FUNCTION CURRENT-DATE TO WS-TSTAMP.
        MOVE 'G3-CAP1-TRANS' TO CAP1-M-PROG.
        PERFORM 100-SEARCH UNTIL WS-FLAG EQUALS 'N' OR 'n'.
-       
-       STOP RUN.
+       EXIT PROGRAM.
       ******************************************************************* 
        100-SEARCH.
        OPEN I-O CC-TRAN-FILE.

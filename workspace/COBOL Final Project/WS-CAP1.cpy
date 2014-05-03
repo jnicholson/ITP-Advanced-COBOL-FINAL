@@ -15,7 +15,7 @@
        01  WS-BLANKS           PIC X(25) VALUE SPACES.
        01  WS-CTR              PIC 99.
        01  WS-SCTR             PIC 99.
-       01  CAP1-MSG            PIC X(10).
+       01  CAP1-MSG            PIC X(20).
        01  CAP1-RESP           PIC X.
        
        01  WS-TSTAMP.

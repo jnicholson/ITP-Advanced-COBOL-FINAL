@@ -26,7 +26,7 @@
                05  LINE 15 COL 45 PIC X     TO WS-SEARCH-NUM 
                                             FULL REQUIRED AUTO.
                05  LINE 16 COL 30 VALUE '(Exit = 0)'.
-               05  LINE 16 COL 55 PIC X(10) FROM CAP1-MSG.
+               05  LINE 16 COL 42 PIC X(20) FROM CAP1-MSG.
 
        01  ID-SCREEN.
            03  BLANK SCREEN.
@@ -90,7 +90,7 @@
                05  LINE 08 COL 32 VALUE 'Phone Number Search  '.
            03  PHONE-INQ.
                05  LINE 10 COL 30 VALUE 'Enter Phone Number:'.
-               05  LINE 10 COL 51 PIC X(10)  TO CAP1-SEARCH.
+               05  LINE 10 COL 51 PIC X(11)  TO CAP1-SEARCH AUTO.
                                                                                                                                                                                                                      
        01  ACCNT-DISP.
            03  BLANK SCREEN.
@@ -127,7 +127,7 @@
                05  LINE 16 COL 44 PIC X(35) FROM WS-EMAIL.
            03  CC-LIMIT.
                05  LINE 17 COL 28 VALUE 'Limit:'.
-               05  LINE 17 COL 44 PIC X(5)  FROM WS-LIMIT.
+               05  LINE 17 COL 44 PIC X(4)  FROM WS-LIMIT.
            03  ACC-BAL.
                05  LINE 18 COL 28 VALUE 'Balance:'.
                05  LINE 18 COL 41 PIC ZZ,ZZZ.99 FROM WS-BAL.

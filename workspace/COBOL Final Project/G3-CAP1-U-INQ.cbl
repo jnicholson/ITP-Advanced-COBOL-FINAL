@@ -41,7 +41,6 @@
        END-EVALUATE.
       *******************************************************************
        200-ID-LOOKUP.
-       
        DISPLAY ID-SCREEN.
        ACCEPT ID-INQ.
        MOVE CAP1-SEARCH TO CH-ID-KEY.
