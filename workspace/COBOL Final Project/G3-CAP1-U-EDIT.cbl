@@ -1,8 +1,9 @@
       ******************************************************************
-      *PROGRAM:    Capital One User Record Edit                        *
-      *AUTHOR:     Henry Hurlocker                                     *
-      *DATE:       4/20/2014                                           *
-      *ABSTRACT:   Edit Cap1 user recs                                 *
+      *PROGRAM   : CAPITAL ONE USER RECORD EDIT                        *
+      *AUTHOR    : HENRY HURLOCKER                                     *
+      *EDITED BY : DEVIN LEAMAN                                        *
+      *DATE      : 4/20/2014                                           *
+      *ABSTRACT  : EDIT CAP1 USER RECS                                 *
       ******************************************************************       
        PROGRAM-ID. G3_CAP1_U_EDIT IS INITIAL.
       ******************************************************************
@@ -94,8 +95,8 @@
        END-READ.
       ******************************************************************     
        600-MOVE.
-       MOVE 'C' TO CAP1-RESP.
-       MOVE CH-ID TO CAP1-ORIG-ID.
+       MOVE 'C'        TO CAP1-RESP.
+       MOVE CH-ID      TO CAP1-ORIG-ID.
        MOVE CH-FNAME   TO CAP1-ORIG-F-NAME.
        MOVE CH-LNAME   TO CAP1-ORIG-L-NAME.
        MOVE CH-PHONE   TO CAP1-ORIG-PHONE.

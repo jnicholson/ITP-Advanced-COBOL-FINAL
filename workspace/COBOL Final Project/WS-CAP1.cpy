@@ -33,7 +33,7 @@
            03  WS-ACCNT-NUM    PIC 9(8).
            03  WS-EMAIL        PIC X(35).
            03  WS-PHONE        PIC 9(11).
-           03  WS-LIMIT        PIC 9(5).
+           03  WS-LIMIT        PIC 9(4).
            03  WS-BAL          PIC 9(4)V99.
        
        01  CAP1-M-VARS.

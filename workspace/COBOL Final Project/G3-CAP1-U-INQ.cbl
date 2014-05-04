@@ -1,8 +1,9 @@
       *******************************************************************                                                                                            
-      *PROGRAM:  Capital One User Inquiry                               *                                                                                            
-      *AUTHOR:   Ryan Timmerman, edited by Devin Leaman                 *                                                                                            
-      *DATE:     4/15/2014                                              *                                                                                            
-      *ABSTRACT: User Inquiry                                           *                                                                                            
+      *PROGRAM   : CAPITAL ONE USER INQUIRY                             *                                                                                            
+      *AUTHOR    : RYAN TIMMERMAN                                       *
+      *EDITED BY : DEVIN LEAMAN                                         *                                                  
+      *DATE      : 4/15/2014                                            *                                                                                            
+      *ABSTRACT  : USER INQUIRY                                         *                                                                                            
       *******************************************************************                                                                                            
        IDENTIFICATION DIVISION.                                                                                                                                      
        PROGRAM-ID. G3-CAP1-U-INQ AS "G3-CAP1-U-INQ" IS INITIAL.                                                                      

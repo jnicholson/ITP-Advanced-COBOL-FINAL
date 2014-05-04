@@ -1,8 +1,8 @@
       *******************************************************************
-      * PROGRAM       : SCREEN-CAP1-U-EDIT                              *
+      * PROGRAM       : SCREEN-CAP1-TRANS                               *
       * AUTHOR        : DEVIN LEAMAN                                    * 
       * CREATION DATE : 4/30/14                                         *
-      * PURPOSE       : CAP1 TRANSACTION LIST                           *
+      * ABSTRACT      : CAP1 TRANSACTION LIST                           *
       ******************************************************************* 
        PROGRAM-ID. G3_CAP1_TRANS IS INITIAL.
       *******************************************************************
@@ -13,9 +13,10 @@
        DATA DIVISION.
        COPY FD-CC-TRAN.
        COPY FD-CHOLD.
+       
        WORKING-STORAGE SECTION.
        COPY WS-CAP1.
-      ******************************************************************* 
+
        SCREEN SECTION.
        COPY SCREEN-CAP1-TRANS.
       ******************************************************************* 

@@ -1,9 +1,10 @@
-      ******************************************************************
-      *PROGRAM:  Capital One Account Signup                            *
-      *AUTHOR:   Devin Leaman/Henry Hurlocker                          *
-      *DATE:     4/9/2014                                              *
-      *ABSTRACT: Account Signup                                        *
-      ******************************************************************       
+      *******************************************************************
+      *PROGRAM   : CAPITAL ONE USER CREATE                              *
+      *AUTHOR    : HENRY HURLOCKER                                      *
+      *EDITED BY : DEVIN LEAMAN                                         *
+      *DATE      : 4/9/2014                                             *
+      *ABSTRACT  : ACCOUNT SIGNUP                                       *
+      *******************************************************************       
        IDENTIFICATION DIVISION.
        PROGRAM-ID. G3-CAP1-ACCOUNT-SIGNUP IS INITIAL.
       ******************************************************************
@@ -12,6 +13,7 @@
       ******************************************************************
        DATA DIVISION.
        COPY FD-CHOLD.
+       
        WORKING-STORAGE SECTION.
        COPY WS-CAP1.
        
@@ -27,7 +29,6 @@
            DISPLAY ACCT-SIGNUP.
            
            PERFORM UNTIL CAP1-M-SEL = 'S' or 's'
-               
                ACCEPT FORM-FNAME
                ACCEPT FORM-LNAME
                ACCEPT FORM-PHONE
@@ -36,15 +37,15 @@
                ACCEPT FORM-EMAIL
                ACCEPT FORM-LIMIT
                ACCEPT FORM-SEL
-           IF CAP1-M-SEL = 'R' OR 'r'
-               MOVE SPACES TO CAP1-M-SEL
-               CLOSE CH-FILE
-               DISPLAY BLANK-SCREEN
-               DISPLAY 'RETURNING TO CAPITAL ONE MENU'
-               DISPLAY "PRESS 'ENTER' TO RETURN"
-               ACCEPT CAP1-RESP
-               GOBACK
-           END-IF               
+               IF CAP1-M-SEL = 'R' OR 'r'
+                   MOVE SPACES TO CAP1-M-SEL
+                   CLOSE CH-FILE
+                   DISPLAY BLANK-SCREEN
+                   DISPLAY 'RETURNING TO CAPITAL ONE MENU'
+                   DISPLAY "PRESS 'ENTER' TO RETURN"
+                   ACCEPT CAP1-RESP
+                   GOBACK
+               END-IF               
            END-PERFORM.
            
            PERFORM 100-ADD.
