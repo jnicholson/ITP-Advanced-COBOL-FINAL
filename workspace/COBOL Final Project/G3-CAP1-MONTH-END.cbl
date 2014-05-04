@@ -20,6 +20,10 @@
        01  WS-CH-EOF                   PIC X VALUE SPACES.
        01  WS-CC-EOF                   PIC X VALUE SPACES.
        01  WS-TOTAL                    PIC 9999V99 VALUE ZERO.
+       
+       SCREEN SECTION.
+       01  BLANK-SCREEN.
+           03  BLANK SCREEN.
        PROCEDURE DIVISION.
        100-MAIN.
            OPEN I-O CH-FILE
@@ -41,6 +45,12 @@
            PERFORM 400-DUMMY-REC
            CLOSE CH-FILE
            CLOSE CC-TRAN-FILE
+           DISPLAY BLANK-SCREEN
+               DISPLAY 'CALCULATING NEW MONTHLY BALANCE...'
+               DISPLAY 'EXITING....'
+               DISPLAY "PRESS 'ENTER' TO CONTINUE"
+               ACCEPT CAP1-RESP
+               EXIT PROGRAM
        EXIT PROGRAM.
       *  STOP RUN.
       ******************************************************************
