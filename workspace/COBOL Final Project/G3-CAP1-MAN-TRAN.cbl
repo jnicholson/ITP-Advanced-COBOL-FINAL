@@ -20,10 +20,30 @@
        01 WS-ACCOUNT                   PIC 9(8).
        01 WS-TRAN-TYPE                 PIC X VALUE SPACES.
        01 WS-AMOUNT                    PIC 99.99 VALUE ZERO.
+       01 WS-CHECK-AMOUNT              PIC 99V99 VALUE ZERO.
        01 WS-CHECK                     PIC X VALUE SPACE.
        
        SCREEN SECTION.
        COPY SCREEN-CAP1-U-EDIT.
+       
+       01  ID-SCREEN.
+           03  BLANK SCREEN.
+           03  CHOOSE-ID.
+               05  LINE 01 COL 01 PIC X(20) FROM CAP1-M-PROG.
+               05  LINE 01 COL 38 VALUE 'TEAM 3'.
+               05  LINE 01 COL 71 PIC X(2)  FROM WS-MONTH.
+               05  LINE 01 COL 73 VALUE '/'.
+               05  LINE 01 COL 74 PIC X(2)  FROM WS-DAY.
+               05  LINE 01 COL 76 VALUE '/'.
+               05  LINE 01 COL 77 PIC X(4)  FROM WS-YEAR.
+               05  LINE 06 COL 35 VALUE 'Capital One Manual 
+      -         'Transaction'.
+               05  LINE 08 COL 35 VALUE 'Select Account'.
+               05  LINE 10 COL 19 VALUE 'Enter ID to continue'.
+               05  LINE 10 COL 40 PIC X(8)  TO CAP1-SEARCH 
+                                            FULL REQUIRED.
+               05  LINE 10 COL 49 VALUE '(99999999 = Exit)'.
+               05  LINE 11 COL 35 PIC X(10) FROM CAP1-MSG.
        
        01 INPUTSCREEN.
            03  BLANK SCREEN.
@@ -56,15 +76,15 @@
        PROCEDURE DIVISION.
        000-MAIN.
        MOVE FUNCTION CURRENT-DATE TO WS-TSTAMP.
-       MOVE 'G3-CAP1-U-EDIT' TO CAP1-M-PROG.
+       MOVE 'G3-CAP1-MAN-TRAN' TO CAP1-M-PROG.
        OPEN I-O CH-FILE.
        PERFORM 100-CHECK.
        PERFORM 200-CREATE-TRAN.
        EXIT PROGRAM.
       ******************************************************************
        100-CHECK.
-       DISPLAY IDSCREEN.
-       ACCEPT CHOOSEID.
+       DISPLAY ID-SCREEN.
+       ACCEPT CHOOSE-ID.
        IF CAP1-SEARCH = '99999999'
            EXIT PROGRAM
        END-IF.
@@ -95,8 +115,12 @@
                PERFORM 000-MAIN
            END-IF
        END-PERFORM.
+       CLOSE CH-FILE
+       MOVE WS-AMOUNT TO WS-CHECK-AMOUNT
        IF WS-TRAN-TYPE EQUALS 'W' THEN
-           CALL 'G3-LINK-CC-CHECK' USING WS-ACCOUNT,WS-AMOUNT, WS-CHECK
+           MOVE SPACES TO WS-CHECK
+           CALL 'G3-LINK-CC-CHECK' USING WS-ACCOUNT,WS-CHECK-AMOUNT, 
+           WS-CHECK
            IF WS-CHECK NOT EQUAL 'Y' THEN
                DISPLAY BLANK-SCREEN
                DISPLAY 'NOT ENOUGH FUNDS FOR TRANSACTION...'
@@ -109,11 +133,13 @@
        DISPLAY BLANK-SCREEN.
        DISPLAY 'CREATING TRANSACTION...'
        DISPLAY "PRESS 'ENTER' TO CONTINUE".
+      
        ACCEPT CAP1-RESP.
-       
+       OPEN I-O CC-TRAN-FILE
        MOVE FUNCTION CURRENT-DATE TO CC-TRAN-TSTAMP.
+       MOVE WS-ACCOUNT TO CC-ID
        MOVE WS-TRAN-TYPE TO TRAN-TYPE.
-       MOVE WS-AMOUNT    TO CC-TRAN-PRICE.
+       MOVE WS-CHECK-AMOUNT    TO CC-TRAN-PRICE.
        MOVE 'MANUAL TRANSACTION' TO CC-TRAN-ITEM.
        WRITE CC-TRAN-REC.
        
