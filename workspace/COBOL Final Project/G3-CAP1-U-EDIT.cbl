@@ -118,9 +118,7 @@
        700-EDIT.
        PERFORM UNTIL CAP1-CHECK = 'S' OR 's'
            MOVE SPACES TO CAP1-CHECK
-      *     PERFORM 400-EDIT-LOAD
            DISPLAY EDITSCREEN
-           ACCEPT E-ID
            ACCEPT E-FNAME
            ACCEPT E-LNAME
            ACCEPT E-PHONE

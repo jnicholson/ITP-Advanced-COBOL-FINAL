@@ -73,8 +73,8 @@
                05  LINE 06 COL 35 VALUE 'Capital One     '.
                05  LINE 08 COL 32 VALUE 'Email Address Search  '.
            03  EMAIL-INQ.
-               05  LINE 10 COL 30 VALUE 'Enter Email Address:'.
-               05  LINE 10 COL 51 PIC X(35)  TO CAP1-SEARCH.  
+               05  LINE 10 COL 23 VALUE 'Enter Email Address:'.
+               05  LINE 10 COL 44 PIC X(35)  TO CAP1-SEARCH.  
                
        01  PHONE-SCREEN.
            03  BLANK SCREEN.
@@ -127,10 +127,10 @@
                05  LINE 16 COL 44 PIC X(35) FROM WS-EMAIL.
            03  CC-LIMIT.
                05  LINE 17 COL 28 VALUE 'Limit:'.
-               05  LINE 17 COL 44 PIC X(4)  FROM WS-LIMIT.
+               05  LINE 17 COL 44 PIC Z,ZZ9  FROM WS-LIMIT.
            03  ACC-BAL.
                05  LINE 18 COL 28 VALUE 'Balance:'.
-               05  LINE 18 COL 41 PIC ZZ,ZZZ.99 FROM WS-BAL.
+               05  LINE 18 COL 44 PIC 9,999.99 FROM WS-BAL.
            03  CONFIRMATION.
                05  LINE 19 COL 28 VALUE 'Search another account? (Y/N)'.
                05  LINE 19 COL 58 PIC X TO WS-FLAG.

@@ -182,7 +182,7 @@
                05  LINE 17 COL 01 VALUE 'Limit'.
                05  LINE 17 COL 14 PIC 9(4) FROM CAP1-ORIG-LIMIT.
                05  LINE 17 COL 42 VALUE 'Limit'.
-               05  LINE 17 COL 60 PIC 9(4) TO  CAP1-EDIT-LIMIT.
+               05  LINE 17 COL 60 PIC X(4) TO  CAP1-EDIT-LIMIT.
 
            03  E-SEL.
                05  LINE 21 COL 23 PIC X     TO CAP1-CHECK AUTO.

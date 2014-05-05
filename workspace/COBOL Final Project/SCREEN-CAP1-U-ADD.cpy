@@ -44,7 +44,7 @@
                    07  LINE 16 COL 32 PIC X(30) TO WS-EMAIL.
                05  FORM-LIMIT.
                    07  LINE 17 COL 17 VALUE "LIMIT: ".
-                   07  LINE 17 COL 32 PIC X(5) TO WS-LIMIT.
+                   07  LINE 17 COL 32 PIC X(4) TO WS-LIMIT.
            03  FORM-SEL.
                05  LINE 20 COL 23 PIC X TO CAP1-M-SEL AUTO.
                05  LINE 20 COL 25 VALUE "Press 'S' to SAVE ".
