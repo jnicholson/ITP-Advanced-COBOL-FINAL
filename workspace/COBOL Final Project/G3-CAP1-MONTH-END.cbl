@@ -87,7 +87,7 @@
        END-PERFORM.
       ******************************************************************
        400-DUMMY-REC.
-       MOVE 4999999 TO CC-ID
+       MOVE 50000000 TO CC-ID
        MOVE 9999 TO CC-TRAN-YEAR
        MOVE 99 TO CC-TRAN-DAY
        MOVE 99 TO CC-TRAN-MONTH
