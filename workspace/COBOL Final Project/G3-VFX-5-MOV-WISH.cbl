@@ -202,7 +202,7 @@
            DISPLAY 'COME BACK WHEN YOU GET PAID...'
            DISPLAY 'RETURNING TO VUFLIX MENU...'
            DISPLAY "PRESS 'ENTER' TO CONTINUE"
-           ACCEPT VFX-3-RESP
+           ACCEPT VFX-5-RESP
            CLOSE   VTP-FILE
                    VW-FILE
                    VM-FILE
@@ -217,7 +217,7 @@
        MOVE SPACES TO LK-PURITEM.
        
        STRING 'VFX:', VML-TITLE DELIMITED BY SIZE INTO LK-PURITEM.
-       CALL 'G3-LINK-CC-TRANS' USING VFX-3-ORIG-CC, VML-PRICE,
+       CALL 'G3-LINK-CC-TRANS' USING VFX-5-ORIG-CC, VML-PRICE,
                                LK-PURITEM.
        
        MOVE VFX-5-VTP-ID       TO VTP-ID-KEY.
@@ -227,6 +227,7 @@
        CLOSE VTP-FILE.
        MOVE 'P' TO VFX-5-ALPUR.
        DISPLAY PURCHASED.
+       PERFORM 600-REMOVE.
       ******************************************************************
        500-GET-ID.
        MOVE ZERO TO VTP-ID
@@ -239,4 +240,6 @@
                COMPUTE VTP-ID = VTP-ID - 1
                MOVE VTP-ID TO VFX-3-VTP-ID
        END-START.
+      ******************************************************************
+       600-REMOVE.
        
