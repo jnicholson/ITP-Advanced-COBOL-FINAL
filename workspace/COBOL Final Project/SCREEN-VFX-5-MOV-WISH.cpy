@@ -1,4 +1,7 @@
       *Skeleton COBOL Copybook - JARROD LEE - 4/17/14
+       01  BLANK-SCREEN.
+           03  BLANK SCREEN.
+       
        01  PTSCREEN-HEADER.
            03  BLANK SCREEN.
            03  PURCHASETITLE.
@@ -76,12 +79,13 @@
            03  LINE 21 COL 01 VALUE "PRESS 'P' FOR PURCHASE, ".
            03  LINE 21 COL 24 VALUE "'N' FOR NEXT PAGE, ".
            03  LINE 21 COL 43 VALUE "OR 'X' TO EXIT.".
-           03  LINE 21 COL 59 PIC X            TO VFX-5-RESP AUTO.
+           03  LINE 21 COL 59 PIC X            TO VFX-5-RESP
+                                               REQUIRED AUTO.
 
        01  PTSCREEN-PURCHASE.
            03  LINE 23 COL 01 VALUE "ENTER MOVIE ID: ".
            03  LINE 23 COL 18 PIC X(8)         TO VFX-5-VML-ID 
-                                               FULL REQUIRED AUTO.
+                                               FULL REQUIRED.
            03  LINE 24 COL 01 PIC X(80)        VALUE SPACES.
 
        01  ALPUR.

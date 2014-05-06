@@ -98,18 +98,19 @@
            03  LINE 21 COL 24 VALUE "'W' FOR WISHLIST, ".
            03  LINE 21 COL 42 VALUE "'N' FOR NEXT PAGE, ".
            03  LINE 21 COL 61 VALUE "OR 'X' TO EXIT.".
-           03  LINE 21 COL 77 PIC X            TO VFX-3-RESP AUTO.
+           03  LINE 21 COL 77 PIC X            TO VFX-3-RESP 
+                                               REQUIRED AUTO.
       
        01  PTSCREEN-PURCHASE.
            03  LINE 23 COL 01 VALUE "ENTER MOVIE ID: ".
            03  LINE 23 COL 18 PIC X(8)         TO VFX-3-VML-ID 
-                                               FULL REQUIRED AUTO.
+                                               FULL REQUIRED.
            03  LINE 24 COL 01 PIC X(80)        VALUE SPACES.            
        
        01  PTSCREEN-WISH.
            03  LINE 23 COL 01 VALUE "ENTER MOVIE ID: ".
            03  LINE 23 COL 18 PIC X(8)         TO VFX-3-VML-ID
-                                               FULL REQUIRED AUTO.
+                                               FULL REQUIRED.
            03  LINE 24 COL 01 PIC X(80)        VALUE SPACES.
        
        01  PURCHASED.
@@ -143,7 +144,7 @@
                05  LINE 11 COL 28 VALUE 'Enter Movie Title to Continue'.
                05  LINE 12 COL 25 PIC X(35)    TO VFX-3-SEARCH-TITLE 
                                                REQUIRED.
-               05  LINE 13 COL 51 PIC X(10)    FROM VFX-2-MSG.
+               05  LINE 13 COL 34 VALUE '(case sensitive)'.
 
        01  GENRESCREEN.
            03  BLANK SCREEN.
@@ -158,9 +159,9 @@
                05  LINE 06 COL 38 VALUE 'Vuflix'.
                05  LINE 08 COL 35 VALUE 'Sort By Genre'.
                05  LINE 11 COL 28 VALUE 'Enter Movie Genre to Continue'.
-               05  LINE 12 COL 35 PIC X(10)    TO VFX-3-SEARCH-GENRE 
+               05  LINE 12 COL 37 PIC X(10)    TO VFX-3-SEARCH-GENRE 
                                                REQUIRED.
-               05  LINE 12 COL 51 PIC X(10)    FROM VFX-2-MSG.
+               05  LINE 13 COL 34 VALUE '(case sensitive)'.
 
        01  PRICESCREEN.
            03  BLANK SCREEN.
